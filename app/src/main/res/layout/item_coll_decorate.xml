@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentView="@+id/rel_decorate"
+        app:rightMenuView="@+id/right">
+
+        <RelativeLayout
+            android:id="@+id/rel_decorate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_head"
+                android:layout_width="142dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="21.5dp"
+                android:background="@drawable/bg_main_designer"
+                android:layout_marginTop="31dp"
+                android:layout_marginLeft="15dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:text="装修前"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginLeft="171dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"/>
+
+            <LinearLayout
+                android:id="@+id/lin_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/tv_title"
+                android:layout_marginLeft="171dp"
+                android:layout_marginTop="13dp">
+
+                <TextView
+                    android:id="@+id/tv_look_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_33333"
+                    android:textSize="12sp"
+                    android:drawableLeft="@mipmap/look_num"
+                    android:drawablePadding="7dp"/>
+
+                <TextView
+                    android:id="@+id/tv_share_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_33333"
+                    android:textSize="12sp"
+                    android:drawableLeft="@mipmap/share_num"
+                    android:drawablePadding="7dp"
+                    android:layout_marginLeft="20dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp"
+                android:layout_below="@id/lin_num"
+                android:layout_marginLeft="171dp"
+                android:layout_marginTop="7dp"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_cancle"
+                android:layout_width="84dp"
+                android:layout_height="match_parent"
+                android:background="@color/color_e74c3c"
+                android:text="取消收藏"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout>
+
+</LinearLayout>

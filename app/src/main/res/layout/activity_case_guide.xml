@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+
+    <RelativeLayout
+        android:id="@+id/rel3"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/half_transparent">
+
+        <ImageView
+            android:id="@+id/img_close3"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="17dp"
+            android:src="@mipmap/guide_close"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我知道怎么操作，不需要引导"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="80dp"/>
+
+        <RelativeLayout
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/bg_guide_white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="12.5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/tab_service"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_anim3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/shou_three"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="90dp"
+            android:layout_marginRight="50dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击悬浮框除与客服取得联系还可直接返回首页哦！"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="124dp"
+            android:layout_marginBottom="103dp"/>
+
+        <TextView
+            android:id="@+id/tv_close3"
+            android:layout_width="115dp"
+            android:layout_height="33dp"
+            android:background="@color/color_b09b7c"
+            android:text="好的，我知道了"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"/>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rel2"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/half_transparent">
+
+        <ImageView
+            android:id="@+id/img_close2"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="17dp"
+            android:layout_marginBottom="45dp"
+            android:src="@mipmap/guide_close"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我知道怎么操作，不需要引导"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="88dp"/>
+
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/main_guide_one"
+            android:layout_marginTop="60dp"/>
+
+        <ImageView
+            android:id="@+id/img_anim2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/shou_three"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="100dp"/>
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/img_anim2"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_close2"
+            android:layout_width="115dp"
+            android:layout_height="33dp"
+            android:background="@color/color_b09b7c"
+            android:text="好的，我知道了"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/img_anim2"
+            android:layout_marginTop="50dp"/>
+
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rel1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/half_transparent">
+
+        <ImageView
+            android:id="@+id/img_close1"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="17dp"
+            android:src="@mipmap/guide_close"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我知道怎么操作，不需要引导"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="80dp"/>
+
+        <ImageView
+            android:id="@+id/img_anim1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/shou_three"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="53dp"
+            android:layout_centerVertical="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="120dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="向上滑动"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"/>
+
+
+            <TextView
+                android:id="@+id/tv_close1"
+                android:layout_width="115dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_b09b7c"
+                android:text="好的，我知道了"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

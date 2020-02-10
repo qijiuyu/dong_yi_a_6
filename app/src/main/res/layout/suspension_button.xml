@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+  <ImageView
+      android:id="@+id/img_service"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/view"
+      android:layout_alignParentRight="true"
+      android:layout_marginRight="5dp"
+      android:src="@mipmap/tab_service"/>
+
+  <ImageView
+      android:id="@+id/img_customer"
+      android:visibility="gone"
+      android:layout_width="44dp"
+      android:layout_height="44dp"
+      android:tag="1"
+      android:src="@mipmap/tab_customer"
+      android:layout_alignParentRight="true"
+      android:layout_marginRight="5dp"/>
+
+  <ImageView
+      android:id="@+id/img_main"
+      android:visibility="gone"
+      android:layout_width="44dp"
+      android:layout_height="44dp"
+      android:tag="1"
+      android:src="@mipmap/img_main"
+      android:layout_alignParentRight="true"
+      android:layout_marginRight="5dp"/>
+
+  <ImageView
+      android:id="@+id/img_tel"
+      android:visibility="gone"
+      android:layout_width="44dp"
+      android:layout_height="44dp"
+      android:tag="1"
+      android:src="@mipmap/tab_tel"
+      android:layout_alignParentRight="true"
+      android:layout_marginRight="5dp"/>
+
+  <View
+      android:id="@+id/view"
+      android:layout_width="wrap_content"
+      android:layout_height="70dp"
+     android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

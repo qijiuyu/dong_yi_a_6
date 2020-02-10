@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <com.zxdc.utils.library.view.MyRefreshLayout
+        android:id="@+id/re_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:scrollbars="none" />
+
+    </com.zxdc.utils.library.view.MyRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_no"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:src="@mipmap/no_search"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您还没有关注设计师"
+            android:textColor="@color/color_33333"
+            android:textSize="15sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"/>
+
+        <com.zxdc.utils.library.view.ClickTextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="188dp"
+            android:layout_height="37dp"
+            android:background="@color/color_b09b7c"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="200dp"
+            android:text="去关注设计师"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

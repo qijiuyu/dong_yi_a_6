@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@mipmap/decorage_logo"
+           android:layout_centerVertical="true"
+           android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="探索"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/img_search"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@mipmap/search"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="完美设计从这里开始"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <ImageView
+                    android:id="@+id/img_designer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@mipmap/decorate_sjs"
+                    android:scaleType="centerCrop"
+                    android:layout_marginRight="5dp"/>
+
+                <ImageView
+                    android:id="@+id/img_experience"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@mipmap/decorate_experience"
+                    android:scaleType="centerCrop"
+                    android:layout_marginLeft="5dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/color_f6f6f6"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="真实创作即刻呈现"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <RelativeLayout
+                    android:layout_width="95dp"
+                    android:layout_height="110dp"
+                    android:background="@mipmap/ling_xing">
+
+                    <TextView
+                        android:id="@+id/tv_fgal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="整屋案例"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"
+                        android:drawableTop="@mipmap/fgal"
+                        android:drawablePadding="12dp"/>
+
+                </RelativeLayout>
+
+              <RelativeLayout
+                android:layout_width="95dp"
+                android:layout_height="110dp"
+                android:background="@mipmap/ling_xing"
+                  android:layout_centerHorizontal="true">
+
+                  <TextView
+                      android:id="@+id/tv_altk"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="案例图库"
+                      android:textColor="@android:color/black"
+                      android:textSize="13sp"
+                      android:drawableTop="@mipmap/altk"
+                      android:drawablePadding="12dp"
+                      android:layout_centerInParent="true"/>
+
+              </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="95dp"
+                android:layout_height="110dp"
+                android:background="@mipmap/ling_xing"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:id="@+id/tv_vr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VR样板房"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp"
+                    android:drawableTop="@mipmap/vr"
+                    android:drawablePadding="12dp"
+                    android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+            <RelativeLayout
+                android:layout_width="95dp"
+                android:layout_height="110dp"
+                android:background="@mipmap/ling_xing">
+
+                <TextView
+                    android:id="@+id/tv_rzfb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="软装案例"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp"
+                    android:drawableTop="@mipmap/rzfb"
+                    android:drawablePadding="12dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="95dp"
+                    android:layout_height="110dp"
+                    android:background="@mipmap/ling_xing"
+                   android:layout_centerHorizontal="true">
+
+                    <TextView
+                        android:id="@+id/tv_rzlp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="热装楼盘"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"
+                        android:drawableTop="@mipmap/rzlp"
+                        android:drawablePadding="12dp"
+                        android:layout_centerHorizontal="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="95dp"
+                    android:layout_height="110dp"
+                    android:background="@mipmap/ling_xing"
+                    android:layout_alignParentRight="true">
+
+                    <TextView
+                        android:id="@+id/tv_zxgd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="实景工地"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"
+                        android:drawableTop="@mipmap/zxgd"
+                        android:drawablePadding="12dp"/>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="探索装修知识"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="36dp"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_decorate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp">
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

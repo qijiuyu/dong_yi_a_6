@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/half_transparent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="247dp"
+        android:background="@drawable/bg_share"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分享"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="73dp">
+
+            <TextView
+                android:id="@+id/tv_wx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="微信好友"
+                android:textSize="13sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:drawableTop="@mipmap/share_wx"
+                android:drawablePadding="9dp"/>
+
+            <TextView
+                android:id="@+id/tv_pyq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="朋友圈"
+                android:textSize="13sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:drawableTop="@mipmap/share_pyq"
+                android:drawablePadding="9dp"/>
+
+            <TextView
+                android:id="@+id/tv_qq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="QQ好友"
+                android:textSize="13sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:drawableTop="@mipmap/share_qq"
+                android:drawablePadding="9dp"/>
+
+            <TextView
+                android:id="@+id/tv_kj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="QQ空间"
+                android:textSize="13sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:drawableTop="@mipmap/share_kj"
+                android:drawablePadding="9dp"/>
+
+            <TextView
+                android:id="@+id/tv_wb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="微薄"
+                android:textSize="13sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:drawableTop="@mipmap/share_bo"
+                android:drawablePadding="9dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_close"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@color/color_f5f5f5"
+            android:layout_alignParentBottom="true"
+            android:text="关闭"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:gravity="center"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

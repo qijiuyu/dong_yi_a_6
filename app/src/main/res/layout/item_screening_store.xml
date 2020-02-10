@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:background="@drawable/bg_screening_store"
+        android:text="集团总部设计"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        android:lines="2"
+        android:ellipsize="end"
+        android:gravity="center"/>
+
+
+</LinearLayout>

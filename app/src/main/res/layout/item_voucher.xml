@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="15dp"
+       android:layout_marginBottom="15dp"
+       android:layout_marginLeft="15dp"
+       android:layout_marginRight="15dp">
+
+       <ImageView
+           android:id="@+id/img_head"
+           android:layout_width="108dp"
+           android:layout_height="108dp"/>
+
+       <TextView
+           android:id="@+id/tv_name"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="戴森智能可变色台灯，型号为黑色GL1345677"
+           android:textSize="14sp"
+           android:textColor="@android:color/black"
+           android:layout_marginLeft="128dp"
+           android:layout_marginTop="5dp"/>
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="128dp"
+           android:layout_below="@id/tv_name"
+           android:layout_marginTop="15dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="市场价"
+               android:textSize="12sp"
+               android:textColor="@color/color_999999"/>
+
+           <TextView
+               android:id="@+id/tv_money"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="￥2999"
+               android:textColor="@android:color/black"
+               android:textSize="12sp"
+               android:layout_alignParentRight="true"/>
+
+       </RelativeLayout>
+
+       <TextView
+           android:id="@+id/tv_time"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:drawableLeft="@mipmap/time_icon"
+           android:layout_marginLeft="128dp"
+           android:layout_alignBottom="@id/img_head"
+           android:text="兑换时间：2019-09-01 12:00"
+           android:textSize="11sp"
+           android:textColor="@color/color_999999"
+           android:drawablePadding="7dp"/>
+
+   </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ylean.dyspd">
+
+    <permission
+        android:name="com.ylean.dyspd.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- Required  一些系统要求的权限，如访问网络等-->
+    <uses-permission android:name="com.ylean.dyspd.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SENSOR_INFO" />
+    <uses-permission android:name="android.permission.SENSOR_ENABLE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
+
+    <application
+        android:name=".application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".activity.init.StartActivity"  android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.init.GuideActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.TabActivity"  android:screenOrientation="portrait"  android:launchMode="singleTask"/>
+        <activity android:name=".activity.decorate.DecorateActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.found.FoundActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.main.MainActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.UserActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.SettingActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.EditPwdActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.UserInfoActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.EditMobileActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.EditNickNameActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.FeedBackActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.SearchActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.SearchListActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.DesignerListActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ExperienceActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.DecorateProgressActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.GalleryListActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.VRListActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ConstructionListActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.BuildingListActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.SoftLoadingActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.BindingMobileActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.NewsActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.MyFocusActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.GiftActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.main.SelectCityActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.init.LoginActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.CollectionActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.VoucherDetailsActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.VoucherGoodActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningHotActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.ShareRecordActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningDesignerActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.CaseListActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningSoftActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningCaseActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningConstrnctionActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningVRActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningGalleryActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.search.SearchDesignerActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.search.SearchExperienceActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.search.SearchCaseActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.search.SearchGalleryActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.search.SearchVRActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.search.SearchSoftActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.search.SearchBuildingActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.decorate.search.SearchConstructionActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.user.collection.CollectionCaseActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollectionDesignerActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollectionGalleryActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollectionVRActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollectionSoftActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollectionConstructionActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollectionBuildingActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollectionNearActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.bespoke.BespokeDesignerActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
+        <activity android:name=".activity.bespoke.BespokeDecorateActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
+        <activity android:name=".activity.bespoke.BespokeNearActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
+        <activity android:name=".activity.bespoke.BespokeBuildingActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
+        <activity android:name=".activity.bespoke.BespokeConstructionActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
+        <activity android:name=".activity.init.RoomEntryActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.init.HobbyActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.init.ForgetPwdActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.web.CustomerWebView"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".activity.web.WebViewActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".activity.brand.BrandActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".activity.web.decorate.DecorateWebView"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".activity.found.PinZhiActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.main.MainGuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollDecorateActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.init.TripServiceActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.GoodDetailsActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.main.CaseGuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.HelpActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.init.RegisterActivity"  android:screenOrientation="portrait"/>
+
+
+        <!-- 百度地图的appkey-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="purNpHArrDWKTL609Ql482NbEVu5AunN" />
+
+        <!-- 百度地图服务 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" />
+            </intent-filter>
+        </service>
+
+
+        <!--注册微信回调 WXEntryActivity -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- qq -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent101838160" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 微博 -->
+        <activity
+            android:name=".activity.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <!-- 极光推送的配置-->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- since 3.0.9 Required SDK 核心功能-->
+        <provider
+            android:authorities="com.ylean.dyspd.DataProvider"
+            android:name="cn.jpush.android.service.DataProvider"
+            android:process=":pushcore"
+            android:exported="false"/>
+
+        <!-- since 3.1.0 Required SDK 核心功能-->
+        <provider
+            android:authorities="com.ylean.dyspd.DownloadProvider"
+            android:name="cn.jpush.android.service.DownloadProvider"
+            android:exported="true"/>
+
+        <!-- Required SDK核心功能-->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />   <!--Required  显示通知栏 -->
+                <category android:name="com.ylean.dyspd" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+
+        <!-- Required SDK核心功能-->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" android:exported="false"/>
+
+        <!-- User defined.  For test only  用户自定义的广播接收器-->
+        <receiver
+            android:name=".receiver.MyReceiver"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.ylean.dyspd" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".receiver.PushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+
+
+        <!-- Required since 3.0.7 -->
+        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
+        <!-- 3.3.0开始所有事件将通过该类回调 -->
+        <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <receiver
+            android:name=".receiver.MyJPushMessageReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="com.ylean.dyspd" />
+            </intent-filter>
+        </receiver>
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+        <meta-data
+            android:name="com.ylean.dyspd.utils.GlideConfiguration"
+            android:value="GlideModule"/>
+
+
+    </application>
+
+</manifest>

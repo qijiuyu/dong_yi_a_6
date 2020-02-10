@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+android {
+    compileSdkVersion Integer.parseInt(COMPLIE_SDK_VERSION)
+    buildToolsVersion BUILDTOLLS_VERSION
+
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.ylean.dyspd"
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
+        versionCode 31
+        versionName "4.1"
+
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : "com.ylean.dyspd",
+                JPUSH_APPKEY : "259158dfe9eba40c26270502", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+    }
+
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+
+    }
+
+    signingConfigs {
+        keyConfig {
+            storeFile file("dyA6.jks")
+            storePassword "123456"
+            keyAlias "dyA6"
+            keyPassword "123456"
+        }
+    }
+
+
+    buildTypes {
+        //开发环境
+        debug {
+            //实现自动签名
+            signingConfig signingConfigs.keyConfig
+        }
+        //生产环境
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.keyConfig
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':module_util')
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    //极光推送
+    compile 'cn.jiguang.sdk:jpush:3.3.4'
+    compile 'cn.jiguang.sdk:jcore:2.1.2'
+    //微信
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.3.4'
+    compile files('libs/umeng-common-1.5.4.jar')
+    compile files('libs/umeng-share-core-6.9.4.jar')
+    compile files('libs/umeng-share-QQ-simplify-6.9.4.jar')
+    compile files('libs/umeng-share-wechat-simplify-6.9.4.jar')
+    compile files('libs/umeng-sharetool-6.9.4.jar')
+    //侧滑菜单
+    compile 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
+    compile "com.android.support:cardview-v7:" + BUILDTOLLS_VERSION
+    compile files('libs/BaiduLBS_Android.jar')
+    //3D标签云
+    compile 'com.moxun:tagcloudlib:1.2.0'
+    //仿ios的loading
+    compile 'com.github.gittjy:LoadingDialog:1.0.2'
+    compile 'org.sufficientlysecure:html-textview:3.8'
+    compile files('libs/SocialSDK_Sina_Full.jar')
+    compile files('libs/weiboSDKCore_3.1.4.jar')
+    //友盟统计
+    //    compile  'com.umeng.umsdk:analytics:8.0.0'
+    compile files('libs/umeng-common-2.1.8.jar')
+}

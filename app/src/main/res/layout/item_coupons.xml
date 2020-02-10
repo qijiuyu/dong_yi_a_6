@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@drawable/bg_decorate_store"
+       android:layout_marginRight="15dp"
+       android:layout_marginLeft="15dp"
+       android:layout_marginBottom="15dp"
+       android:orientation="vertical">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="100dp">
+
+           <ImageView
+               android:id="@+id/img_head"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:scaleType="centerCrop"/>
+
+       </RelativeLayout>
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="10dp"
+           android:layout_marginLeft="12.5dp"
+           android:layout_marginRight="12.5dp">
+
+           <TextView
+               android:id="@+id/tv_code"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="14sp"
+               android:textColor="@color/color_666666"/>
+
+           <TextView
+               android:id="@+id/tv_copy"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="复制"
+               android:textColor="@color/color_b09b7c"
+               android:textSize="14sp"
+               android:layout_alignParentRight="true"/>
+
+       </RelativeLayout>
+
+       <TextView
+           android:id="@+id/tv_time"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="7dp"
+           android:layout_marginLeft="12.5dp"
+           android:textSize="14sp"
+           android:textColor="@color/color_666666"/>
+
+       <TextView
+           android:id="@+id/tv_rules"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="12.5dp"
+           android:layout_marginTop="7dp"
+           android:text="使用规则 >"
+           android:textSize="12sp"
+           android:textColor="@color/color_b09b7c"
+           android:layout_marginBottom="7dp"/>
+
+   </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <com.zxdc.utils.library.view.MyRefreshLayout
+        android:id="@+id/re_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:scrollbars="none" />
+
+    </com.zxdc.utils.library.view.MyRefreshLayout>
+
+    <com.ylean.dyspd.view.ListEmptyView
+        android:id="@+id/emptyView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.ylean.dyspd.view.ListEmptyView>
+
+    <com.ylean.dyspd.view.DynamicEmptyView
+        android:id="@+id/dy_dmptyView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.ylean.dyspd.view.DynamicEmptyView>
+
+    <com.ylean.dyspd.view.CollectionEmptyView
+        android:id="@+id/empryView"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+    </com.ylean.dyspd.view.CollectionEmptyView>
+
+</RelativeLayout>

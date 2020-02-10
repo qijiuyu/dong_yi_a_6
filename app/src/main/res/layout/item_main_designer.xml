@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lin_designer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="284dp"
+        android:layout_height="352dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="224dp"
+            android:layout_height="324dp"
+            android:orientation="vertical"
+            android:background="@color/color_33333">
+
+            <TextView
+                android:id="@+id/tv_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"/>
+
+            <TextView
+                android:id="@+id/tv_case_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="11dp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_head"
+            android:layout_width="226dp"
+            android:layout_height="276dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="76dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:ems="1"
+                android:layout_marginLeft="17dp"/>
+
+            <TextView
+                android:id="@+id/tv_tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/color_666666"
+                android:ems="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

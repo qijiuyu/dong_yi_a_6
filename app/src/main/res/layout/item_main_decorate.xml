@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/rel_decorate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_head"
+            android:layout_width="143dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/cc"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="21.5dp"
+            android:background="@drawable/bg_main_designer"
+            android:layout_marginTop="31dp"
+            android:layout_marginLeft="15dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="装修前"
+            android:textSize="11sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="171dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"/>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:layout_below="@id/tv_title"
+            android:layout_marginLeft="171dp"
+            android:layout_marginTop="22dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
