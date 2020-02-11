@@ -45,6 +45,7 @@ public class GuideActivity extends BaseActivity {
         //初始化导航页面
         for (int i = 0; i < images.length; i++) {
             ImageView iv = new ImageView(this);
+//            iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
             iv.setImageResource(images[i]);
             imageViews.add(iv);
             iv.setTag(i);
