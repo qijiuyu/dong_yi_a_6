@@ -10,6 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.ylean.dyspd.R;
 import com.zxdc.utils.library.bean.Area;
+
+import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +30,9 @@ public class ScreeningHotAdapter extends BaseAdapter {
         this.list=list;
         Area.AreaBean areaBean=new Area.AreaBean();
         areaBean.setText("全部区域");
+        if(this.list==null){
+            this.list=new ArrayList<>();
+        }
         this.list.add(0,areaBean);
     }
 

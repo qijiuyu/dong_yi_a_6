@@ -15,6 +15,7 @@ import com.ylean.dyspd.activity.main.SelectCityActivity;
 import com.ylean.dyspd.adapter.decorate.ScreeningHotAdapter;
 import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.bean.Area;
+import com.zxdc.utils.library.bean.Site;
 import com.zxdc.utils.library.http.HandlerConstant;
 import com.zxdc.utils.library.http.HttpMethod;
 import com.zxdc.utils.library.util.DialogUtil;
@@ -38,12 +39,14 @@ public class ScreeningHotActivity extends BaseActivity {
     @BindView(R.id.listView)
     ListView listView;
     private ScreeningHotAdapter screeningHotAdapter;
+    private String city;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screening_hot);
         ButterKnife.bind(this);
         //根据城市名称获取地区
-        getArea(null);
+        city=SPUtil.getInstance(activity).getString(SPUtil.CITY);
+        getArea();
     }
 
 
@@ -86,6 +89,20 @@ public class ScreeningHotActivity extends BaseActivity {
         public boolean handleMessage(Message msg) {
             DialogUtil.closeProgress();
             switch (msg.what){
+                //获取站点
+                case HandlerConstant.GET_SITE_SUCCESS:
+                    Site site= (Site) msg.obj;
+                    if(site==null){
+                        break;
+                    }
+                    if(site.isSussess()) {
+                        if (site.getData()==null) {
+                            city="全国城市";
+                        }
+                        //根据城市名称获取地区
+                        getArea();
+                    }
+                     break;
                 //根据城市名称获取地区
                 case HandlerConstant.GET_ARES_SUCCESS:
                       final Area area= (Area) msg.obj;
@@ -114,8 +131,9 @@ public class ScreeningHotActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==100 && data!=null){
-            //根据城市名称获取地区
-            getArea(data.getStringExtra("city"));
+            city=data.getStringExtra("city");
+            //获取站点
+            getSite();
         }
     }
 
@@ -123,16 +141,21 @@ public class ScreeningHotActivity extends BaseActivity {
     /**
      * 根据城市名称获取地区
      */
-    private void getArea(String city){
+    private void getArea(){
         if(TextUtils.isEmpty(city)){
-            city= SPUtil.getInstance(activity).getString(SPUtil.CITY);
-            if(TextUtils.isEmpty(city)){
-                city= SPUtil.getInstance(activity).getString(SPUtil.LOCATION_CITY);
-            }
+            city= "全国城市";
         }
         tvCity.setText(city);
         DialogUtil.showProgress(this,"数据加载中...");
         HttpMethod.getArea(city,handler);
+    }
+
+
+    /**
+     * 获取站点
+     */
+    public void getSite(){
+        HttpMethod.getSite(city,handler);
     }
 
 
