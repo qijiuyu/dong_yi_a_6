@@ -88,6 +88,9 @@ public class MyApplication extends BaseApplication {
          * 参数: boolean 默认为false，如需查看LOG设置为true
          */
         UMConfigure.setLogEnabled(true);
+
+        // 选用LEGACY_AUTO页面采集模式
+        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.LEGACY_AUTO);
     }
 
     /**

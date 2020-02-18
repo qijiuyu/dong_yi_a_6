@@ -50,43 +50,43 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.init.GuideActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.init.GuideActivity"  android:screenOrientation="portrait" android:label=""/>
         <activity android:name=".activity.TabActivity"  android:screenOrientation="portrait"  android:launchMode="singleTask"/>
-        <activity android:name=".activity.decorate.DecorateActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.found.FoundActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.main.MainActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.UserActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.SettingActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.EditPwdActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.DecorateActivity"  android:screenOrientation="portrait" android:label="装修页面"/>
+        <activity android:name=".activity.found.FoundActivity"  android:screenOrientation="portrait" android:label="发现页面"/>
+        <activity android:name=".activity.main.MainActivity"  android:screenOrientation="portrait" android:label="首页"/>
+        <activity android:name=".activity.user.UserActivity"  android:screenOrientation="portrait" android:label="我的页面"/>
+        <activity android:name=".activity.user.SettingActivity"  android:screenOrientation="portrait" android:label="设置页面"/>
+        <activity android:name=".activity.user.EditPwdActivity"  android:screenOrientation="portrait" android:label="修改密码页面"/>
         <activity android:name=".activity.user.UserInfoActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.EditMobileActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.EditMobileActivity"  android:screenOrientation="portrait" android:label="修改手机号页面"/>
         <activity android:name=".activity.user.EditNickNameActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.user.FeedBackActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.SearchActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".activity.decorate.SearchListActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".activity.decorate.DesignerListActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.ExperienceActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.DecorateProgressActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.GalleryListActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.VRListActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.ConstructionListActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.BuildingListActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.SoftLoadingActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.BindingMobileActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.NewsActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.MyFocusActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.GiftActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.main.SelectCityActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.SearchActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" android:label="搜索页面"/>
+        <activity android:name=".activity.decorate.SearchListActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" android:label="搜索结果页面"/>
+        <activity android:name=".activity.decorate.DesignerListActivity"  android:screenOrientation="portrait" android:label="设计师列表页面"/>
+        <activity android:name=".activity.decorate.ExperienceActivity"  android:screenOrientation="portrait" android:label="体验店列表页面"/>
+        <activity android:name=".activity.decorate.DecorateProgressActivity"  android:screenOrientation="portrait" android:label="装修攻略页面"/>
+        <activity android:name=".activity.decorate.GalleryListActivity"  android:screenOrientation="portrait" android:label="案例图库页面"/>
+        <activity android:name=".activity.decorate.VRListActivity"  android:screenOrientation="portrait" android:label="VR列表页面"/>
+        <activity android:name=".activity.decorate.ConstructionListActivity"  android:screenOrientation="portrait" android:label="实景工地列表页面"/>
+        <activity android:name=".activity.decorate.BuildingListActivity"  android:screenOrientation="portrait" android:label="热门楼盘列表页面"/>
+        <activity android:name=".activity.decorate.SoftLoadingActivity"  android:screenOrientation="portrait" android:label="软装案例列表页面"/>
+        <activity android:name=".activity.user.BindingMobileActivity"  android:screenOrientation="portrait" android:label="绑定手机号页面"/>
+        <activity android:name=".activity.user.NewsActivity"  android:screenOrientation="portrait" android:label="消息页面"/>
+        <activity android:name=".activity.user.MyFocusActivity"  android:screenOrientation="portrait" android:label="我的关注页面"/>
+        <activity android:name=".activity.user.GiftActivity"  android:screenOrientation="portrait" android:label="我的礼包页面"/>
+        <activity android:name=".activity.main.SelectCityActivity"  android:screenOrientation="portrait" android:label="切换城市页面"/>
         <activity android:name=".activity.init.LoginActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.user.CollectionActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.user.VoucherDetailsActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.user.VoucherGoodActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.ScreeningHotActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningHotActivity"  android:screenOrientation="portrait" android:label="热门楼盘筛选页面"/>
         <activity android:name=".activity.user.ShareRecordActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.ScreeningDesignerActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.CaseListActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.ScreeningSoftActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.decorate.ScreeningCaseActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.decorate.ScreeningDesignerActivity"  android:screenOrientation="portrait" android:label="设计师筛选页面"/>
+        <activity android:name=".activity.decorate.CaseListActivity"  android:screenOrientation="portrait" android:label="整屋案例列表页面"/>
+        <activity android:name=".activity.decorate.ScreeningSoftActivity"  android:screenOrientation="portrait" android:label="软装案例筛选页面"/>
+        <activity android:name=".activity.decorate.ScreeningCaseActivity"  android:screenOrientation="portrait" android:label="整屋案例筛选页面"/>
         <activity android:name=".activity.decorate.ScreeningConstrnctionActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.decorate.ScreeningVRActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.decorate.ScreeningGalleryActivity"  android:screenOrientation="portrait"/>
@@ -98,19 +98,19 @@
         <activity android:name=".activity.decorate.search.SearchSoftActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activity.decorate.search.SearchBuildingActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activity.decorate.search.SearchConstructionActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".activity.user.collection.CollectionCaseActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.collection.CollectionDesignerActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.collection.CollectionGalleryActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.collection.CollectionVRActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.collection.CollectionSoftActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.collection.CollectionConstructionActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.collection.CollectionBuildingActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.collection.CollectionNearActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.bespoke.BespokeDesignerActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
-        <activity android:name=".activity.bespoke.BespokeDecorateActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
-        <activity android:name=".activity.bespoke.BespokeNearActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
-        <activity android:name=".activity.bespoke.BespokeBuildingActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
-        <activity android:name=".activity.bespoke.BespokeConstructionActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"/>
+        <activity android:name=".activity.user.collection.CollectionCaseActivity"  android:screenOrientation="portrait" android:label="风格案例收藏页面"/>
+        <activity android:name=".activity.user.collection.CollectionDesignerActivity"  android:screenOrientation="portrait" android:label="设计师收藏页面"/>
+        <activity android:name=".activity.user.collection.CollectionGalleryActivity"  android:screenOrientation="portrait" android:label="案例图库收藏页面"/>
+        <activity android:name=".activity.user.collection.CollectionVRActivity"  android:screenOrientation="portrait" android:label="VR样板房收藏页面"/>
+        <activity android:name=".activity.user.collection.CollectionSoftActivity"  android:screenOrientation="portrait" android:label="软装案例收藏页面"/>
+        <activity android:name=".activity.user.collection.CollectionConstructionActivity"  android:screenOrientation="portrait" android:label="实景工地收藏页面"/>
+        <activity android:name=".activity.user.collection.CollectionBuildingActivity"  android:screenOrientation="portrait" android:label="热装楼盘收藏页面"/>
+        <activity android:name=".activity.user.collection.CollectionNearActivity"  android:screenOrientation="portrait" android:label="体验店收藏页面"/>
+        <activity android:name=".activity.bespoke.BespokeDesignerActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged" android:label="预约设计师页面"/>
+        <activity android:name=".activity.bespoke.BespokeDecorateActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged" android:label="预约装修页面"/>
+        <activity android:name=".activity.bespoke.BespokeNearActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged" android:label="预约参观体验店页面"/>
+        <activity android:name=".activity.bespoke.BespokeBuildingActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged" android:label="预约参观楼盘页面"/>
+        <activity android:name=".activity.bespoke.BespokeConstructionActivity"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|stateUnchanged"  android:label="预约参观工地页面"/>
         <activity android:name=".activity.init.RoomEntryActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.init.HobbyActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.init.ForgetPwdActivity"  android:screenOrientation="portrait"/>
@@ -120,12 +120,12 @@
         <activity android:name=".activity.web.decorate.DecorateWebView"  android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".activity.found.PinZhiActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.main.MainGuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.collection.CollDecorateActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.collection.CollDecorateActivity"  android:screenOrientation="portrait"  android:label="攻略收藏页面"/>
         <activity android:name=".activity.init.TripServiceActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.user.GoodDetailsActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.main.CaseGuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.user.HelpActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.init.RegisterActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.user.HelpActivity"  android:screenOrientation="portrait" android:label="帮助页面"/>
+        <activity android:name=".activity.init.RegisterActivity"  android:screenOrientation="portrait" android:label="注册页面"/>
 
 
         <!-- 百度地图的appkey-->

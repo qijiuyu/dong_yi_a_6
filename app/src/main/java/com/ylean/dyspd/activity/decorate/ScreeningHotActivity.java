@@ -59,9 +59,9 @@ public class ScreeningHotActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.lin_city:
-                intent.setClass(this,SelectCityActivity.class);
-                intent.putExtra("gotoType",1);
-                startActivityForResult(intent,100);
+//                intent.setClass(this,SelectCityActivity.class);
+//                intent.putExtra("gotoType",1);
+//                startActivityForResult(intent,100);
                 break;
             //确定
             case R.id.tv_confirm:

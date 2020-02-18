@@ -54,6 +54,7 @@ public class GuideActivity extends BaseActivity {
                     int index= (int) v.getTag();
                     if(index==2){
                         setClass(com.ylean.dyspd.activity.TabActivity.class);
+                        finish();
                     }
                 }
             });
