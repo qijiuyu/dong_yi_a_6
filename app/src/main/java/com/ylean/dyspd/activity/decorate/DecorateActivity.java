@@ -13,6 +13,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.decorate.DecorateItemAdapter;
+import com.ylean.dyspd.utils.PointUtil;
 import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.bean.DecorateType;
 import com.zxdc.utils.library.http.HandlerConstant;
@@ -74,34 +75,50 @@ public class DecorateActivity extends BaseActivity{
             //设计师
             case R.id.img_designer:
                 setClass(DesignerListActivity.class);
+                //埋点
+                PointUtil.getInstent().pagePoint(this,1);
                 break;
             //体验店
             case R.id.img_experience:
                 setClass(ExperienceActivity.class);
+                //埋点
+                PointUtil.getInstent().pagePoint(this,2);
                 break;
             //风格案例
             case R.id.tv_fgal:
                 setClass(CaseListActivity.class);
+                //埋点
+                PointUtil.getInstent().pagePoint(this,3);
                 break;
             //案例图库
             case R.id.tv_altk:
                 setClass(GalleryListActivity.class);
+                //埋点
+                PointUtil.getInstent().pagePoint(this,4);
                 break;
             //VR样板房
             case R.id.tv_vr:
                 setClass(VRListActivity.class);
+                //埋点
+                PointUtil.getInstent().pagePoint(this,5);
                 break;
             //软装范本
             case R.id.tv_rzfb:
                 setClass(SoftLoadingActivity.class);
+                //埋点
+                PointUtil.getInstent().pagePoint(this,6);
                 break;
             //热装楼盘
             case R.id.tv_rzlp:
                 setClass(BuildingListActivity.class);
+                //埋点
+                PointUtil.getInstent().pagePoint(this,7);
                 break;
             //装修工地
             case R.id.tv_zxgd:
                 setClass(ConstructionListActivity.class);
+                //埋点
+                PointUtil.getInstent().pagePoint(this,8);
                 break;
             default:
                 break;

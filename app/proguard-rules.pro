@@ -272,6 +272,8 @@
     *;
 }
 
+#确保指纹module中第三方jar里面的类不被混淆
+-keep class com.umeng.analytics.** {*;}
 
 #友盟统计
 -keep class com.umeng.** {*;}
@@ -281,4 +283,8 @@
 -keepclassmembers enum * {
     public static **[] values();
     public static ** valueOf(java.lang.String);
+}
+
+-keep public class com.ylean.dyspd.R$*{
+public static final int *;
 }

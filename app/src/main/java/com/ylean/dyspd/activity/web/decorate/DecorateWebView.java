@@ -70,7 +70,7 @@ public class DecorateWebView extends BaseWebView {
     //加载详情用的id
     private int id;
     //h5页面类型
-    private int type;
+    public int type;
     //加载的url，及标题
     public String url, title;
     public SHARE_MEDIA share_media;

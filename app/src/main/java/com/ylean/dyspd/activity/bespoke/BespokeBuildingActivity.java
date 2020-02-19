@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.ylean.dyspd.R;
+import com.ylean.dyspd.utils.PointUtil;
 import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.bean.BaseBean;
 import com.zxdc.utils.library.bean.BuildingDetails;
@@ -113,6 +114,8 @@ public class BespokeBuildingActivity extends BaseActivity {
                         break;
                     }
                     if(baseBean.isSussess()){
+                        //报名埋点
+                        PointUtil.getInstent().respokePoint(BespokeBuildingActivity.this);
                         finish();
                     }
                     ToastUtil.showLong(baseBean.getDesc());

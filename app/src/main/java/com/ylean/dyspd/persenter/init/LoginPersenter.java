@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.activity.TabActivity;
 import com.ylean.dyspd.activity.init.LoginActivity;
 import com.ylean.dyspd.activity.init.RoomEntryActivity;
+import com.ylean.dyspd.utils.PointUtil;
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
 import com.zxdc.utils.library.bean.BaseBean;
@@ -23,6 +25,13 @@ import org.greenrobot.eventbus.EventBus;
 public class LoginPersenter {
 
     private Activity activity;
+
+    /**
+     * 登录类型
+     * 1：账号登录
+     * 2：微信登录
+     */
+    private int loginType;
 
     public LoginPersenter(Activity activity){
         this.activity=activity;
@@ -52,6 +61,10 @@ public class LoginPersenter {
                      }
                      if(baseBean.isSussess()){
                         EventBus.getDefault().post(new EventBusType(EventStatus.REGISTER_SUCCESS));
+
+                         //手机号注册成功后埋点
+                         PointUtil.getInstent().registerPoint(activity,1);
+
                      }
                      ToastUtil.showLong(baseBean.getDesc());
                       break;
@@ -74,11 +87,19 @@ public class LoginPersenter {
                          if(userInfo.getData().getFirstlogin()==0 && ((LoginActivity)activity).loginType==1){
                              Intent intent=new Intent(activity, RoomEntryActivity.class);
                              activity.startActivity(intent);
+                             //埋点微信注册成功
+                             if(loginType==2){
+                                 PointUtil.getInstent().registerPoint(activity,2);
+                             }
+
                          }else{
                              Intent intent=new Intent(activity, TabActivity.class);
                              activity.startActivity(intent);
                          }
                          activity.finish();
+
+                         //统计用户账号
+                         MobclickAgent.onProfileSignIn("Android",String.valueOf(userInfo.getData().getId()));
                      }else{
                         ToastUtil.showLong(userInfo.getDesc());
                      }
@@ -117,7 +138,8 @@ public class LoginPersenter {
     /**
      * 登录
      */
-    public void login(String mobile,String password){
+    public void login(String mobile,String password,int loginType){
+        this.loginType=loginType;
         //保存账号和密码
         SPUtil.getInstance(activity).addString(SPUtil.ACCOUNT,mobile);
         SPUtil.getInstance(activity).addString(SPUtil.PASSWORD,password);
@@ -129,7 +151,8 @@ public class LoginPersenter {
     /**
      * 微信登录
      */
-    public void wxLogin(String img,String name,String openId){
+    public void wxLogin(String img,String name,String openId,int loginType){
+        this.loginType=loginType;
         DialogUtil.showProgress(activity,"登录中...");
         String city=SPUtil.getInstance(activity).getString(SPUtil.LOCATION_CITY);
         HttpMethod.wxLogin(city,img,name,openId,handler);

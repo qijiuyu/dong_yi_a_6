@@ -106,7 +106,7 @@ public class LoginActivity extends BaseActivity {
                     return;
                 }
                 loginType=1;
-                loginPersenter.login(mobile, pwd);
+                loginPersenter.login(mobile, pwd,loginType);
                 break;
             //微信登录
             case R.id.img_wx:
@@ -139,7 +139,7 @@ public class LoginActivity extends BaseActivity {
                     return;
                 }
                 String[] str = msg.split(",");
-                loginPersenter.wxLogin(str[0], str[1], str[2]);
+                loginPersenter.wxLogin(str[0], str[1], str[2],loginType);
                 break;
             default:
                 break;

@@ -75,7 +75,8 @@ public class MyApplication extends BaseApplication {
     private void initShare(){
         UMConfigure.setLogEnabled(true);
         //初始化
-        UMConfigure.init(this,"5dfc65a30cafb2cfa300053e","Android",UMConfigure.DEVICE_TYPE_PHONE,"");
+//        UMConfigure.init(this,"5dfc65a30cafb2cfa300053e","Android",UMConfigure.DEVICE_TYPE_PHONE,"");
+        UMConfigure.init(this,"5e4bd08d570df34ad4000083","Android",UMConfigure.DEVICE_TYPE_PHONE,"");
         //微信
         PlatformConfig.setWeixin("wx41f56978f20ce2fe", "696afe62e1a457cf0440cd30673b90d3");
         //新浪微博
@@ -87,7 +88,7 @@ public class MyApplication extends BaseApplication {
          * 设置组件化的Log开关
          * 参数: boolean 默认为false，如需查看LOG设置为true
          */
-        UMConfigure.setLogEnabled(true);
+        UMConfigure.setLogEnabled(false);
 
         // 选用LEGACY_AUTO页面采集模式
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.LEGACY_AUTO);

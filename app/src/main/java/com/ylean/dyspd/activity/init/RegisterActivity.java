@@ -188,7 +188,7 @@ public class RegisterActivity extends BaseActivity {
                     return;
                 }
                 String[] str=msg.split(",");
-                loginPersenter.wxLogin(str[0],str[1],str[2]);
+                loginPersenter.wxLogin(str[0],str[1],str[2],2);
                 break;
             default:
                 break;

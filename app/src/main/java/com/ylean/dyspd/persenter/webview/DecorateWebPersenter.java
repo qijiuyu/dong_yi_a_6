@@ -9,6 +9,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.ylean.dyspd.activity.main.CaseGuideActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.ylean.dyspd.application.MyApplication;
+import com.ylean.dyspd.utils.PointUtil;
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
 import com.zxdc.utils.library.bean.BaseBean;
@@ -62,6 +63,8 @@ public class DecorateWebPersenter {
                       if(baseBean.isSussess()){
                           EventBus.getDefault().post(new EventBusType(EventStatus.COLLECTION_SUCCESS));
                           ToastUtil.showLong("收藏成功");
+                          //埋点收藏
+                          PointUtil.collPoint(activity,activity.type);
                       }else{
                           ToastUtil.showLong(baseBean.getDesc());
                       }

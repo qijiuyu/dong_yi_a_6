@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.decorate.DesignerTagAdapter;
+import com.ylean.dyspd.utils.PointUtil;
 import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.bean.BaseBean;
 import com.zxdc.utils.library.bean.DesignerDetails;
@@ -121,6 +122,8 @@ public class BespokeDesignerActivity extends BaseActivity {
                         break;
                     }
                     if (baseBean.isSussess()) {
+                        //报名埋点
+                        PointUtil.getInstent().respokePoint(BespokeDesignerActivity.this);
                         finish();
                     }
                     ToastUtil.showLong(baseBean.getDesc());

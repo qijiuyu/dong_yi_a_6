@@ -157,7 +157,7 @@
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true">
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -169,26 +169,9 @@
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
 
-        <!-- 微博 -->
-        <activity
-            android:name=".activity.WBShareActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
-            android:configChanges="keyboardHidden|orientation"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
 
 
         <!-- 极光推送的配置-->

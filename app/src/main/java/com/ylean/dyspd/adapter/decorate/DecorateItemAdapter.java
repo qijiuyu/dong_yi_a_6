@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.DecorateProgressActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
+import com.ylean.dyspd.utils.PointUtil;
 import com.zxdc.utils.library.bean.DecorateType;
 import com.zxdc.utils.library.bean.VrList;
 
@@ -60,6 +61,9 @@ public class DecorateItemAdapter extends RecyclerView.Adapter<DecorateItemAdapte
                 intent.putExtra("cid",typeBean.getCommonid());
                 intent.putExtra("title",typeBean.getCommonvalue());
                 context.startActivity(intent);
+
+                //埋点
+                PointUtil.getInstent().pagePoint(context,9);
             }
         });
     }
