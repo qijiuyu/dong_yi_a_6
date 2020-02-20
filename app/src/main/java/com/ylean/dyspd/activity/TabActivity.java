@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.brand.BrandActivity;
 import com.ylean.dyspd.activity.decorate.DecorateActivity;
@@ -335,6 +337,19 @@ public class TabActivity extends android.app.TabActivity{
             return false;
         }
         return super.dispatchKeyEvent(event);
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
 

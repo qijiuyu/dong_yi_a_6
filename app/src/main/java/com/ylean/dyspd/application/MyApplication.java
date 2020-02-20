@@ -1,12 +1,19 @@
 package com.ylean.dyspd.application;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.commonsdk.BuildConfig;
 import com.umeng.commonsdk.UMConfigure;
+import com.umeng.commonsdk.debug.UMLogCommon;
 import com.umeng.socialize.PlatformConfig;
 import com.zxdc.utils.library.base.BaseApplication;
 import com.zxdc.utils.library.util.ActivitysLifecycle;
@@ -25,6 +32,9 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         setContext(this);
+        if(!isMain()){
+            return;
+        }
 
         //开启小强
         CockroachUtil.install();
@@ -69,14 +79,15 @@ public class MyApplication extends BaseApplication {
     }
 
 
+
+
     /**
      * 初始化友盟分享
      */
     private void initShare(){
-        UMConfigure.setLogEnabled(true);
         //初始化
 //        UMConfigure.init(this,"5dfc65a30cafb2cfa300053e","Android",UMConfigure.DEVICE_TYPE_PHONE,"");
-        UMConfigure.init(this,"5e4bd08d570df34ad4000083","Android",UMConfigure.DEVICE_TYPE_PHONE,"");
+        UMConfigure.init(this,UMConfigure.DEVICE_TYPE_PHONE,"");
         //微信
         PlatformConfig.setWeixin("wx41f56978f20ce2fe", "696afe62e1a457cf0440cd30673b90d3");
         //新浪微博
@@ -84,14 +95,13 @@ public class MyApplication extends BaseApplication {
         //QQ
         PlatformConfig.setQQZone("101838160", "3192d2ae301f12f59cd63a99283baa6f");
 
-        /**
-         * 设置组件化的Log开关
-         * 参数: boolean 默认为false，如需查看LOG设置为true
-         */
-        UMConfigure.setLogEnabled(false);
-
         // 选用LEGACY_AUTO页面采集模式
-        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.LEGACY_AUTO);
+//        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.LEGACY_AUTO);
+//        // 支持在子进程中统计自定义事件
+//        UMConfigure.setProcessEvent(true);
+//        UMConfigure.setLogEnabled(false);
+//
+//        MobclickAgent.setSessionContinueMillis(20*1000);
     }
 
     /**
@@ -101,6 +111,28 @@ public class MyApplication extends BaseApplication {
     public static boolean isLogin(){
         final String token= SPUtil.getInstance(getContext()).getString(SPUtil.TOKEN);
         if(!TextUtils.isEmpty(token)){
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * 判断是否是主进程
+     * @return
+     */
+    private boolean isMain() {
+        int pid = android.os.Process.myPid();
+        String processName = "";
+        ActivityManager mActivityManager = (ActivityManager) this.getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningAppProcessInfo appProcess : mActivityManager.getRunningAppProcesses()) {
+            if (appProcess.pid == pid) {
+                processName = appProcess.processName;
+                break;
+            }
+        }
+        String packageName = this.getPackageName();
+        if (processName.equals(packageName)) {
             return true;
         }
         return false;

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+
 /**
  * Created by Administrator on 2017/3/23 0023.
  */
@@ -42,5 +43,15 @@ public class BaseFragment extends Fragment {
     public void onDetach(){
         super.onDetach();
         mActivity = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 }

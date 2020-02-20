@@ -14,8 +14,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.umeng.analytics.MobclickAgent;
-
 /**
  * Created by Administrator on 2017/10/26 0026.
  */
@@ -79,13 +77,12 @@ public class BaseActivity extends FragmentActivity {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
     }
 
 

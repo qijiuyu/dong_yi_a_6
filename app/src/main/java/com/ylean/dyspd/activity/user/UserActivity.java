@@ -88,15 +88,9 @@ public class UserActivity extends BaseActivity {
             //个人信息
             case R.id.img_head:
             case R.id.img_nickname:
-//                intent.setClass(this, UserInfoActivity.class);
-//                intent.putExtra("userInfo", userInfo);
-//                startActivity(intent);
-                Map<String, Object> music = new HashMap<String, Object>();
-                music.put("music_type", "popular");//自定义参数：音乐类型，值：流行
-                music.put("singer", "JJ"); //歌手：(林俊杰)JJ
-                music.put("song_name","A_Thousand_Years_Later"); //歌名：一千年以后
-                music.put("song_price",100); //价格：100元
-                MobclickAgent.onEventObject(this, "play_music", music);
+                intent.setClass(this, UserInfoActivity.class);
+                intent.putExtra("userInfo", userInfo);
+                startActivity(intent);
                 break;
             //我的礼包
             case R.id.tv_gift:

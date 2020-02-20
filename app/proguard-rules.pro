@@ -285,6 +285,6 @@
     public static ** valueOf(java.lang.String);
 }
 
--keep public class com.ylean.dyspd.R$*{
-public static final int *;
-}
+#-keep public class com.ylean.dyspd.R$*{
+#public static final int *;
+#}

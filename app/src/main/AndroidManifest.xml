@@ -144,6 +144,11 @@
         </service>
 
 
+        <!-- 友盟配置 -->
+        <meta-data android:value="5e4bd08d570df34ad4000083" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="android" android:name="UMENG_CHANNEL"/>
+
+
         <!--注册微信回调 WXEntryActivity -->
         <activity
             android:name=".wxapi.WXEntryActivity"

@@ -42,7 +42,4 @@ dependencies {
     compile 'com.contrarywind:Android-PickerView:3.2.6'
     compile 'com.yarolegovich:discrete-scrollview:1.4.9'
     compile 'com.github.gittjy:LoadingDialog:1.0.2'
-    compile files('libs/SecurityEnvSDK-release-1.1.0.jar')
-    compile files('libs/umeng-analytics-8.1.4.jar')
-    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
 }

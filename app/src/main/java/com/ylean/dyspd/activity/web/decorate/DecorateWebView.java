@@ -32,6 +32,7 @@ import com.ylean.dyspd.activity.bespoke.BespokeNearActivity;
 import com.ylean.dyspd.activity.init.LoginActivity;
 import com.ylean.dyspd.application.MyApplication;
 import com.ylean.dyspd.persenter.webview.DecorateWebPersenter;
+import com.ylean.dyspd.utils.PointUtil;
 import com.zxdc.utils.library.base.BaseWebView;
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
@@ -404,6 +405,16 @@ public class DecorateWebView extends BaseWebView {
                 break;
         }
         startActivity(intent);
+    }
+
+
+    /**
+     * 预约报名成功
+     */
+    @JavascriptInterface
+    public void bespokeSuccess() {
+        //报名埋点
+        PointUtil.getInstent().respokePoint(this);
     }
 
 

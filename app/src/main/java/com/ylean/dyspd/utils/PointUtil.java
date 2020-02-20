@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.activity.init.LoginActivity;
 import com.zxdc.utils.library.http.HttpMethod;
+import com.zxdc.utils.library.util.LogUtils;
 import com.zxdc.utils.library.util.SPUtil;
 
 import java.util.HashMap;
@@ -33,43 +34,42 @@ public class PointUtil {
      * @param type
      */
     public static void collPoint(Context context,int type){
-        Map<String, Object> map = new HashMap();
         switch (type){
             //收藏图库
             case 1:
-                MobclickAgent.onEventObject(context, "colltk", map);
+                MobclickAgent.onEvent(context, "coll_pic");
                 break;
             //收藏VR
             case 2:
-                MobclickAgent.onEventObject(context, "collvr", map);
+                MobclickAgent.onEvent(context, "coll_vr");
                 break;
             //软装范本
             case 7:
-                MobclickAgent.onEventObject(context, "collrz", map);
+                MobclickAgent.onEvent(context, "coll_models");
                 break;
             //风格案例
             case 12:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "coll_case");
                 break;
             //收藏装修攻略
             case 3:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "coll_news");
                 break;
             //收藏体验店
             case 4:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "coll_shop");
                 break;
             //收藏在施工地
             case 5:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "coll_site");
                 break;
             //收藏楼盘
             case 6:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "coll_house");
                 break;
             //收藏设计师
             case 8:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "coll_designer");
                 break;
             default:
                 break;
@@ -82,13 +82,11 @@ public class PointUtil {
      * @param context
      */
     public static void registerPoint(Context context,int type){
-        Map<String, Object> map = new HashMap();
-        map.put("coll","");
         //手机号注册
         if(type==1){
-            MobclickAgent.onEventObject(context, "play_music", map);
+            MobclickAgent.onEvent(context, "mobile_register");
         }else{
-            MobclickAgent.onEventObject(context, "play_music", map);
+            MobclickAgent.onEvent(context, "wx_register");
         }
     }
 
@@ -98,13 +96,12 @@ public class PointUtil {
      * @param context
      */
     public static void respokePoint(Context context){
-        Map<String, Object> map = new HashMap();
         final String token = SPUtil.getInstance(context).getString(SPUtil.TOKEN);
         //未注册报名
         if (TextUtils.isEmpty(token)) {
-            MobclickAgent.onEventObject(context, "play_music", map);
+            MobclickAgent.onEvent(context, "not_register_apply");
         } else {
-            MobclickAgent.onEventObject(context, "play_music", map);
+            MobclickAgent.onEvent(context, "yes_register_apply");
         }
     }
 
@@ -115,44 +112,42 @@ public class PointUtil {
      * @param type
      */
     public static void pagePoint(Context context,int type){
-        Map<String, Object> map = new HashMap();
-        map.put("coll","");
         switch (type){
             //设计师
             case 1:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_designer");
                 break;
             //体验店
             case 2:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_shop");
                 break;
             //风格案例
             case 3:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_case");
                 break;
             //案例图库
             case 4:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_pic");
                 break;
             //VR样板房
             case 5:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_vr");
                 break;
             //软装案例
             case 6:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_models");
                 break;
             //热装楼盘
             case 7:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_house");
                 break;
             //实景工地
             case 8:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_site");
                 break;
             //攻略
             case 9:
-                MobclickAgent.onEventObject(context, "play_music", map);
+                MobclickAgent.onEvent(context, "browse_news");
                 break;
             default:
                 break;
