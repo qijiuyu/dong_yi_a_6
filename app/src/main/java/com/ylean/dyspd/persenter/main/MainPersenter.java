@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import com.baidu.location.BDLocation;
 import com.ylean.dyspd.activity.main.MainActivity;
 import com.ylean.dyspd.activity.main.MainGuideActivity;
+import com.zxdc.utils.library.bean.NewsNum;
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
 import com.ylean.dyspd.utils.GetLocation;
@@ -234,6 +235,21 @@ public class MainPersenter {
                           ToastUtil.showLong(move.getDesc());
                       }
                       break;
+                //获取消息数量
+                case HandlerConstant.GET_NEWS_NUM_SUCCESS:
+                    final NewsNum newsNum= (NewsNum) msg.obj;
+                    if(newsNum==null){
+                        break;
+                    }
+                    if(newsNum.isSussess()){
+                        if(newsNum.getData()==null){
+                            newsNum.setData(new NewsNum.NewsNumBean());
+                        }
+                        EventBus.getDefault().post(new EventBusType(EventStatus.SHOW_NEWS_NUM,newsNum.getData()));
+                    }else{
+                        ToastUtil.showLong(newsNum.getDesc());
+                    }
+                    break;
                 case HandlerConstant.REQUST_ERROR:
                     ToastUtil.showLong(msg.obj==null ? "异常错误信息" : msg.obj.toString());
                     break;
@@ -392,5 +408,13 @@ public class MainPersenter {
             Intent intent=new Intent(activity, MainGuideActivity.class);
             activity.startActivity(intent);
         }
+    }
+
+
+    /**
+     * 获取消息数量
+     */
+    public void getNewsNum(){
+        HttpMethod.getNewsNum(handler);
     }
 }

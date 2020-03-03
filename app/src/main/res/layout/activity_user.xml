@@ -24,14 +24,28 @@
                     android:layout_height="176dp"
                     android:background="@color/color_010101"/>
 
-                <ImageView
-                    android:id="@+id/img_news"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/news"
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="15dp"/>
+                    android:layout_marginRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/img_news"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/news"/>
+
+                    <View
+                        android:id="@+id/view_news"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_red_shape"
+                        android:layout_gravity="right"
+                        android:visibility="gone"/>
+
+                </FrameLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -281,7 +281,8 @@ public class FoundActivity extends BaseActivity{
      */
     private void startShare() {
         UMWeb web = new UMWeb(HttpConstant.HTML+"share");
-        web.setTitle("我要代言");
+        web.setTitle("上市品质 邀您共鉴！");
+        web.setDescription("东易日盛20余年的努力与坚持，都只是为了做好家装这一件事！");
         new ShareAction(activity).setPlatform(share_media)
                 .setCallback(umShareListener)
                 .withMedia(web)

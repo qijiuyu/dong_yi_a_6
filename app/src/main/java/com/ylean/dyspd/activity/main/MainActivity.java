@@ -43,6 +43,7 @@ import com.ylean.dyspd.adapter.main.MainHotAdapter;
 import com.ylean.dyspd.adapter.main.MainNearAdapter;
 import com.ylean.dyspd.adapter.main.MainProcessAdapter;
 import com.ylean.dyspd.adapter.main.MainTypeAdapter;
+import com.zxdc.utils.library.bean.NewsNum;
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
 import com.ylean.dyspd.persenter.main.MainPersenter;
@@ -133,6 +134,8 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
     LinearLayout linNear;
     @BindView(R.id.lin_case)
     LinearLayout linCase;
+    @BindView(R.id.view_news)
+    View viewNews;
     //MVP对象
     private MainPersenter mainPersenter;
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -301,6 +304,18 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
             case EventStatus.SELECT_CITY_SUCCESS:
                  updateCity();
                  break;
+            //展示消息数量
+            case EventStatus.SHOW_NEWS_NUM:
+                final NewsNum.NewsNumBean newsNumBean= (NewsNum.NewsNumBean) eventBusType.getObject();
+                if(newsNumBean==null){
+                    return;
+                }
+                if(newsNumBean.getHdcount()>0 || newsNumBean.getDtcount()>0 || newsNumBean.getGgcount()>0){
+                    viewNews.setVisibility(View.VISIBLE);
+                }else{
+                    viewNews.setVisibility(View.GONE);
+                }
+                  break;
             default:
                 break;
         }
@@ -654,6 +669,8 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
     public void onResume() {
         super.onResume();
         banner.start();
+        //获取消息数量
+        mainPersenter.getNewsNum();
     }
 
     @Override

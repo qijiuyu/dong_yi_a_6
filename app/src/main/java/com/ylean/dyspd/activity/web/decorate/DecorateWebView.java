@@ -409,17 +409,6 @@ public class DecorateWebView extends BaseWebView {
 
 
     /**
-     * 预约报名成功
-     */
-    @JavascriptInterface
-    public void bespokeSuccess() {
-        //报名埋点
-        PointUtil.getInstent().respokePoint(this);
-    }
-
-
-
-    /**
      * 监听跳转的url
      */
     private class webViewClient extends WebViewClient {

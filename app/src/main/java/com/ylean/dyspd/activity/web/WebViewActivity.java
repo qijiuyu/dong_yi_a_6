@@ -5,15 +5,18 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ylean.dyspd.R;
+import com.ylean.dyspd.utils.PointUtil;
 import com.ylean.dyspd.view.SuspensionButtonView;
 import com.zxdc.utils.library.base.BaseApplication;
 import com.zxdc.utils.library.base.BaseWebView;
 import com.zxdc.utils.library.http.HttpConstant;
+import com.zxdc.utils.library.util.LogUtils;
 import com.zxdc.utils.library.util.SPUtil;
 
 import butterknife.BindView;
@@ -108,6 +111,16 @@ public class WebViewActivity extends BaseWebView {
             default:
                 break;
         }
+    }
+
+
+    /**
+     * 预约报名成功
+     */
+    @JavascriptInterface
+    public void bespokeSuccess() {
+        //报名埋点
+        PointUtil.getInstent().respokePoint(this);
     }
 
 

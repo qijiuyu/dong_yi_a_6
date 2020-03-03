@@ -145,7 +145,7 @@
 
 
         <!-- 友盟配置 -->
-        <meta-data android:value="5e4bd08d570df34ad4000083" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="5dfc65a30cafb2cfa300053e" android:name="UMENG_APPKEY"/>
         <meta-data android:value="android" android:name="UMENG_CHANNEL"/>
 
 

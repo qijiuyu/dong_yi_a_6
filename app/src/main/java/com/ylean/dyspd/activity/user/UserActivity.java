@@ -16,13 +16,18 @@ import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.CustomerWebView;
 import com.zxdc.utils.library.base.BaseActivity;
+import com.zxdc.utils.library.bean.NewsNum;
 import com.zxdc.utils.library.bean.Telphone;
 import com.zxdc.utils.library.bean.UserInfo;
+import com.zxdc.utils.library.eventbus.EventBusType;
+import com.zxdc.utils.library.eventbus.EventStatus;
 import com.zxdc.utils.library.http.HandlerConstant;
 import com.zxdc.utils.library.http.HttpMethod;
 import com.zxdc.utils.library.util.SPUtil;
 import com.zxdc.utils.library.util.ToastUtil;
 import com.zxdc.utils.library.view.CircleImageView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,6 +70,8 @@ public class UserActivity extends BaseActivity {
     TextView tvTel;
     @BindView(R.id.tv_call)
     TextView tvCall;
+    @BindView(R.id.view_news)
+    View viewNews;
     //用户信息对象
     private UserInfo userInfo;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -173,6 +180,22 @@ public class UserActivity extends BaseActivity {
                          tvCall.setText(telphone.getData());
                      }
                     break;
+                //获取消息数量
+                case HandlerConstant.GET_NEWS_NUM_SUCCESS:
+                    final NewsNum newsNum= (NewsNum) msg.obj;
+                    if(newsNum==null){
+                        break;
+                    }
+                    if(newsNum.isSussess() && newsNum.getData()!=null){
+                        if(newsNum.getData().getGgcount()>0 || newsNum.getData().getDtcount()>0 || newsNum.getData().getHdcount()>0){
+                            viewNews.setVisibility(View.VISIBLE);
+                        }else{
+                            viewNews.setVisibility(View.GONE);
+                        }
+                    }else{
+                        viewNews.setVisibility(View.GONE);
+                    }
+                      break;
                 case HandlerConstant.REQUST_ERROR:
                     ToastUtil.showLong(msg.obj.toString());
                     break;
@@ -224,11 +247,21 @@ public class UserActivity extends BaseActivity {
     }
 
 
+    /**
+     * 获取消息数量
+     */
+    public void getNewsNum(){
+        HttpMethod.getNewsNum(handler);
+    }
+
+
     @Override
     public void onResume() {
         super.onResume();
         //获取用户信息
         getUserInfo();
+        //获取消息数量
+        getNewsNum();
     }
 
     @Override
