@@ -179,7 +179,7 @@
 
 
 
-        <!-- 极光推送的配置-->
+        <!-- 极光推送的配置-->zz
         <service
             android:name="cn.jpush.android.service.PushService"
             android:enabled="true"

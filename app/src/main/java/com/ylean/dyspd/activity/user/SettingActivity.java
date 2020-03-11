@@ -69,9 +69,9 @@ public class SettingActivity extends BaseActivity {
         }
         final int isPush=SPUtil.getInstance(this).getInteger(SPUtil.JPUSH);
         if(isPush==0){
-            imgPush.setImageDrawable(getResources().getDrawable(R.mipmap.close_news));
-        }else{
             imgPush.setImageDrawable(getResources().getDrawable(R.mipmap.open_news));
+        }else{
+            imgPush.setImageDrawable(getResources().getDrawable(R.mipmap.close));
         }
     }
 
@@ -93,13 +93,13 @@ public class SettingActivity extends BaseActivity {
                 if(isPush){
                     isPush=false;
                     imgPush.setImageDrawable(getResources().getDrawable(R.mipmap.close_news));
-                    SPUtil.getInstance(this).addInt(SPUtil.JPUSH,0);
+                    SPUtil.getInstance(this).addInt(SPUtil.JPUSH,1);
                     //停止推送
                     JPushInterface.stopPush(this);
                 }else{
                     isPush=true;
                     imgPush.setImageDrawable(getResources().getDrawable(R.mipmap.open_news));
-                    SPUtil.getInstance(this).addInt(SPUtil.JPUSH,1);
+                    SPUtil.getInstance(this).addInt(SPUtil.JPUSH,0);
                     //恢复推送
                     JPushInterface.resumePush(this);
                 }
@@ -136,6 +136,7 @@ public class SettingActivity extends BaseActivity {
                   break;
             //退出登录
             case R.id.tv_out:
+                JPushInterface.stopPush(this);      //停止推送
                 SPUtil.getInstance(this).removeMessage(SPUtil.TOKEN);
                 intent.setClass(this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -56,7 +56,7 @@
             android:id="@+id/img_push"
             android:layout_width="57dp"
             android:layout_height="30dp"
-            android:src="@mipmap/close_news"
+            android:src="@mipmap/open_news"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"/>

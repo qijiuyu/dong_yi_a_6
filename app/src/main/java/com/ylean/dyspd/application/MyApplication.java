@@ -70,12 +70,6 @@ public class MyApplication extends BaseApplication {
         JPushInterface.setDebugMode(true);
         //初始化 JPush
         JPushInterface.init(this);
-        final int jpush=SPUtil.getInstance(this).getInteger(SPUtil.JPUSH);
-        if(jpush==0){
-            JPushInterface.stopPush(this);      //停止推送
-        }else{
-            JPushInterface.resumePush(this);  		// 恢复推送
-        }
     }
 
 

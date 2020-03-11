@@ -20,6 +20,7 @@ import com.ylean.dyspd.activity.found.FoundActivity;
 import com.ylean.dyspd.activity.init.LoginActivity;
 import com.ylean.dyspd.activity.main.MainActivity;
 import com.ylean.dyspd.activity.user.UserActivity;
+import com.ylean.dyspd.application.MyApplication;
 import com.ylean.dyspd.utils.DataCleanManager;
 import com.ylean.dyspd.utils.UpdateVersionUtils;
 import com.ylean.dyspd.view.SuspensionButtonView;
@@ -107,6 +108,16 @@ public class TabActivity extends android.app.TabActivity{
         setPush();
         //获取客服电话
         getCall();
+
+        /**
+         * 设置是否推送
+         */
+        final int jpush=SPUtil.getInstance(this).getInteger(SPUtil.JPUSH);
+        if(jpush==0 && MyApplication.isLogin()){
+            JPushInterface.resumePush(this);  		// 恢复推送
+        }else{
+            JPushInterface.stopPush(this);      //停止推送
+        }
     }
 
 

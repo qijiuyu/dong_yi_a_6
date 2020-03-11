@@ -16,6 +16,7 @@ import com.zxdc.utils.library.eventbus.EventStatus;
 import com.zxdc.utils.library.http.HandlerConstant;
 import com.zxdc.utils.library.http.base.Http;
 import com.zxdc.utils.library.util.Constant;
+import com.zxdc.utils.library.util.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
@@ -55,6 +56,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                     }
                 }else{
                     //分享成功
+                    ToastUtil.showLong("分享成功");
                     EventBus.getDefault().post(new EventBusType(EventStatus.SHARE_SUCCESS));
                     finish();
                 }

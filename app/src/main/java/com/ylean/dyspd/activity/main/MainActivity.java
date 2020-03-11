@@ -43,6 +43,7 @@ import com.ylean.dyspd.adapter.main.MainHotAdapter;
 import com.ylean.dyspd.adapter.main.MainNearAdapter;
 import com.ylean.dyspd.adapter.main.MainProcessAdapter;
 import com.ylean.dyspd.adapter.main.MainTypeAdapter;
+import com.ylean.dyspd.application.MyApplication;
 import com.zxdc.utils.library.bean.NewsNum;
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
@@ -670,7 +671,9 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
         super.onResume();
         banner.start();
         //获取消息数量
-        mainPersenter.getNewsNum();
+        if(MyApplication.isLogin()){
+            mainPersenter.getNewsNum();
+        }
     }
 
     @Override
