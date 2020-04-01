@@ -112,7 +112,7 @@ public class DecorateWebView extends BaseWebView {
                 break;
             //装修攻略详情
             case 3:
-                tvTitle.setText("装修攻略详情");
+                tvTitle.setText("攻略详情");
                 if (TextUtils.isEmpty(url)) {
                     webView.loadUrl(url = HttpConstant.HTML + "decorationparticulars?id=" + id + "&token=" + token);
                 } else {
@@ -414,6 +414,7 @@ public class DecorateWebView extends BaseWebView {
     private class webViewClient extends WebViewClient {
         public void onPageFinished(WebView view, String url) {
             JSONObject jsonObject=null;
+            LogUtils.e(url+"+++++++++++++++++++");
             try {
                 if(type==7 || type==9 || type==10 || type==11 || type==13){
                     return;

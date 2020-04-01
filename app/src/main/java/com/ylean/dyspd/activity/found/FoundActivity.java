@@ -72,6 +72,8 @@ public class FoundActivity extends BaseActivity{
     ImageView img5;
     @BindView(R.id.tv_5)
     TextView tv5;
+    @BindView(R.id.tv_to_receive)
+    TextView tvToReceive;
     //页面顶部图片对象
     private  FoundBanner.BannerBean bannerBean;
     //页面底部数据
@@ -105,8 +107,10 @@ public class FoundActivity extends BaseActivity{
                 if(bannerBean==null){
                     return;
                 }
-                //领取优惠券
-                takeCoupon();
+                if(tvToReceive.getText().toString().trim().equals("点击领取")){
+                    //领取优惠券
+                    takeCoupon();
+                }
                 break;
             //私享量房
             case R.id.lin_sxlf:
@@ -168,6 +172,9 @@ public class FoundActivity extends BaseActivity{
                       if(foundBanner.isSussess() && foundBanner.getData()!=null){
                           bannerBean=foundBanner.getData();
                           Glide.with(FoundActivity.this).load(bannerBean.getImg()).centerCrop().into(imgBanner);
+                          if(foundBanner.getData().getIsget()==1){
+                              tvToReceive.setText("已领取");
+                          }
                       }
                       break;
                 //获取页面底部数据
@@ -187,6 +194,9 @@ public class FoundActivity extends BaseActivity{
                       BaseBean baseBean= (BaseBean) msg.obj;
                       if(baseBean==null){
                           break;
+                      }
+                      if(baseBean.isSussess()){
+                          tvToReceive.setText("已领取");
                       }
                       ToastUtil.showLong(baseBean.getDesc());
                       break;

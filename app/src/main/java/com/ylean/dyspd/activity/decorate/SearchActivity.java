@@ -94,7 +94,7 @@ public class SearchActivity extends BaseActivity implements TextView.OnEditorAct
             //关闭键盘
             lockKey(etKey);
             //保存搜索过的关键字
-            addTabKey();
+            addTabKey(strKey);
             etKey.setText(null);
             searchPersenter.gotoSearchList(strKey);
         }
@@ -105,7 +105,7 @@ public class SearchActivity extends BaseActivity implements TextView.OnEditorAct
     /**
      * 保存搜索过的关键字
      */
-    private void addTabKey() {
+    public void addTabKey(String strKey) {
         String keys = SPUtil.getInstance(this).getString(SPUtil.SEARCH_KEY);
         Map<String, String> keyMap;
         if (!TextUtils.isEmpty(keys)) {

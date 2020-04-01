@@ -120,20 +120,12 @@ public class CustomerWebView extends BaseWebView{
 
     @OnClick(R.id.lin_back)
     public void onViewClicked() {
-        if (webView.canGoBack()) {
-            webView.goBack();
-        } else {
-            finish();
-        }
+        finish();
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount()==0) {
-            if (webView.canGoBack()) {
-                webView.goBack();
-            } else {
-                finish();
-            }
+            finish();
         }
         return false;
     }

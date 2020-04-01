@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
+import com.yarolegovich.discretescrollview.transform.Pivot;
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.BuildingListActivity;
@@ -466,6 +467,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
             linDesigner.setVisibility(View.VISIBLE);
         }
         listDesigner.setOrientation(DSVOrientation.HORIZONTAL);
+        listDesigner.setItemTransformer(new ScaleTransformer.Builder().setMinScale(0.8f).build());
         listDesigner.setAdapter(new MainDesignerAdapter(this, list));
         tvDesignerNum.setText(list.size()>0 ? "1" : "0");
         tvDesignerTotalnum.setText("/"+list.size());

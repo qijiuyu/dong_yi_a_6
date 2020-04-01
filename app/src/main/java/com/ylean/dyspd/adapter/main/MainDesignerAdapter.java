@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -81,12 +82,12 @@ public class MainDesignerAdapter extends RecyclerView.Adapter<MainDesignerAdapte
     }
 
     public class MyHolder extends RecyclerView.ViewHolder {
-        LinearLayout linDesigner;
+        RelativeLayout linDesigner;
         ImageView imgHead;
         TextView tvLevel,tvCaseNum,tvName,tvTags;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
-            linDesigner=itemView.findViewById(R.id.lin_designer);
+            linDesigner=itemView.findViewById(R.id.rel_designer);
             imgHead=itemView.findViewById(R.id.img_head);
             tvLevel=itemView.findViewById(R.id.tv_level);
             tvCaseNum=itemView.findViewById(R.id.tv_case_num);

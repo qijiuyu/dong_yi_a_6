@@ -252,9 +252,7 @@ public class TabActivity extends android.app.TabActivity{
             return;
         }
         //设置极光推送的别名
-        Set<String> tags = new HashSet<>();
-        tags.add(String.valueOf(userId));
-        JPushInterface.setAliasAndTags(getApplicationContext(), String.valueOf(userId), tags, mAliasCallback);
+        JPushInterface.setAliasAndTags(getApplicationContext(), String.valueOf(userId), null, mAliasCallback);
     }
 
 

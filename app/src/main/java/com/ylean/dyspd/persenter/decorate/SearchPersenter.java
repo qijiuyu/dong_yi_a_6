@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ylean.dyspd.R;
+import com.ylean.dyspd.activity.decorate.SearchActivity;
 import com.ylean.dyspd.activity.decorate.SearchListActivity;
 import com.ylean.dyspd.view.TagsLayout;
 import com.zxdc.utils.library.bean.HotSearch;
@@ -32,11 +33,11 @@ import java.util.Set;
 
 public class SearchPersenter {
 
-    private Activity activity;
+    private SearchActivity activity;
     //热门搜索控件
     private TagsLayout tagHot;
 
-    public SearchPersenter(Activity activity){
+    public SearchPersenter(SearchActivity activity){
         this.activity=activity;
     }
 
@@ -86,6 +87,7 @@ public class SearchPersenter {
             textView.setGravity(Gravity.CENTER);
             textView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    activity.addTabKey(((TextView) v).getText().toString());
                     gotoSearchList(((TextView) v).getText().toString());
                 }
             });

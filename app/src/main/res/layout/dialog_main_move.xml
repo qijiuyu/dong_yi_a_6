@@ -55,7 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="下次不在弹出活动提示框"
+                    android:text="下次不再弹出活动提示框"
                     android:textSize="12sp"
                     android:textColor="@color/color_b09b7c"
                     android:layout_gravity="center_vertical"/>

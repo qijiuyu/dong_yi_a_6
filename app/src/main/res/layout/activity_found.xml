@@ -45,7 +45,7 @@
                       android:background="@mipmap/to_receive"
                       android:layout_centerHorizontal="true"
                       android:paddingBottom="5dp"
-                      android:text="去领取"
+                      android:text="点击领取"
                       android:textColor="@android:color/black"
                       android:textSize="16sp"
                       android:gravity="center"

@@ -24,6 +24,7 @@ public class FoundBanner extends BaseBean {
         private int id;
         //优惠券图片
         private String img;
+        private int isget;
 
         public int getId() {
             return id;
@@ -39,6 +40,14 @@ public class FoundBanner extends BaseBean {
 
         public void setImg(String img) {
             this.img = img;
+        }
+
+        public int getIsget() {
+            return isget;
+        }
+
+        public void setIsget(int isget) {
+            this.isget = isget;
         }
     }
 }
