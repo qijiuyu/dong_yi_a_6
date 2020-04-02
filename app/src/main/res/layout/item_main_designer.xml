@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white">
 
     <RelativeLayout
         android:id="@+id/rel_designer"
-        android:layout_width="254dp"
-        android:layout_height="332dp"
+        android:layout_width="244dp"
+        android:layout_height="312dp"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="194dp"
-            android:layout_height="304dp"
+            android:layout_width="184dp"
+            android:layout_height="284dp"
             android:orientation="vertical"
             android:background="@color/color_33333">
 
@@ -23,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="25dp"/>
 
@@ -40,10 +39,10 @@
 
         <ImageView
             android:id="@+id/img_head"
-            android:layout_width="196dp"
-            android:layout_height="266dp"
+            android:layout_width="186dp"
+            android:layout_height="276dp"
             android:layout_marginLeft="26dp"
-            android:layout_marginTop="76dp"/>
+            android:layout_marginTop="96dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

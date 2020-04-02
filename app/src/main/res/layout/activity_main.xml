@@ -407,9 +407,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginTop="36dp"
-                        app:paddingStart="-20dp"
-                        android:background="@android:color/white">
-                    </com.yarolegovich.discretescrollview.DiscreteScrollView>
+                        android:background="@android:color/white"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"

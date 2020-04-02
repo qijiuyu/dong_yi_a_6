@@ -40,6 +40,7 @@ public class WebViewActivity extends BaseWebView {
     //页面类型
     private int type;
     private int id;
+    private String url;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
@@ -54,6 +55,7 @@ public class WebViewActivity extends BaseWebView {
     private void initView() {
         type = getIntent().getIntExtra("type", 0);
         id = getIntent().getIntExtra("id", 0);
+        url=getIntent().getStringExtra("url");
         initWebView(webView, progressBar);
         String token = SPUtil.getInstance(BaseApplication.getContext()).getString(SPUtil.TOKEN);
         String sid = SPUtil.getInstance(BaseApplication.getContext()).getString(SPUtil.SITEID);
@@ -108,6 +110,11 @@ public class WebViewActivity extends BaseWebView {
                 webView.loadUrl(HttpConstant.HTML + "lifeparticulars");
                 tvTitle.setText("品质生活");
                 break;
+            //品牌页面的“社会责任”
+            case 12:
+                 tvTitle.setText("品牌");
+                 webView.loadUrl(url);
+                  break;
             default:
                 break;
         }

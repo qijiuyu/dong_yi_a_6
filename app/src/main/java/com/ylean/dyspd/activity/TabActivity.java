@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -55,6 +56,8 @@ import cn.jpush.android.api.TagAliasCallback;
 
 public class TabActivity extends android.app.TabActivity{
 
+    @BindView(R.id.lin_tab)
+    LinearLayout linTab;
     @BindView(R.id.img_main)
     ImageView imgMain;
     @BindView(R.id.tv_main)
@@ -294,6 +297,15 @@ public class TabActivity extends android.app.TabActivity{
                 tabhost.setCurrentTabByTag("品牌");
                 StatusBarUtils.setStatusBarColor(this, android.R.color.black);
                 break;
+            //隐藏/显示底部tab
+            case EventStatus.IS_SHOW_TAB:
+                 boolean isShow= (boolean) eventBusType.getObject();
+                 if(isShow){
+                    linTab.setVisibility(View.VISIBLE);
+                 }else{
+                    linTab.setVisibility(View.GONE);
+                 }
+                  break;
             default:
                 break;
 
@@ -335,6 +347,10 @@ public class TabActivity extends android.app.TabActivity{
      */
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if(linTab.getVisibility()==View.GONE){
+                EventBus.getDefault().post(new EventBusType(EventStatus.BRAND_BACK));
+                return  false;
+            }
             if ((System.currentTimeMillis() - exitTime) > 2000) {
                 ToastUtil.showLong("再按一次退出程序!");
                 exitTime = System.currentTimeMillis();

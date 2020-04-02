@@ -103,4 +103,10 @@ public class EventStatus {
     //显示所有的城市
     public static final int SHOW_ALL_CITY=137;
 
+    //隐藏/显示tab
+    public static final int IS_SHOW_TAB=138;
+
+    //品牌页面返回上一页
+    public static final int BRAND_BACK=139;
+
 }

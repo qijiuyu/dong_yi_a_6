@@ -66,6 +66,7 @@ import com.zxdc.utils.library.bean.NearList;
 import com.zxdc.utils.library.util.DialogUtil;
 import com.zxdc.utils.library.util.LogUtils;
 import com.zxdc.utils.library.util.SPUtil;
+import com.zxdc.utils.library.view.HorizontalListView;
 import com.zxdc.utils.library.view.MeasureListView;
 import com.zxdc.utils.library.view.MyRefreshLayout;
 import com.zxdc.utils.library.view.MyRefreshLayoutListener;
@@ -468,6 +469,9 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
         }
         listDesigner.setOrientation(DSVOrientation.HORIZONTAL);
         listDesigner.setItemTransformer(new ScaleTransformer.Builder().setMinScale(0.8f).build());
+//        final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+//        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//        listDesigner.setLayoutManager(linearLayoutManager);
         listDesigner.setAdapter(new MainDesignerAdapter(this, list));
         tvDesignerNum.setText(list.size()>0 ? "1" : "0");
         tvDesignerTotalnum.setText("/"+list.size());
@@ -476,6 +480,30 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
                 tvDesignerNum.setText(String.valueOf(++adapterPosition));
             }
         });
+//        listDesigner.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//                int firstVisibleItemPosition=0;
+//                switch (newState){  //判断RecyclerView滑动不同的状态
+//
+//                    case RecyclerView.SCROLL_STATE_IDLE:
+//                        //获得当前显示在第一个item的位置
+//                        firstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
+//                        break;
+//                    case RecyclerView.SCROLL_STATE_DRAGGING:
+//                        //获得当前显示在第一个item的位置
+//                        firstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
+//                        tvDesignerNum.setText(String.valueOf(++firstVisibleItemPosition));
+//                        LogUtils.e(firstVisibleItemPosition+"++++++++++++++++++a");
+//                        break;
+//                    case RecyclerView.SCROLL_STATE_SETTLING:
+//                        LogUtils.e(firstVisibleItemPosition+"++++++++++++++++++b");
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//        });
     }
 
 

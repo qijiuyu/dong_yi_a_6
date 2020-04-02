@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 public class ActivitysLifecycle implements Application.ActivityLifecycleCallbacks {
-    private List<Activity> activitys =  new LinkedList();
+    public List<Activity> activitys =  new LinkedList();
     private static ActivitysLifecycle activitysLifecycle;
 
     public static ActivitysLifecycle getInstance(){

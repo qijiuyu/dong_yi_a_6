@@ -112,10 +112,11 @@ public class DecorateWebView extends BaseWebView {
                 break;
             //装修攻略详情
             case 3:
-                tvTitle.setText("攻略详情");
                 if (TextUtils.isEmpty(url)) {
+                    tvTitle.setText("攻略详情");
                     webView.loadUrl(url = HttpConstant.HTML + "decorationparticulars?id=" + id + "&token=" + token);
                 } else {
+                    tvTitle.setText("");
                     imgColl.setVisibility(View.GONE);
                     webView.loadUrl(url);
                 }
@@ -451,7 +452,7 @@ public class DecorateWebView extends BaseWebView {
                         }
                     }else if(url.startsWith(HttpConstant.HTML+"decorationparticulars?")){
                         type=3;
-                        tvTitle.setText("装修攻略详情");
+                        tvTitle.setText("攻略详情");
                         if(jsonObject!=null){
                             title=jsonObject.getString("title");
                         }

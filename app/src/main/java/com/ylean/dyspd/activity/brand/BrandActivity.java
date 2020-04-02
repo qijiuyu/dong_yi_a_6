@@ -1,19 +1,29 @@
 package com.ylean.dyspd.activity.brand;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.ylean.dyspd.R;
+import com.ylean.dyspd.activity.TabActivity;
+import com.ylean.dyspd.activity.web.WebViewActivity;
 import com.zxdc.utils.library.base.BaseWebView;
+import com.zxdc.utils.library.eventbus.EventBusType;
+import com.zxdc.utils.library.eventbus.EventStatus;
 import com.zxdc.utils.library.http.HttpConstant;
 import com.zxdc.utils.library.util.LogUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +47,8 @@ public class BrandActivity extends BaseWebView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brand);
         ButterKnife.bind(this);
+        //注册eventBus
+        EventBus.getDefault().register(this);
         initView();
     }
 
@@ -57,14 +69,39 @@ public class BrandActivity extends BaseWebView {
      * 监听跳转的url
      */
     private class webViewClient extends WebViewClient {
+
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                view.loadUrl(request.getUrl().toString()+"++++++++++");
+            } else {
+                view.loadUrl(request.toString()+"++++++++++++++");
+            }
+            return true;
+        }
+
         public void onPageFinished(WebView view, String url) {
             if(url.startsWith(HttpConstant.HTML)){
                 if(url.endsWith("brand")){
                     linBack.setVisibility(View.GONE);
+                    EventBus.getDefault().post(new EventBusType(EventStatus.IS_SHOW_TAB,true));
                 }else{
                     linBack.setVisibility(View.VISIBLE);
+                    EventBus.getDefault().post(new EventBusType(EventStatus.IS_SHOW_TAB,false));
                 }
             }
+
+//            if(url.startsWith(HttpConstant.HTML+"newsparticulars")){
+//                Intent intent=new Intent(BrandActivity.this, WebViewActivity.class);
+//                intent.putExtra("type",12);
+//                intent.putExtra("url",url);
+//                startActivity(intent);
+//                return;
+//            }
             super.onPageFinished(view, url);
         }
     }
@@ -75,6 +112,23 @@ public class BrandActivity extends BaseWebView {
         if(webView.canGoBack()){
             webView.goBack();
         }else{
+        }
+    }
+
+
+    /**
+     * EventBus注解
+     */
+    @Subscribe
+    public void onEvent(EventBusType eventBusType) {
+        switch (eventBusType.getStatus()) {
+            case EventStatus.BRAND_BACK:
+                 if(webView.canGoBack()){
+                     webView.goBack();
+                 }
+                  break;
+            default:
+                break;
         }
     }
 
@@ -95,5 +149,6 @@ public class BrandActivity extends BaseWebView {
     protected void onDestroy() {
         super.onDestroy();
         webView.clearCache(true);
+        EventBus.getDefault().unregister(this);
     }
 }
