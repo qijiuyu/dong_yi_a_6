@@ -67,6 +67,7 @@ public class DesignerListActivity extends BaseActivity implements MyRefreshLayou
      * 3：默认
      */
     private int yearSort = 2, sentimentSort = 3;
+    private String ordertype,sorttype;
     /**
      * 筛选：风格，门店id ，户型 ， 设计师类型
      */
@@ -301,6 +302,15 @@ public class DesignerListActivity extends BaseActivity implements MyRefreshLayou
                 break;
             }
         }
+
+        StringBuffer filed=new StringBuffer();
+        StringBuffer sort=new StringBuffer();
+        for (int i=0;i<sortList.size();i++){
+            filed.append(sortList.get(i).getFiled()+",");
+            sort.append(sortList.get(i).getSort()+",");
+        }
+        ordertype=filed.substring(0, filed.length()-1);
+        sorttype=sort.substring(0, sort.length()-1);
     }
 
 
@@ -316,7 +326,7 @@ public class DesignerListActivity extends BaseActivity implements MyRefreshLayou
      * 获取设计师列表
      */
     private void getDesignerList(int index) {
-        HttpMethod.getDesignerList(designerType, modelName, null, String.valueOf(page), shopid, SPUtil.gson.toJson(sortList), style, index, handler);
+        HttpMethod.getDesignerList(designerType, modelName, null, String.valueOf(page), shopid, ordertype,sorttype, style, index, handler);
     }
 
 

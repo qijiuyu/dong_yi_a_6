@@ -147,28 +147,28 @@ public interface HttpApi {
     Call<BaseBean> addGift(@FieldMap Map<String, String> map);
 
     @GET(HttpConstant.GET_CASE_LIST)
-    Call<CaseList> getCaseList(@Query("casetype") String casetype, @Query("dstyle") String dstyle, @Query("housearea") String housearea  , @Query("housetype") String housetype, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("sortparam") String sortparam);
+    Call<CaseList> getCaseList(@Query("casetype") String casetype, @Query("dstyle") String dstyle, @Query("housearea") String housearea  , @Query("housetype") String housetype, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("ordertype") String ordertype, @Query("sorttype") String sorttype);
 
     @GET(HttpConstant.GET_GALLERY_LIST)
-    Call<GalleryList> getGalleryList(@Query("dstyle") String dstyle, @Query("element") String element, @Query("housespace") String housespace, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("sortparam") String sortparam);
+    Call<GalleryList> getGalleryList(@Query("dstyle") String dstyle, @Query("element") String element, @Query("housespace") String housespace, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("ordertype") String ordertype, @Query("sorttype") String sorttype);
 
     @GET(HttpConstant.GET_VR_LIST)
-    Call<VrList> getVRList(@Query("dstyle") String dstyle, @Query("housearea") String housearea, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("sortparam") String sortparam);
+    Call<VrList> getVRList(@Query("dstyle") String dstyle, @Query("housearea") String housearea, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("ordertype") String ordertype, @Query("sorttype") String sorttype);
 
     @GET(HttpConstant.GET_COUSTRUCTION_LIST)
-    Call<ConstructionList> getConstructionList(@Query("housetype") String housetype, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("sortparam") String sortparam,@Query("stage") String stage);
+    Call<ConstructionList> getConstructionList(@Query("housetype") String housetype, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("ordertype") String ordertype,@Query("sorttype") String sorttype,@Query("stage") String stage);
 
     @GET(HttpConstant.GET_BUILDING_LIST)
-    Call<BuildingList> getBuildingList(@Query("district") String district,  @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("sortparam") String sortparam);
+    Call<BuildingList> getBuildingList(@Query("district") String district,  @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("ordertype") String ordertype, @Query("sorttype") String sorttype);
 
     @GET(HttpConstant.GET_SOFT_LIST)
-    Call<SoftLoadingList> getSoftList(@Query("dstyle") String dstyle, @Query("housearea") String housearea,@Query("housetype") String housetype, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("sortparam") String sortparam);
+    Call<SoftLoadingList> getSoftList(@Query("dstyle") String dstyle, @Query("housearea") String housearea,@Query("housetype") String housetype, @Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("ordertype") String ordertype, @Query("sorttype") String sorttype);
 
     @GET(HttpConstant.GET_DESIGNER_LIST)
-    Call<DesignerList> getDesignerList(@Query("dtype") String dtype,@Query("housetype") String housetype,@Query("name") String name, @Query("page") String page, @Query("shopid") String shopid, @Query("size") String size, @Query("sortparam") String sortparam, @Query("style") String style);
+    Call<DesignerList> getDesignerList(@Query("dtype") String dtype,@Query("housetype") String housetype,@Query("name") String name, @Query("page") String page, @Query("shopid") String shopid, @Query("size") String size, @Query("ordertype") String ordertype,@Query("sorttype") String sorttype, @Query("style") String style);
 
     @GET(HttpConstant.GET_NEAR_LIST)
-    Call<NearList> getNearList(@Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("sortparam") String sortparam);
+    Call<NearList> getNearList(@Query("name") String name, @Query("page") String page, @Query("size")String size, @Query("ordertype") String ordertype, @Query("sorttype") String sorttype);
 
     @GET(HttpConstant.GET_MAIN_COUSTRUCTION)
     Call<ConstructionList> getMainCoustruction();

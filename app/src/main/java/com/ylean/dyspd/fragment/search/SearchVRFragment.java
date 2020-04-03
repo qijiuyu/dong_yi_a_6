@@ -161,7 +161,7 @@ public class SearchVRFragment extends BaseFragment implements MyRefreshLayoutLis
      */
     private void getVRList(int index){
         if(isVisibleToUser && view!=null){
-            HttpMethod.getVRList(null,null,SearchListActivity.strKey,String.valueOf(page),null,index,handler);
+            HttpMethod.getVRList(null,null,SearchListActivity.strKey,String.valueOf(page),null,null,index,handler);
         }
     }
 

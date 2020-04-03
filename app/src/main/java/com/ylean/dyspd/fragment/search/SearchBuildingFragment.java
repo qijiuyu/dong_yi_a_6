@@ -159,7 +159,7 @@ public class SearchBuildingFragment extends BaseFragment implements MyRefreshLay
      */
     private void getBuildingList(int index){
         if(isVisibleToUser && view!=null){
-            HttpMethod.getBuildingList(null,SearchListActivity.strKey,String.valueOf(page),null,index,handler);
+            HttpMethod.getBuildingList(null,SearchListActivity.strKey,String.valueOf(page),null,null,index,handler);
         }
     }
 

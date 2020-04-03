@@ -61,6 +61,7 @@ public class BuildingListActivity extends BaseActivity implements MyRefreshLayou
      * 3：默认
      */
     private int caseSort = 2, modelSort = 3;
+    private String ordertype,sorttype;
     //所在地区
     private String district;
     //页数
@@ -249,6 +250,15 @@ public class BuildingListActivity extends BaseActivity implements MyRefreshLayou
                 break;
             }
         }
+
+        StringBuffer filed=new StringBuffer();
+        StringBuffer sort=new StringBuffer();
+        for (int i=0;i<sortList.size();i++){
+            filed.append(sortList.get(i).getFiled()+",");
+            sort.append(sortList.get(i).getSort()+",");
+        }
+        ordertype=filed.substring(0, filed.length()-1);
+        sorttype=sort.substring(0, sort.length()-1);
     }
 
 
@@ -256,8 +266,7 @@ public class BuildingListActivity extends BaseActivity implements MyRefreshLayou
      * 获取热门楼盘列表
      */
     private void getBuildingList(int index) {
-        LogUtils.e(SPUtil.gson.toJson(sortList)+"+++++++++++++++++++++");
-        HttpMethod.getBuildingList(district, null, String.valueOf(page), SPUtil.gson.toJson(sortList), index, handler);
+        HttpMethod.getBuildingList(district, null, String.valueOf(page), ordertype,sorttype, index, handler);
     }
 
     @Override

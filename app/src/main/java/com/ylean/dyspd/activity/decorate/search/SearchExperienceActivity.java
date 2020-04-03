@@ -159,7 +159,7 @@ public class SearchExperienceActivity extends BaseActivity implements TextView.O
      * 获取体验店列表
      */
     private void getNearList(int index){
-        HttpMethod.getNearList(name,String.valueOf(page),null,index,handler);
+        HttpMethod.getNearList(name,String.valueOf(page),null,null,index,handler);
     }
 
 

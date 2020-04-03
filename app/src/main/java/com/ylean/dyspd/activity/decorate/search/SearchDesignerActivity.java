@@ -158,7 +158,7 @@ public class SearchDesignerActivity extends BaseActivity implements TextView.OnE
      * 获取设计师列表
      */
     private void getDesignerList(int index){
-        HttpMethod.getDesignerList(null,null,name,String.valueOf(page),null,null,null,index,handler);
+        HttpMethod.getDesignerList(null,null,name,String.valueOf(page),null,null,null,null,index,handler);
     }
 
 

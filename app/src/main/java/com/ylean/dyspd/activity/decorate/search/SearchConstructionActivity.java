@@ -157,7 +157,7 @@ public class SearchConstructionActivity extends BaseActivity implements TextView
      * 获取V施工地列表
      */
     private void getConstructionList(int index){
-        HttpMethod.getConstructionList(null,name,String.valueOf(page),null,null,index,handler);
+        HttpMethod.getConstructionList(null,name,String.valueOf(page),null,null,null,index,handler);
     }
 
     @Override

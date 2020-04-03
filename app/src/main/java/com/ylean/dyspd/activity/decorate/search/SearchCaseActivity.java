@@ -156,7 +156,7 @@ public class SearchCaseActivity extends BaseActivity implements TextView.OnEdito
      * 获取装修案例数据
      */
     private void getCaseList(int index){
-        HttpMethod.getCaseList(null,null,null,null,name,String.valueOf(page),null,index,handler);
+        HttpMethod.getCaseList(null,null,null,null,name,String.valueOf(page),null,null,index,handler);
     }
 
     @Override

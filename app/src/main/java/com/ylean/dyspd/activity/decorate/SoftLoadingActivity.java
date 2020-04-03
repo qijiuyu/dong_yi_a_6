@@ -62,6 +62,7 @@ public class SoftLoadingActivity extends BaseActivity implements MyRefreshLayout
      * 3：默认
      */
     private int newSort = 2, sentimentSort = 3;
+    private String ordertype,sorttype;
     /**
      * 筛选：风格，面积，户型
      */
@@ -254,6 +255,16 @@ public class SoftLoadingActivity extends BaseActivity implements MyRefreshLayout
                 break;
             }
         }
+
+
+        StringBuffer filed=new StringBuffer();
+        StringBuffer sort=new StringBuffer();
+        for (int i=0;i<sortList.size();i++){
+            filed.append(sortList.get(i).getFiled()+",");
+            sort.append(sortList.get(i).getSort()+",");
+        }
+        ordertype=filed.substring(0, filed.length()-1);
+        sorttype=sort.substring(0, sort.length()-1);
     }
 
 
@@ -261,8 +272,7 @@ public class SoftLoadingActivity extends BaseActivity implements MyRefreshLayout
      * 获取软装范本列表
      */
     private void getSoftList(int index) {
-        LogUtils.e(SPUtil.gson.toJson(sortList)+"+++++++++++++++++++++");
-        HttpMethod.getSoftList(dstyle, housearea, housetype, null, String.valueOf(page), SPUtil.gson.toJson(sortList), index, handler);
+        HttpMethod.getSoftList(dstyle, housearea, housetype, null, String.valueOf(page), ordertype,sorttype, index, handler);
     }
 
     @Override

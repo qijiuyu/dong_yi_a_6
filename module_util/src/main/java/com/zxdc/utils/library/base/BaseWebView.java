@@ -90,6 +90,12 @@ public class BaseWebView extends BaseActivity {
 
 
     private class webViewClient extends WebViewClient {
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            return super.shouldOverrideUrlLoading(view, request);
+        }
+
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (url == null) return false;
             if (url.startsWith("http:") || url.startsWith("https:") ){

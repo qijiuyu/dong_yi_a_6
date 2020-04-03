@@ -159,7 +159,7 @@ public class SearchGalleryFragment extends BaseFragment implements MyRefreshLayo
      */
     private void getGalleryList(int index){
         if(isVisibleToUser && view!=null){
-            HttpMethod.getGalleryList(null,null,null,SearchListActivity.strKey,String.valueOf(page),null,index,handler);
+            HttpMethod.getGalleryList(null,null,null,SearchListActivity.strKey,String.valueOf(page),null,null,index,handler);
         }
     }
 

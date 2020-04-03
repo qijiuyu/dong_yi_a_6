@@ -159,7 +159,7 @@ public class SearchConstructionFragment extends BaseFragment implements MyRefres
      */
     private void getConstructionList(int index){
         if(isVisibleToUser && view!=null){
-            HttpMethod.getConstructionList(null,SearchListActivity.strKey,String.valueOf(page),null,null,index,handler);
+            HttpMethod.getConstructionList(null,SearchListActivity.strKey,String.valueOf(page),null,null,null,index,handler);
         }
     }
 

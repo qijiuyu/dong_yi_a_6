@@ -156,7 +156,7 @@ public class SearchDesignerFragment extends BaseFragment implements MyRefreshLay
      */
     private void getDesignerList(int index){
         if(isVisibleToUser && view!=null){
-            HttpMethod.getDesignerList(null,null,SearchListActivity.strKey,String.valueOf(page),null,null,null,index,handler);
+            HttpMethod.getDesignerList(null,null,SearchListActivity.strKey,String.valueOf(page),null,null,null,null,index,handler);
         }
     }
 

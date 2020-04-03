@@ -157,7 +157,7 @@ public class SearchSoftActivity extends BaseActivity implements TextView.OnEdito
      * 获取软装范本列表
      */
     private void getSoftList(int index){
-        HttpMethod.getSoftList(null,null,null,name,String.valueOf(page),null,index,handler);
+        HttpMethod.getSoftList(null,null,null,name,String.valueOf(page),null,null,index,handler);
     }
 
     @Override

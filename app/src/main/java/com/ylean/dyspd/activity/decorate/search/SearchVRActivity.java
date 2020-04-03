@@ -159,7 +159,7 @@ public class SearchVRActivity extends BaseActivity implements TextView.OnEditorA
      * 获取VR样板间列表
      */
     private void getVRList(int index){
-        HttpMethod.getVRList(null,null,name,String.valueOf(page),null,index,handler);
+        HttpMethod.getVRList(null,null,name,String.valueOf(page),null,null,index,handler);
     }
 
     @Override

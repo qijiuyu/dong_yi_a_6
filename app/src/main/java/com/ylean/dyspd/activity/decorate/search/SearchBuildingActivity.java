@@ -160,7 +160,7 @@ public class SearchBuildingActivity extends BaseActivity implements TextView.OnE
      * 获取热门楼盘列表
      */
     private void getBuildingList(int index) {
-        HttpMethod.getBuildingList(null, name, String.valueOf(page), null, index, handler);
+        HttpMethod.getBuildingList(null, name, String.valueOf(page), null,null, index, handler);
     }
 
     @Override

@@ -159,7 +159,7 @@ public class SearchNearFragment extends BaseFragment implements MyRefreshLayoutL
      */
     private void getNearList(int index){
         if(isVisibleToUser && view!=null){
-            HttpMethod.getNearList(SearchListActivity.strKey,String.valueOf(page),null,index,handler);
+            HttpMethod.getNearList(SearchListActivity.strKey,String.valueOf(page),null,null,index,handler);
         }
     }
 

@@ -64,6 +64,7 @@ public class ExperienceActivity extends BaseActivity implements MyRefreshLayoutL
      * 2：降序
      */
     private int distanceSort = 1, caseSort = 3, designerSort = 3, modelSort = 3;
+    private String ordertype,sorttype;
     //页数
     private int page = 1;
     private List<NearList.NearBean> listAll = new ArrayList<>();
@@ -272,6 +273,15 @@ public class ExperienceActivity extends BaseActivity implements MyRefreshLayoutL
                 break;
             }
         }
+
+        StringBuffer filed=new StringBuffer();
+        StringBuffer sort=new StringBuffer();
+        for (int i=0;i<sortList.size();i++){
+            filed.append(sortList.get(i).getFiled()+",");
+            sort.append(sortList.get(i).getSort()+",");
+        }
+        ordertype=filed.substring(0, filed.length()-1);
+        sorttype=sort.substring(0, sort.length()-1);
     }
 
 
@@ -279,8 +289,7 @@ public class ExperienceActivity extends BaseActivity implements MyRefreshLayoutL
      * 获取体验店列表
      */
     private void getNearList(int index) {
-        LogUtils.e(SPUtil.gson.toJson(sortList)+"+++++++++++++++++++++");
-        HttpMethod.getNearList(null, String.valueOf(page), SPUtil.gson.toJson(sortList), index, handler);
+        HttpMethod.getNearList(null, String.valueOf(page), ordertype,sorttype, index, handler);
     }
 
 

@@ -9,6 +9,8 @@ public class HttpConstant {
     //测试IP
     public static final String IP = "http://dyrs.yl-mall.cn/";
 
+//    public static final String IP="https://app2020ad.dyrs.com.cn/";
+
     //h5页面链接
     public static final String HTML = "http://dyrs.yl-mall.cn/h5#/";
 

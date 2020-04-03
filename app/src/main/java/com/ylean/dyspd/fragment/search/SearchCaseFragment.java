@@ -156,7 +156,7 @@ public class SearchCaseFragment extends BaseFragment implements MyRefreshLayoutL
      */
     private void getCaseList(int index){
         if(isVisibleToUser && view!=null){
-            HttpMethod.getCaseList(null,null,null,null,SearchListActivity.strKey,String.valueOf(page),null,index,handler);
+            HttpMethod.getCaseList(null,null,null,null,SearchListActivity.strKey,String.valueOf(page),null,null,index,handler);
         }
     }
 

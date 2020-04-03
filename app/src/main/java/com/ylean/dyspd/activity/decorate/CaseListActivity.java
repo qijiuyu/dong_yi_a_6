@@ -61,6 +61,7 @@ public class CaseListActivity extends BaseActivity implements MyRefreshLayoutLis
      * 2：降序
      */
     private int newSort = 2, sentimentSort = 3;
+    private String ordertype,sorttype;
     /**
      * 筛选：属性,风格,面积,户型
      */
@@ -255,6 +256,15 @@ public class CaseListActivity extends BaseActivity implements MyRefreshLayoutLis
                 break;
             }
         }
+
+        StringBuffer filed=new StringBuffer();
+        StringBuffer sort=new StringBuffer();
+        for (int i=0;i<sortList.size();i++){
+             filed.append(sortList.get(i).getFiled()+",");
+             sort.append(sortList.get(i).getSort()+",");
+        }
+        ordertype=filed.substring(0, filed.length()-1);
+        sorttype=sort.substring(0, sort.length()-1);
     }
 
 
@@ -263,8 +273,7 @@ public class CaseListActivity extends BaseActivity implements MyRefreshLayoutLis
      * 获取装修案例数据
      */
     private void getCaseList(int index) {
-        LogUtils.e(SPUtil.gson.toJson(sortList)+"+++++++++++++++++++++");
-        HttpMethod.getCaseList(casetype, dstyle, housearea, housetype, null, String.valueOf(page), SPUtil.gson.toJson(sortList), index, handler);
+        HttpMethod.getCaseList(casetype, dstyle, housearea, housetype, null, String.valueOf(page), ordertype,sorttype, index, handler);
     }
 
     @Override

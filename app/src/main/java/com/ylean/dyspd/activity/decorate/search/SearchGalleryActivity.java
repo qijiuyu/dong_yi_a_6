@@ -159,7 +159,7 @@ public class SearchGalleryActivity extends BaseActivity implements TextView.OnEd
      * 获取案例图库
      */
     private void getGalleryList(int index){
-        HttpMethod.getGalleryList(null,null,null,name,String.valueOf(page),null,index,handler);
+        HttpMethod.getGalleryList(null,null,null,name,String.valueOf(page),null,null,index,handler);
     }
 
     @Override

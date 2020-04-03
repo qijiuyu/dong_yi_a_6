@@ -415,7 +415,6 @@ public class DecorateWebView extends BaseWebView {
     private class webViewClient extends WebViewClient {
         public void onPageFinished(WebView view, String url) {
             JSONObject jsonObject=null;
-            LogUtils.e(url+"+++++++++++++++++++");
             try {
                 if(type==7 || type==9 || type==10 || type==11 || type==13){
                     return;
@@ -514,6 +513,7 @@ public class DecorateWebView extends BaseWebView {
             super.onPageFinished(view, url);
         }
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            LogUtils.e(url.toString()+"++++++++++++++++++++");
             if (url == null) return false;
             if (url.startsWith("http:") || url.startsWith("https:") ){
                 view.loadUrl(url);

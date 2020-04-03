@@ -159,7 +159,7 @@ public class SearchSoftFragment extends BaseFragment implements MyRefreshLayoutL
      */
     private void getSoftList(int index){
         if(isVisibleToUser && view!=null){
-            HttpMethod.getSoftList(null,null,null,SearchListActivity.strKey,String.valueOf(page),null,index,handler);
+            HttpMethod.getSoftList(null,null,null,SearchListActivity.strKey,String.valueOf(page),null,null,index,handler);
         }
     }
 

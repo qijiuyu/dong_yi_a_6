@@ -491,8 +491,8 @@ public class HttpMethod extends BaseRequst {
     /**
      * 获取装修案例数据
      */
-    public static void getCaseList(String casetype,String dstyle,String housearea ,String housetype,String name,String page,String sortparam,final int index,final Handler handler) {
-        Http.getRetrofit().create(HttpApi.class).getCaseList(casetype,dstyle,housearea,housetype,name,page,size,sortparam).enqueue(new Callback<CaseList>() {
+    public static void getCaseList(String casetype,String dstyle,String housearea ,String housetype,String name,String page,String ordertype,String sorttype,final int index,final Handler handler) {
+        Http.getRetrofit().create(HttpApi.class).getCaseList(casetype,dstyle,housearea,housetype,name,page,size,ordertype,sorttype).enqueue(new Callback<CaseList>() {
             public void onResponse(Call<CaseList> call, Response<CaseList> response) {
                 BaseRequst.sendMessage(handler, index, response.body());
             }
@@ -506,8 +506,8 @@ public class HttpMethod extends BaseRequst {
     /**
      * 获取案例图库
      */
-    public static void getGalleryList(String dstyle,String element,String housearea ,String name,String page,String sortparam,final int index,final Handler handler) {
-        Http.getRetrofit().create(HttpApi.class).getGalleryList(dstyle,element,housearea,name,page,size,sortparam).enqueue(new Callback<GalleryList>() {
+    public static void getGalleryList(String dstyle,String element,String housearea ,String name,String page,String ordertype,String sorttype,final int index,final Handler handler) {
+        Http.getRetrofit().create(HttpApi.class).getGalleryList(dstyle,element,housearea,name,page,size,ordertype,sorttype).enqueue(new Callback<GalleryList>() {
             public void onResponse(Call<GalleryList> call, Response<GalleryList> response) {
                 BaseRequst.sendMessage(handler, index, response.body());
             }
@@ -521,8 +521,8 @@ public class HttpMethod extends BaseRequst {
     /**
      * 获取VR样板间列表
      */
-    public static void getVRList(String dstyle,String housearea ,String name,String page,String sortparam,final int index,final Handler handler) {
-        Http.getRetrofit().create(HttpApi.class).getVRList(dstyle,housearea,name,page,size,sortparam).enqueue(new Callback<VrList>() {
+    public static void getVRList(String dstyle,String housearea ,String name,String page,String ordertype,String sorttype,final int index,final Handler handler) {
+        Http.getRetrofit().create(HttpApi.class).getVRList(dstyle,housearea,name,page,size,ordertype,sorttype).enqueue(new Callback<VrList>() {
             public void onResponse(Call<VrList> call, Response<VrList> response) {
                 BaseRequst.sendMessage(handler, index, response.body());
             }
@@ -536,8 +536,8 @@ public class HttpMethod extends BaseRequst {
     /**
      * 获取V施工地列表
      */
-    public static void getConstructionList(String dstyle ,String name,String page,String sortparam,String stage,final int index,final Handler handler) {
-        Http.getRetrofit().create(HttpApi.class).getConstructionList(dstyle,name,page,size,sortparam,stage).enqueue(new Callback<ConstructionList>() {
+    public static void getConstructionList(String dstyle ,String name,String page,String ordertype,String sorttype,String stage,final int index,final Handler handler) {
+        Http.getRetrofit().create(HttpApi.class).getConstructionList(dstyle,name,page,size,ordertype,sorttype,stage).enqueue(new Callback<ConstructionList>() {
             public void onResponse(Call<ConstructionList> call, Response<ConstructionList> response) {
                 BaseRequst.sendMessage(handler, index, response.body());
             }
@@ -551,8 +551,8 @@ public class HttpMethod extends BaseRequst {
     /**
      * 获取热门楼盘列表
      */
-    public static void getBuildingList(String district ,String name,String page,String sortparam,final int index,final Handler handler) {
-        Http.getRetrofit().create(HttpApi.class).getBuildingList(district,name,page,size,sortparam).enqueue(new Callback<BuildingList>() {
+    public static void getBuildingList(String district ,String name,String page,String ordertype,String sorttype,final int index,final Handler handler) {
+        Http.getRetrofit().create(HttpApi.class).getBuildingList(district,name,page,size,ordertype,sorttype).enqueue(new Callback<BuildingList>() {
             public void onResponse(Call<BuildingList> call, Response<BuildingList> response) {
                 BaseRequst.sendMessage(handler, index, response.body());
             }
@@ -567,8 +567,8 @@ public class HttpMethod extends BaseRequst {
     /**
      * 获取软装范本列表
      */
-    public static void getSoftList(String dstyle,String housearea ,String housetype,String name,String page,String sortparam,final int index,final Handler handler) {
-        Http.getRetrofit().create(HttpApi.class).getSoftList(dstyle,housearea,housetype,name,page,size,sortparam).enqueue(new Callback<SoftLoadingList>() {
+    public static void getSoftList(String dstyle,String housearea ,String housetype,String name,String page,String ordertype,String sorttype,final int index,final Handler handler) {
+        Http.getRetrofit().create(HttpApi.class).getSoftList(dstyle,housearea,housetype,name,page,size,ordertype,sorttype).enqueue(new Callback<SoftLoadingList>() {
             public void onResponse(Call<SoftLoadingList> call, Response<SoftLoadingList> response) {
                 BaseRequst.sendMessage(handler, index, response.body());
             }
@@ -582,8 +582,8 @@ public class HttpMethod extends BaseRequst {
     /**
      * 获取设计师列表
      */
-    public static void getDesignerList(String dtype,String housetype,String name,String page,String shopid,String sortparam,String style,final int index,final Handler handler) {
-        Http.getRetrofit().create(HttpApi.class).getDesignerList(dtype,housetype,name,page,shopid,size,sortparam,style).enqueue(new Callback<DesignerList>() {
+    public static void getDesignerList(String dtype,String housetype,String name,String page,String shopid,String ordertype,String sorttype,String style,final int index,final Handler handler) {
+        Http.getRetrofit().create(HttpApi.class).getDesignerList(dtype,housetype,name,page,shopid,size,ordertype,sorttype,style).enqueue(new Callback<DesignerList>() {
             public void onResponse(Call<DesignerList> call, Response<DesignerList> response) {
                 BaseRequst.sendMessage(handler, index, response.body());
             }
@@ -597,8 +597,8 @@ public class HttpMethod extends BaseRequst {
     /**
      * 获取体验店列表
      */
-    public static void getNearList(String name,String page,String sortparam,final int index,final Handler handler) {
-        Http.getRetrofit().create(HttpApi.class).getNearList(name,page,size,sortparam).enqueue(new Callback<NearList>() {
+    public static void getNearList(String name,String page,String ordertype,String sorttype,final int index,final Handler handler) {
+        Http.getRetrofit().create(HttpApi.class).getNearList(name,page,size,ordertype,sorttype).enqueue(new Callback<NearList>() {
             public void onResponse(Call<NearList> call, Response<NearList> response) {
                 BaseRequst.sendMessage(handler, index, response.body());
             }
