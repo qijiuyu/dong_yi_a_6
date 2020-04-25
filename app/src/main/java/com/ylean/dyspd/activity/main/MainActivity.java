@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
@@ -21,6 +22,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 import com.yarolegovich.discretescrollview.transform.Pivot;
@@ -176,6 +178,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
 
     @OnClick({R.id.tv_more_case,R.id.tv_more_designer, R.id.tv_more_construction, R.id.tv_more_near, R.id.tv_more_before, R.id.tv_more_hot, R.id.lin_city, R.id.img_search, R.id.lin_sxlf, R.id.rel_wyyf, R.id.rel_zcjj, R.id.rel_zssj, R.id.rel_wdfg, R.id.rel_jsq,R.id.img_brand,R.id.img_news})
     public void onViewClicked(View view) {
+        Intent intent=new Intent();
         switch (view.getId()) {
             //城市切换
             case R.id.lin_city:
@@ -183,63 +186,93 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
                 break;
             //搜索
             case R.id.img_search:
-                setClass(SearchActivity.class);
+                intent.setClass(this,SearchActivity.class);
+                intent.putExtra("type",1);
+                startActivity(intent);
                 break;
             //私享量房
             case R.id.lin_sxlf:
                 gotoWebView(3);
+                //埋点
+                MobclickAgent.onEvent(this, "main_sxlf");
                 break;
             //无忧验房
             case R.id.rel_wyyf:
                 gotoWebView(4);
+                //埋点
+                MobclickAgent.onEvent(this, "main_wyyf");
                 break;
             //专车接驾
             case R.id.rel_zcjj:
                 gotoWebView(5);
+                //埋点
+                MobclickAgent.onEvent(this, "main_zcjj");
                 break;
             //专属设计
             case R.id.rel_zssj:
                 gotoWebView(6);
+                //埋点
+                MobclickAgent.onEvent(this, "main_zfsj");
                 break;
             //我的风格
             case R.id.rel_wdfg:
                 gotoWebView(7);
+                //埋点
+                MobclickAgent.onEvent(this, "main_my_style");
                 break;
             //计算器
             case R.id.rel_jsq:
                 gotoWebView(8);
+                //埋点
+                MobclickAgent.onEvent(this, "main_jsq");
                 break;
             //案例精选更多
             case R.id.tv_more_case:
                 setClass(CaseListActivity.class);
+                //埋点
+                MobclickAgent.onEvent(this, "main_case_more");
                 break;
             //更多设计师
             case R.id.tv_more_designer:
                 setClass(DesignerListActivity.class);
+                //埋点
+                MobclickAgent.onEvent(this, "main_designer_more");
                 break;
             //更多在施工地
             case R.id.tv_more_construction:
                 setClass(ConstructionListActivity.class);
+                //埋点
+                MobclickAgent.onEvent(this, "main_cons_more");
                 break;
             //更多装修攻略
             case R.id.tv_more_before:
                 setClass(DecorateProgressActivity.class);
+                //埋点
+                MobclickAgent.onEvent(this, "main_strategy_more");
                 break;
             //热装楼盘更多
             case R.id.tv_more_hot:
                 setClass(BuildingListActivity.class);
+                //埋点
+                MobclickAgent.onEvent(this, "main_building_more");
                 break;
             //附近门店更多
             case R.id.tv_more_near:
                 setClass(ExperienceActivity.class);
+                //埋点
+                MobclickAgent.onEvent(this, "main_store_more");
                 break;
             //进入品牌菜单
             case R.id.img_brand:
                 EventBus.getDefault().post(new EventBusType(EventStatus.GO_TO_BRAND));
+                //埋点
+                MobclickAgent.onEvent(this, "main_brand");
                 break;
             //进入消息界面
             case R.id.img_news:
                  setClass(NewsActivity.class);
+                 //埋点
+                 MobclickAgent.onEvent(this, "main_news");
                  break;
             default:
                 break;
@@ -329,6 +362,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
     /**
      * 设置顶部广告/精选专题的banner轮播图
      */
+    private int bannerPosition;
     public void setBanner(List<BannerBean> list) {
        try {
            if(list==null || list.size()==0){
@@ -353,6 +387,15 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
            banner.setIndicatorGravity(BannerConfig.CENTER);
            //banner设置方法全部调用完毕时最后调用
            banner.start();
+           banner.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+               public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+               }
+               public void onPageSelected(int position) {
+                   bannerPosition=position;
+               }
+               public void onPageScrollStateChanged(int state) {
+               }
+           });
        }catch (Exception e){
            e.printStackTrace();
        }
@@ -378,6 +421,9 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
                     }
                     intent.putExtra("title",bannerBean.getTitle());
                     startActivity(intent);
+
+                    //埋点
+                    MobclickAgent.onEvent(MainActivity.this, "main_banner_"+(bannerPosition+1));
                 }
             });
         }
@@ -664,6 +710,9 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
         tvCity.setText(city);
         //重新查询所有数据
         mainPersenter.getSite();
+
+        //埋点
+        MobclickAgent.onEvent(this, "city_switch");
     }
 
 

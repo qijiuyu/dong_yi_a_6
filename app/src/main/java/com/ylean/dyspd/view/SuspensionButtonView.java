@@ -14,6 +14,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.TabActivity;
 import com.ylean.dyspd.activity.web.CustomerWebView;
@@ -94,6 +96,10 @@ public class SuspensionButtonView extends RelativeLayout implements View.OnClick
             case R.id.img_customer:
                 intent.setClass(context, CustomerWebView.class);
                 context.startActivity(intent);
+                //埋点
+                if(imgMain.getTag().toString().equals("0")){
+                    MobclickAgent.onEvent(context, "main_customer");
+                }
                 break;
             //回到首页
             case R.id.img_main:
@@ -106,6 +112,10 @@ public class SuspensionButtonView extends RelativeLayout implements View.OnClick
                  if(!TextUtils.isEmpty(mobile)){
                      intent.setAction(Intent.ACTION_DIAL).setData(Uri.parse("tel:" + mobile));
                      context.startActivity(intent);
+                     //埋点
+                     if(imgMain.getTag().toString().equals("0")){
+                         MobclickAgent.onEvent(context, "main_tel");
+                     }
                  }else{
                      //获取客服电话
                      getCall();
@@ -131,6 +141,10 @@ public class SuspensionButtonView extends RelativeLayout implements View.OnClick
                         Intent intent=new Intent();
                         intent.setAction(Intent.ACTION_DIAL).setData(Uri.parse("tel:" + telphone.getData()));
                         context.startActivity(intent);
+                        //埋点
+                        if(imgMain.getTag().toString().equals("0")){
+                            MobclickAgent.onEvent(context, "main_tel");
+                        }
                     }
                     break;
                 case HandlerConstant.REQUST_ERROR:

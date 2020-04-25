@@ -62,7 +62,7 @@ public class BuildingListAdapter extends BaseAdapter {
         String imgUrl=buildingBean.getImg();
         holder.imgHead.setTag(R.id.imageid,imgUrl);
         if(holder.imgHead.getTag(R.id.imageid)!=null && imgUrl==holder.imgHead.getTag(R.id.imageid)){
-            Glide.with(context).load(imgUrl).centerCrop().into(holder.imgHead);
+            Glide.with(context).load(imgUrl).centerCrop().error(R.mipmap.default_building).into(holder.imgHead);
         }
         holder.tvTitle.setText(buildingBean.getName());
         String des="在施工地:<font color=\"#B09B7C\">"+buildingBean.getConstructioncount()+"</font>户 ｜ 户型解析:<font color=\"#B09B7C\">"+buildingBean.getAnalysiscount()+"</font>户 ｜ 相关案例:<font color=\"#B09B7C\">"+buildingBean.getCasecount()+"</font>个";

@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.DecorateProgressActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
@@ -64,6 +65,19 @@ public class DecorateItemAdapter extends RecyclerView.Adapter<DecorateItemAdapte
 
                 //埋点
                 PointUtil.getInstent().pagePoint(context,9);
+                switch (typeBean.getCommonvalue()){
+                    case "装修前":
+                        MobclickAgent.onEvent(context, "browse_before");
+                         break;
+                    case "装修中":
+                        MobclickAgent.onEvent(context, "browse_the");
+                        break;
+                    case "装修后":
+                        MobclickAgent.onEvent(context, "browse_after");
+                        break;
+                    default:
+                        break;
+                }
             }
         });
     }

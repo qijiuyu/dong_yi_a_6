@@ -42,6 +42,11 @@ public class SearchActivity extends BaseActivity implements TextView.OnEditorAct
     //要搜索的关键字
     private String strKey;
     private SearchPersenter searchPersenter;
+    /**
+     * 1：首页进入
+     * 2：装修页面进入
+     */
+    public int type;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
@@ -57,6 +62,7 @@ public class SearchActivity extends BaseActivity implements TextView.OnEditorAct
      */
     private void initView() {
         searchPersenter=new SearchPersenter(this);
+        type=getIntent().getIntExtra("type",1);
         String hotSearch = "热门<font color=\"#000000\">" + "搜索" + "</font>";
         tvHot.setText(Html.fromHtml(hotSearch));
         etKey.setOnEditorActionListener(this);

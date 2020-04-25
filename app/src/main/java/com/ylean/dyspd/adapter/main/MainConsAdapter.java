@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.ConstructionList;
@@ -75,6 +76,7 @@ public class MainConsAdapter extends BaseAdapter {
          * 进入详情页面
          */
         holder.relConstruction.setTag(constructionBean);
+        holder.relConstruction.setTag(R.id.tag1,position);
         holder.relConstruction.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (v.getTag() == null) {
@@ -86,6 +88,10 @@ public class MainConsAdapter extends BaseAdapter {
                 intent.putExtra("id", constructionBean.getId());
                 intent.putExtra("title", constructionBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                int position= (int) v.getTag(R.id.tag1);
+                MobclickAgent.onEvent(context, "main_cons_"+(position+1));
             }
         });
         return view;

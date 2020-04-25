@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.main.ScreeningAdapter;
 import com.zxdc.utils.library.base.BaseActivity;
@@ -78,6 +79,48 @@ public class ScreeningDesignerActivity extends BaseActivity {
                                 final Screening.ScreeningBean screeningBean = (Screening.ScreeningBean) object;
                                 if (screeningBean != null) {
                                     styleName = screeningBean.getName();
+
+                                    //埋点
+                                    switch (styleName){
+                                        case "现代简约":
+                                            MobclickAgent.onEvent(activity, "designer_screening_1");
+                                             break;
+                                        case "欧式古典":
+                                            MobclickAgent.onEvent(activity, "designer_screening_2");
+                                            break;
+                                        case "新中式":
+                                            MobclickAgent.onEvent(activity, "designer_screening_3");
+                                            break;
+                                        case "法式":
+                                            MobclickAgent.onEvent(activity, "designer_screening_4");
+                                            break;
+                                        case "北欧":
+                                            MobclickAgent.onEvent(activity, "designer_screening_5");
+                                            break;
+                                        case "美式乡村":
+                                            MobclickAgent.onEvent(activity, "designer_screening_6");
+                                            break;
+                                        case "简欧":
+                                            MobclickAgent.onEvent(activity, "designer_screening_7");
+                                            break;
+                                        case "现代前卫":
+                                            MobclickAgent.onEvent(activity, "designer_screening_8");
+                                            break;
+                                        case "雅致主义":
+                                            MobclickAgent.onEvent(activity, "designer_screening_9");
+                                            break;
+                                        case "新古典":
+                                            MobclickAgent.onEvent(activity, "designer_screening_10");
+                                            break;
+                                        case "地中海":
+                                            MobclickAgent.onEvent(activity, "designer_screening_11");
+                                            break;
+                                        case "其他":
+                                            MobclickAgent.onEvent(activity, "designer_screening_12");
+                                            break;
+                                        default:
+                                            break;
+                                    }
                                 }
 
                             }

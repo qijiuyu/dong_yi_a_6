@@ -51,7 +51,7 @@ public class CustomerWebView extends BaseWebView{
         initWebView(webView, progressBar);
         webView.setWebChromeClient(myWebChromeClient);
         tvTitle.setText("客服");
-        webView.loadUrl("http://ddt.zoosnet.net/LR/Chatpre.aspx?id=DDT92914587&lng=cn");
+        webView.loadUrl("http://ddt.zoosnet.net/LR/Chatpre.aspx?andriodA6&id=DDT92914587&lng=cn");
     }
 
 

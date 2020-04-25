@@ -200,6 +200,8 @@ public class DecorateWebView extends BaseWebView {
                     webView.goBack();
                 } else {
                     finish();
+                    //埋点
+                    PointUtil.detailsBack(this,type);
                 }
                 break;
             //取消或者关注
@@ -352,6 +354,9 @@ public class DecorateWebView extends BaseWebView {
             }
             //分享成功后添加信用分
             decorateWebPersenter.isColl(id, type, 3);
+
+            //埋点
+            PointUtil.detailsShare(DecorateWebView.this,type);
         }
 
         public void onError(SHARE_MEDIA platform, Throwable t) {
@@ -542,6 +547,8 @@ public class DecorateWebView extends BaseWebView {
                 webView.goBack();
             } else {
                 finish();
+                //埋点
+                PointUtil.detailsBack(this,type);
             }
         }
         return false;

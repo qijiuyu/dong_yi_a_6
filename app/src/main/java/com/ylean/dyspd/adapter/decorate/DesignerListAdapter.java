@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
+import com.ylean.dyspd.activity.decorate.DesignerListActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.DesignerList;
 import com.zxdc.utils.library.view.HorizontalListView;
@@ -99,6 +101,9 @@ public class DesignerListAdapter extends BaseAdapter {
                 intent.putExtra("id",designerBean.getId());
                 intent.putExtra("title",designerBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "designer_list_details");
             }
         });
         return view;

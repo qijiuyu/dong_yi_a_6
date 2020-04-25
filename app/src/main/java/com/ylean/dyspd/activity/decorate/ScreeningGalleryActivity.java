@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.main.ScreeningAdapter;
 import com.zxdc.utils.library.base.BaseActivity;
@@ -97,6 +98,48 @@ public class ScreeningGalleryActivity extends BaseActivity {
                                 final Screening.ScreeningBean screeningBean = (Screening.ScreeningBean) object;
                                 if (screeningBean != null) {
                                     spaceName = screeningBean.getName();
+
+                                    //埋点
+                                    switch (styleName){
+                                        case "玄关":
+                                            MobclickAgent.onEvent(activity, "gallery_space_1");
+                                            break;
+                                        case "客厅":
+                                            MobclickAgent.onEvent(activity, "gallery_space_2");
+                                            break;
+                                        case "餐厅":
+                                            MobclickAgent.onEvent(activity, "gallery_space_3");
+                                            break;
+                                        case "厨房":
+                                            MobclickAgent.onEvent(activity, "gallery_space_4");
+                                            break;
+                                        case "卧室":
+                                            MobclickAgent.onEvent(activity, "gallery_space_5");
+                                            break;
+                                        case "儿童房":
+                                            MobclickAgent.onEvent(activity, "gallery_space_6");
+                                            break;
+                                        case "衣帽间":
+                                            MobclickAgent.onEvent(activity, "gallery_space_7");
+                                            break;
+                                        case "卫生间":
+                                            MobclickAgent.onEvent(activity, "gallery_space_8");
+                                            break;
+                                        case "书房":
+                                            MobclickAgent.onEvent(activity, "gallery_space_9");
+                                            break;
+                                        case "阳台":
+                                            MobclickAgent.onEvent(activity, "gallery_space_10");
+                                            break;
+                                        case "庭院":
+                                            MobclickAgent.onEvent(activity, "gallery_space_11");
+                                            break;
+                                        case "其他":
+                                            MobclickAgent.onEvent(activity, "gallery_space_12");
+                                            break;
+                                        default:
+                                            break;
+                                    }
                                 }
                             }
                         });
@@ -119,6 +162,36 @@ public class ScreeningGalleryActivity extends BaseActivity {
                                 final Screening.ScreeningBean screeningBean = (Screening.ScreeningBean) object;
                                 if (screeningBean != null) {
                                     elementName = screeningBean.getName();
+
+                                    //埋点
+                                    switch (styleName){
+                                        case "家居":
+                                            MobclickAgent.onEvent(activity, "gallery_element_1");
+                                            break;
+                                        case "饰品":
+                                            MobclickAgent.onEvent(activity, "gallery_element_2");
+                                            break;
+                                        case "布艺":
+                                            MobclickAgent.onEvent(activity, "gallery_element_3");
+                                            break;
+                                        case "日用品":
+                                            MobclickAgent.onEvent(activity, "gallery_element_4");
+                                            break;
+                                        case "灯具":
+                                            MobclickAgent.onEvent(activity, "gallery_element_5");
+                                            break;
+                                        case "花品":
+                                            MobclickAgent.onEvent(activity, "dgallery_element_6");
+                                            break;
+                                        case "收藏品":
+                                            MobclickAgent.onEvent(activity, "gallery_element_7");
+                                            break;
+                                        case "画品":
+                                            MobclickAgent.onEvent(activity, "degallery_element_8");
+                                            break;
+                                        default:
+                                            break;
+                                    }
                                 }
                             }
                         });

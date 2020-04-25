@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.MainDecorate;
@@ -73,6 +74,7 @@ public class MainDecorateAdapter extends BaseAdapter {
          * 进入详情页面
          */
         holder.relDecorate.setTag(decorateBean);
+        holder.relDecorate.setTag(R.id.tag1,position);
         holder.relDecorate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(v.getTag()==null){
@@ -84,6 +86,10 @@ public class MainDecorateAdapter extends BaseAdapter {
                 intent.putExtra("id",decorateBean.getId());
                 intent.putExtra("title",decorateBean.getTitle());
                 context.startActivity(intent);
+
+                //埋点
+                int position= (int) v.getTag(R.id.tag1);
+                MobclickAgent.onEvent(context, "main_strategy_"+(position+1));
             }
         });
         return view;

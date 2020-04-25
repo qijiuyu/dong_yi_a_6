@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.MainBuilding;
@@ -55,7 +56,7 @@ public class MainHotAdapter extends RecyclerView.Adapter<MainHotAdapter.MyHolder
         String imgUrl=buildingBean.getImg();
         holder.imgHead.setTag(R.id.imageid,imgUrl);
         if(holder.imgHead.getTag(R.id.imageid)!=null && imgUrl==holder.imgHead.getTag(R.id.imageid)){
-            Glide.with(context).load(imgUrl).centerCrop().into(holder.imgHead);
+            Glide.with(context).load(imgUrl).centerCrop().error(R.mipmap.default_building).into(holder.imgHead);
         }
 
         /**
@@ -73,6 +74,9 @@ public class MainHotAdapter extends RecyclerView.Adapter<MainHotAdapter.MyHolder
                 intent.putExtra("id",buildingBean.getId());
                 intent.putExtra("title",buildingBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "main_building_details");
             }
         });
     }

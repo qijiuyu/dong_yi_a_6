@@ -153,4 +153,36 @@ public class PointUtil {
                 break;
         }
     }
+
+
+    /**
+     * 详情页返回
+     * @param type
+     */
+    public static void detailsBack(Context context,int type){
+        switch (type){
+            //设计师页面返回
+            case 8:
+                MobclickAgent.onEvent(context, "designer_details_back");
+                 break;
+            default:
+                break;
+        }
+    }
+
+
+    /**
+     * 详情页转发
+     * @param type
+     */
+    public static void detailsShare(Context context,int type){
+        switch (type){
+            //设计师
+            case 8:
+                MobclickAgent.onEvent(context, "designer_share");
+                break;
+            default:
+                break;
+        }
+    }
 }

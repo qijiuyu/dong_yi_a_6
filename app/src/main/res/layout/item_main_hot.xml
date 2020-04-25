@@ -18,7 +18,7 @@
             android:id="@+id/img_head"
             android:layout_width="186dp"
             android:layout_height="200dp"
-            android:src="@mipmap/dd"
+            android:src="@mipmap/default_building"
             android:scaleType="centerCrop"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"/>

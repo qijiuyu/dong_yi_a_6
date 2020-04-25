@@ -11,6 +11,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.decorate.DesignerListAdapter;
 import com.ylean.dyspd.adapter.decorate.SearchDesignerAdapter;
@@ -22,7 +24,10 @@ import com.zxdc.utils.library.util.ToastUtil;
 import com.zxdc.utils.library.view.MyRefreshLayout;
 import com.zxdc.utils.library.view.MyRefreshLayoutListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -159,6 +164,11 @@ public class SearchDesignerActivity extends BaseActivity implements TextView.OnE
      */
     private void getDesignerList(int index){
         HttpMethod.getDesignerList(null,null,name,String.valueOf(page),null,null,null,null,index,handler);
+
+        //埋点
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("keys",name);
+        MobclickAgent.onEventObject(activity, "designer_list_search",map);
     }
 
 

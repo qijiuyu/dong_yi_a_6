@@ -1,5 +1,6 @@
 package com.ylean.dyspd.activity.decorate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -67,10 +68,13 @@ public class DecorateActivity extends BaseActivity{
      */
     @OnClick({R.id.img_search, R.id.img_designer, R.id.img_experience, R.id.tv_fgal, R.id.tv_altk, R.id.tv_vr, R.id.tv_rzfb, R.id.tv_rzlp, R.id.tv_zxgd})
     public void onViewClicked(View view) {
+        Intent intent=new Intent();
         switch (view.getId()) {
             //搜索
             case R.id.img_search:
-                setClass(SearchActivity.class);
+                intent.setClass(this,SearchActivity.class);
+                intent.putExtra("type",2);
+                startActivity(intent);
                 break;
             //设计师
             case R.id.img_designer:

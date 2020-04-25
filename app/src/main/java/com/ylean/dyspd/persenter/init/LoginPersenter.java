@@ -143,6 +143,7 @@ public class LoginPersenter {
         //保存账号和密码
         SPUtil.getInstance(activity).addString(SPUtil.ACCOUNT,mobile);
         SPUtil.getInstance(activity).addString(SPUtil.PASSWORD,password);
+        SPUtil.getInstance(activity).removeMessage(SPUtil.OPEN_ID);
         DialogUtil.showProgress(activity,"登录中...");
         HttpMethod.login(mobile,password,handler);
     }

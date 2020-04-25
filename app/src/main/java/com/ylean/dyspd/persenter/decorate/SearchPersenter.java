@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.SearchActivity;
 import com.ylean.dyspd.activity.decorate.SearchListActivity;
@@ -23,6 +24,7 @@ import com.zxdc.utils.library.util.SPUtil;
 import com.zxdc.utils.library.util.ToastUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -144,5 +146,15 @@ public class SearchPersenter {
         Intent intent=new Intent(activity,SearchListActivity.class);
         intent.putExtra("keys",keys);
         activity.startActivity(intent);
+
+        //埋点
+        Map<String, Object> map = new HashMap<>();
+        map.put("keys",keys);
+        if(activity.type==1){
+            MobclickAgent.onEventObject(activity, "main_search",map);
+        }else{
+            MobclickAgent.onEventObject(activity, "decorate_search",map);
+        }
+
     }
 }

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.search.SearchDesignerActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
@@ -130,6 +131,9 @@ public class DesignerListActivity extends BaseActivity implements MyRefreshLayou
                 sortSelect(0);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "designer_sort_year");
                 break;
             //人气
             case R.id.lin_sentiment:
@@ -144,10 +148,16 @@ public class DesignerListActivity extends BaseActivity implements MyRefreshLayou
                 sortSelect(1);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "designer_sort_sentiment");
                 break;
             //筛选
             case R.id.tv_screening:
                 setClass(ScreeningDesignerActivity.class, 100);
+
+                //埋点
+                MobclickAgent.onEvent(this, "designer_screening");
                 break;
             default:
                 break;
@@ -214,6 +224,9 @@ public class DesignerListActivity extends BaseActivity implements MyRefreshLayou
                 intent.putExtra("id", designerBean.getCommonid());
                 intent.putExtra("title", designerBean.getCommonvalue());
                 startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(DesignerListActivity.this, "designer_chief");
             }
         });
     }

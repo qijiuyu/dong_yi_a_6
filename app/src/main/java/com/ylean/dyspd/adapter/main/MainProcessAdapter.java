@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 
 /**
@@ -45,6 +47,14 @@ public class MainProcessAdapter extends RecyclerView.Adapter<MainProcessAdapter.
             holder.imgLine.setVisibility(View.VISIBLE);
         }
 
+
+        holder.relClick.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //埋点
+                MobclickAgent.onEvent(context, "main_process");
+            }
+        });
+
     }
 
     @Override
@@ -53,10 +63,12 @@ public class MainProcessAdapter extends RecyclerView.Adapter<MainProcessAdapter.
     }
 
     public class MyHolder extends RecyclerView.ViewHolder {
+        RelativeLayout relClick;
         ImageView imgHead,imgLine;
         TextView tvNum,tvDes;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
+            relClick=itemView.findViewById(R.id.rel_click);
             imgHead=itemView.findViewById(R.id.img_head);
             tvNum=itemView.findViewById(R.id.tv_num);
             tvDes=itemView.findViewById(R.id.tv_des);

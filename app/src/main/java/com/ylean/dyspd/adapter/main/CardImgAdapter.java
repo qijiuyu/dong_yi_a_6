@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.WebViewActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
@@ -72,6 +73,9 @@ public class CardImgAdapter extends RecyclerView.Adapter<CardImgAdapter.MyHolder
                     intent.putExtra("type",7);
                 }
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "main_case_details");
             }
         });
     }

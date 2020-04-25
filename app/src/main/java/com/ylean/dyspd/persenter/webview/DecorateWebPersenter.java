@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.ylean.dyspd.activity.main.CaseGuideActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
@@ -91,6 +92,9 @@ public class DecorateWebPersenter {
                      if(baseBean.isSussess()){
                          EventBus.getDefault().post(new EventBusType(EventStatus.FOUCE_DESIGNER_SUCCESS));
                          ToastUtil.showLong("关注成功");
+
+                         //埋点
+                         MobclickAgent.onEvent(activity, "designer_details_focus");
                      }else{
                          ToastUtil.showLong(baseBean.getDesc());
                      }
