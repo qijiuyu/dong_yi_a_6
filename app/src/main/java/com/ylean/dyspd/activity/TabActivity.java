@@ -183,6 +183,9 @@ public class TabActivity extends android.app.TabActivity{
             case R.id.lin_brand:
                 updateTag(2);
                 tabhost.setCurrentTabByTag("品牌");
+
+                //埋点
+                MobclickAgent.onEvent(this, "menu_brand");
                 break;
             case R.id.lin_found:
                 updateTag(3);

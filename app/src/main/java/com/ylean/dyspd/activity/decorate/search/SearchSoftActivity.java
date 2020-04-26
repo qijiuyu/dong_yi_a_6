@@ -11,6 +11,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.decorate.SoftLoadingAdapter;
 import com.zxdc.utils.library.base.BaseActivity;
@@ -21,7 +23,10 @@ import com.zxdc.utils.library.util.ToastUtil;
 import com.zxdc.utils.library.view.MyRefreshLayout;
 import com.zxdc.utils.library.view.MyRefreshLayoutListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -84,6 +89,11 @@ public class SearchSoftActivity extends BaseActivity implements TextView.OnEdito
             //查询
             page=1;
             getSoftList(HandlerConstant.GET_SOFT_LIST_SUCCESS1);
+
+            //埋点
+            Map<String, Object> map = new HashMap<>();
+            map.put("keys",name);
+            MobclickAgent.onEventObject(activity, "soft_list_search",map);
 
         }
         return false;

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.search.SearchBuildingActivity;
 import com.ylean.dyspd.adapter.decorate.BuildingListAdapter;
@@ -102,6 +103,9 @@ public class BuildingListActivity extends BaseActivity implements MyRefreshLayou
         switch (view.getId()) {
             case R.id.lin_back:
                 finish();
+
+                //埋点
+                MobclickAgent.onEvent(this, "building_list_back");
                 break;
             case R.id.img_search:
                 setClass(SearchBuildingActivity.class);
@@ -119,6 +123,9 @@ public class BuildingListActivity extends BaseActivity implements MyRefreshLayou
                 sortSelect(0);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "building_list_case");
                 break;
             //户型解析数
             case R.id.lin_model:
@@ -133,6 +140,9 @@ public class BuildingListActivity extends BaseActivity implements MyRefreshLayou
                 sortSelect(1);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "building_list_model");
                 break;
             //筛选
             case R.id.tv_screening:
@@ -214,6 +224,9 @@ public class BuildingListActivity extends BaseActivity implements MyRefreshLayou
             district = data.getStringExtra("name");
             //刷新列表
             onRefresh(null);
+
+            //埋点
+            MobclickAgent.onEvent(this, "building_list_screening");
         }
     }
 

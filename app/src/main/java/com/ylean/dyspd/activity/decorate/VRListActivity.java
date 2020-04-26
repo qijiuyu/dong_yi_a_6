@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.search.SearchVRActivity;
 import com.ylean.dyspd.adapter.decorate.VRListAdapter;
@@ -107,6 +108,9 @@ public class VRListActivity extends BaseActivity implements MyRefreshLayoutListe
         switch (view.getId()) {
             case R.id.lin_back:
                 finish();
+
+                //埋点
+                MobclickAgent.onEvent(this, "vr_list_back");
                 break;
             //搜索
             case R.id.img_search:
@@ -125,6 +129,9 @@ public class VRListActivity extends BaseActivity implements MyRefreshLayoutListe
                 sortSelect(0);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "vr_list_news");
                 break;
             //人气
             case R.id.rel_sentiment:
@@ -139,6 +146,9 @@ public class VRListActivity extends BaseActivity implements MyRefreshLayoutListe
                 sortSelect(1);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "vr_list_sentiment");
                 break;
             ///筛选
             case R.id.tv_screening:
@@ -221,6 +231,9 @@ public class VRListActivity extends BaseActivity implements MyRefreshLayoutListe
             housearea = data.getStringExtra("areaName");
             //刷新列表
             onRefresh(null);
+
+            //埋点
+            MobclickAgent.onEvent(this, "vr_list_screening");
         }
     }
 

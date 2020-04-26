@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.search.SearchCaseActivity;
 import com.ylean.dyspd.adapter.decorate.CaseAdapter;
@@ -104,6 +105,8 @@ public class CaseListActivity extends BaseActivity implements MyRefreshLayoutLis
         switch (view.getId()) {
             case R.id.lin_back:
                 finish();
+                //埋点
+                MobclickAgent.onEvent(this, "case_list_back");
                 break;
             //搜索
             case R.id.img_search:
@@ -122,6 +125,9 @@ public class CaseListActivity extends BaseActivity implements MyRefreshLayoutLis
                 sortSelect(0);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "case_list_news");
                 break;
             //人气
             case R.id.rel_sentiment:
@@ -136,10 +142,16 @@ public class CaseListActivity extends BaseActivity implements MyRefreshLayoutLis
                 sortSelect(1);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "case_list_sentiment");
                 break;
             //筛选
             case R.id.tv_screening:
                 setClass(ScreeningCaseActivity.class, 100);
+
+                //埋点
+                MobclickAgent.onEvent(this, "case_list_screening");
                 break;
             default:
                 break;

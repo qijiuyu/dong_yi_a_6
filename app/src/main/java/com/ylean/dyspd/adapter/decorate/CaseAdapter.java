@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.CaseList;
@@ -90,6 +91,9 @@ public class CaseAdapter extends BaseAdapter {
                 intent.putExtra("id",caseListBean.getId());
                 intent.putExtra("title",caseListBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "case_list_cover");
             }
         });
         return view;

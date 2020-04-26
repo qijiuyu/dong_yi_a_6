@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.bespoke.BespokeNearActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
@@ -78,6 +79,9 @@ public class ExperienceAdapter extends BaseAdapter {
                 Intent intent=new Intent();
                 intent.setAction(Intent.ACTION_DIAL).setData(Uri.parse("tel:" + v.getTag().toString()));
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "store_list_tel");
             }
         });
 
@@ -94,6 +98,9 @@ public class ExperienceAdapter extends BaseAdapter {
                 Intent intent=new Intent(context, BespokeNearActivity.class);
                 intent.putExtra("id",nearBean.getId());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "store_list_bespoke");
             }
         });
 

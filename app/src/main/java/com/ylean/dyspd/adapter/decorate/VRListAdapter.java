@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.WebViewActivity;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
@@ -63,6 +64,9 @@ public class VRListAdapter extends RecyclerView.Adapter<VRListAdapter.MyHolder> 
                 intent.putExtra("url",vrBean.getDetailurl());
                 intent.putExtra("title",vrBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "vr_list_cover");
             }
         });
     }

@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.decorate.VRListAdapter;
 import com.zxdc.utils.library.base.BaseActivity;
@@ -22,7 +24,10 @@ import com.zxdc.utils.library.util.ToastUtil;
 import com.zxdc.utils.library.view.MyRefreshLayout;
 import com.zxdc.utils.library.view.MyRefreshLayoutListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -86,6 +91,11 @@ public class SearchVRActivity extends BaseActivity implements TextView.OnEditorA
             //查询
             page=1;
             getVRList(HandlerConstant.GET_VR_LIST_SUCCESS1);
+
+            //埋点
+            Map<String, Object> map = new HashMap<>();
+            map.put("keys",name);
+            MobclickAgent.onEventObject(activity, "vr_list_search",map);
 
         }
         return false;

@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
@@ -218,6 +220,23 @@ public class GiftActivity extends BaseActivity {
     private ViewPagerCallBack viewPagerCallBack=new ViewPagerCallBack() {
         public void PageSelected(int position) {
             pagerIndex=position;
+
+
+            //埋点
+            if(type==0 && position==1){
+                MobclickAgent.onEvent(GiftActivity.this, "my_gift_overdue");
+            }
+            if(type==1){
+                if(position==0){
+                    MobclickAgent.onEvent(GiftActivity.this, "my_voucher_confirm");
+                }
+                if(position==1){
+                    MobclickAgent.onEvent(GiftActivity.this, "my_voucher_no_reveive");
+                }
+                if(position==2){
+                    MobclickAgent.onEvent(GiftActivity.this, "my_voucher_reveive");
+                }
+            }
         }
     };
 

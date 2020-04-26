@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.search.SearchConstructionActivity;
 import com.ylean.dyspd.adapter.decorate.ConstructionAdapter;
@@ -104,6 +105,9 @@ public class ConstructionListActivity extends BaseActivity implements MyRefreshL
         switch (view.getId()) {
             case R.id.lin_back:
                 finish();
+
+                //埋点
+                MobclickAgent.onEvent(this, "construction_list_back");
                 break;
             case R.id.img_search:
                 setClass(SearchConstructionActivity.class);
@@ -121,6 +125,9 @@ public class ConstructionListActivity extends BaseActivity implements MyRefreshL
                 sortSelect(0);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "construction_list_news");
                 break;
             //人气
             case R.id.rel_sentiment:
@@ -135,6 +142,9 @@ public class ConstructionListActivity extends BaseActivity implements MyRefreshL
                 sortSelect(1);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "construction_list_sentiment");
                 break;
             //筛选
             case R.id.tv_screening:
@@ -217,6 +227,9 @@ public class ConstructionListActivity extends BaseActivity implements MyRefreshL
             housetype = data.getStringExtra("modelName");
             //刷新列表
             onRefresh(null);
+
+            //埋点
+            MobclickAgent.onEvent(this, "construction_list_screening");
         }
     }
 
