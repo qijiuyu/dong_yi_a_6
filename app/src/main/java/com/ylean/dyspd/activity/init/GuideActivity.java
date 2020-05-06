@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.util.SPUtil;
@@ -38,6 +39,9 @@ public class GuideActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
         ButterKnife.bind(this);
+
+        //埋点
+        MobclickAgent.onEvent(this, "loading_phone");
 
         SPUtil.getInstance(activity).addBoolean(SPUtil.IS_FIRST_OPEN, true);
 

@@ -119,6 +119,9 @@ public class ExperienceAdapter extends BaseAdapter {
                 intent.putExtra("id",nearBean.getId());
                 intent.putExtra("title",nearBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "store_list_cover");
             }
         });
         return view;

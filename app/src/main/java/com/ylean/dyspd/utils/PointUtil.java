@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.activity.init.LoginActivity;
+import com.ylean.dyspd.activity.user.BindingMobileActivity;
 import com.zxdc.utils.library.http.HttpMethod;
 import com.zxdc.utils.library.util.LogUtils;
 import com.zxdc.utils.library.util.SPUtil;
@@ -88,6 +89,8 @@ public class PointUtil {
         }else{
             MobclickAgent.onEvent(context, "wx_register");
         }
+        //埋点
+        MobclickAgent.onEvent(context, "register_num");
     }
 
 
