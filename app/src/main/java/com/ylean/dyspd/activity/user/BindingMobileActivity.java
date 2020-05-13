@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.bean.BaseBean;
@@ -141,6 +143,9 @@ public class BindingMobileActivity extends BaseActivity {
                         intent.putExtra("mobile",etMobile.getText().toString().trim());
                         setResult(1,intent);
                         finish();
+
+                        //埋点
+                        MobclickAgent.onEvent(BindingMobileActivity.this, "binding_mobile");
                     }
                     ToastUtil.showLong(baseBean.getDesc());
                      break;

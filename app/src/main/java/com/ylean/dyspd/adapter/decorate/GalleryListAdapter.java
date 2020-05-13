@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.GalleryList;
@@ -65,6 +66,9 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
                 intent.putExtra("id",galleryBean.getId());
                 intent.putExtra("title",galleryBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "gallery_list_cover");
             }
         });
     }

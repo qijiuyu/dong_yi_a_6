@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.activity.init.LoginActivity;
+import com.ylean.dyspd.activity.user.BindingMobileActivity;
 import com.zxdc.utils.library.http.HttpMethod;
 import com.zxdc.utils.library.util.LogUtils;
 import com.zxdc.utils.library.util.SPUtil;
@@ -88,6 +89,8 @@ public class PointUtil {
         }else{
             MobclickAgent.onEvent(context, "wx_register");
         }
+        //埋点
+        MobclickAgent.onEvent(context, "register_num");
     }
 
 
@@ -165,6 +168,38 @@ public class PointUtil {
             case 8:
                 MobclickAgent.onEvent(context, "designer_details_back");
                  break;
+            //体验店页面返回
+            case 4:
+                MobclickAgent.onEvent(context, "store_details_back");
+                break;
+            //案例页面返回
+            case 12:
+                MobclickAgent.onEvent(context, "case_details_back");
+                break;
+            //案例图片
+            case 1:
+                MobclickAgent.onEvent(context, "gallery_details_back");
+                break;
+            //vr
+            case 2:
+                MobclickAgent.onEvent(context, "vr_details_back");
+                break;
+            //软装
+            case 7:
+                MobclickAgent.onEvent(context, "soft_details_back");
+                break;
+            //楼盘
+            case 6:
+                MobclickAgent.onEvent(context, "building_details_back");
+                break;
+            //工地
+            case 5:
+                MobclickAgent.onEvent(context, "construction_list_back");
+                break;
+            //攻略
+            case 3:
+                MobclickAgent.onEvent(context, "strategy_details_back");
+                break;
             default:
                 break;
         }
@@ -180,6 +215,38 @@ public class PointUtil {
             //设计师
             case 8:
                 MobclickAgent.onEvent(context, "designer_share");
+                break;
+            //体验店
+            case 4:
+                MobclickAgent.onEvent(context, "store_share");
+                break;
+            //案例页
+            case 12:
+                MobclickAgent.onEvent(context, "case_share");
+                break;
+            //案例图片
+            case 1:
+                MobclickAgent.onEvent(context, "gallery_details_share");
+                break;
+            //vr
+            case 2:
+                MobclickAgent.onEvent(context, "vr_details_share");
+                break;
+            //软装
+            case 7:
+                MobclickAgent.onEvent(context, "soft_details_share");
+                break;
+            //楼盘
+            case 6:
+                MobclickAgent.onEvent(context, "building_details_share");
+                break;
+            //工地
+            case 5:
+                MobclickAgent.onEvent(context, "construction_list_share");
+                break;
+            //攻略
+            case 3:
+                MobclickAgent.onEvent(context, "strategy_details_share");
                 break;
             default:
                 break;

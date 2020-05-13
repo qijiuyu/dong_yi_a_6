@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.SoftLoadingList;
@@ -87,6 +88,9 @@ public class SoftLoadingAdapter extends BaseAdapter {
                 intent.putExtra("id",softLoadingBean.getId());
                 intent.putExtra("title",softLoadingBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "soft_list_cover");
             }
         });
         return view;

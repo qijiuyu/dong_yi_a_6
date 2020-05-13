@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.MainDecorate;
@@ -24,10 +25,12 @@ public class DesignerProgressAdapter extends BaseAdapter {
 
     private Context context;
     private List<MainDecorate.DecorateBean> list;
-    public DesignerProgressAdapter(Context context,List<MainDecorate.DecorateBean> list) {
+    private String title;
+    public DesignerProgressAdapter(Context context,List<MainDecorate.DecorateBean> list,String title) {
         super();
         this.context = context;
         this.list=list;
+        this.title=title;
     }
 
     @Override
@@ -79,6 +82,21 @@ public class DesignerProgressAdapter extends BaseAdapter {
                 intent.putExtra("id",decorateBean.getId());
                 intent.putExtra("title",decorateBean.getTitle());
                 context.startActivity(intent);
+
+                //埋点
+                switch (title){
+                    case "装修前":
+                        MobclickAgent.onEvent(context, "decorate_before_cover");
+                        break;
+                    case "装修中":
+                        MobclickAgent.onEvent(context, "decorate_the_cover");
+                        break;
+                    case "装修后":
+                        MobclickAgent.onEvent(context, "decorate_after_cover");
+                        break;
+                    default:
+                        break;
+                }
             }
         });
         return view;

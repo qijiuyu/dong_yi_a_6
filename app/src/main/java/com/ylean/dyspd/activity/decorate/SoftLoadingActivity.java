@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.search.SearchSoftActivity;
 import com.ylean.dyspd.adapter.decorate.SoftLoadingAdapter;
@@ -105,6 +106,9 @@ public class SoftLoadingActivity extends BaseActivity implements MyRefreshLayout
         switch (view.getId()) {
             case R.id.lin_back:
                 finish();
+
+                //埋点
+                MobclickAgent.onEvent(this, "soft_list_back");
                 break;
             case R.id.img_search:
                 setClass(SearchSoftActivity.class);
@@ -122,6 +126,9 @@ public class SoftLoadingActivity extends BaseActivity implements MyRefreshLayout
                 sortSelect(0);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "soft_list_news");
                 break;
             //人气
             case R.id.rel_sentiment:
@@ -136,6 +143,9 @@ public class SoftLoadingActivity extends BaseActivity implements MyRefreshLayout
                 sortSelect(1);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "soft_list_sentiment");
                 break;
             //筛选
             case R.id.tv_screening:
@@ -219,6 +229,9 @@ public class SoftLoadingActivity extends BaseActivity implements MyRefreshLayout
             housetype = data.getStringExtra("modelName");
             //刷新列表
             onRefresh(null);
+
+            //埋点
+            MobclickAgent.onEvent(this, "soft_list_screening");
         }
     }
 

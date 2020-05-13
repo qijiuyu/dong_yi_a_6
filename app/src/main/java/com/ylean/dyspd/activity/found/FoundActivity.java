@@ -13,6 +13,7 @@ import android.widget.PopupWindow;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
@@ -110,41 +111,65 @@ public class FoundActivity extends BaseActivity{
                 if(tvToReceive.getText().toString().trim().equals("点击领取")){
                     //领取优惠券
                     takeCoupon();
+
+                    //埋点
+                    MobclickAgent.onEvent(this, "found_receiver");
                 }
                 break;
             //私享量房
             case R.id.lin_sxlf:
                 gotoWebView(3);
+                //埋点
+                MobclickAgent.onEvent(this, "found_sxlf");
                 break;
             //无忧验房
             case R.id.rel_wyyf:
                 gotoWebView(4);
+                //埋点
+                MobclickAgent.onEvent(this, "found_wyyf");
                 break;
             //专车接驾
             case R.id.rel_zcjj:
                 gotoWebView(5);
+                //埋点
+                MobclickAgent.onEvent(this, "found_zcjj");
                 break;
             //专属设计
             case R.id.rel_zssj:
                 gotoWebView(6);
+                //埋点
+                MobclickAgent.onEvent(this, "found_zssj");
                 break;
             //我的风格
             case R.id.rel_wdfg:
                 gotoWebView(7);
+                //埋点
+                MobclickAgent.onEvent(this, "found_wdfg");
                 break;
             //计算器
             case R.id.rel_jsq:
                  gotoWebView(8);
+                //埋点
+                MobclickAgent.onEvent(this, "found_jsq");
                  break;
             case R.id.rel_click1:
                  setClass(DesignerListActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "found_designer_share");
                 break;
             case R.id.rel_click2:
                 setClass(CaseListActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "found_homo");
                 break;
             //我要代言
             case R.id.rel_click3:
                 shareDialog();
+
+                //埋点
+                MobclickAgent.onEvent(this, "found_endorsement");
                 break;
             case R.id.img_1:
             case R.id.img_2:
@@ -152,6 +177,9 @@ public class FoundActivity extends BaseActivity{
             case R.id.img_4:
             case R.id.img_5:
                 setClass(PinZhiActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "found_life");
                 break;
             default:
                 break;

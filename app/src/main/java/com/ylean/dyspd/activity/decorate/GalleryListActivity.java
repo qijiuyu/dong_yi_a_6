@@ -11,6 +11,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.search.SearchGalleryActivity;
 import com.ylean.dyspd.adapter.decorate.GalleryListAdapter;
@@ -105,6 +107,8 @@ public class GalleryListActivity extends BaseActivity implements MyRefreshLayout
         switch (view.getId()) {
             case R.id.lin_back:
                 finish();
+                //埋点
+                MobclickAgent.onEvent(this, "gallery_list_back");
                 break;
             case R.id.img_search:
                 setClass(SearchGalleryActivity.class);
@@ -122,6 +126,9 @@ public class GalleryListActivity extends BaseActivity implements MyRefreshLayout
                 sortSelect(0);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "gallery_list_news");
                 break;
             //人气
             case R.id.rel_sentiment:
@@ -136,6 +143,9 @@ public class GalleryListActivity extends BaseActivity implements MyRefreshLayout
                 sortSelect(1);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "gallery_list_sentiment");
                 break;
             //筛选
             case R.id.tv_screening:
@@ -219,6 +229,9 @@ public class GalleryListActivity extends BaseActivity implements MyRefreshLayout
             housespace=data.getStringExtra("spaceName");
             //刷新列表
             onRefresh(null);
+
+            //埋点
+            MobclickAgent.onEvent(this, "gallery_list_screening");
         }
     }
 

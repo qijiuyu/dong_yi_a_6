@@ -3,8 +3,6 @@ package com.ylean.dyspd.utils;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -15,21 +13,22 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
+
 import com.ylean.dyspd.R;
 import com.zxdc.utils.library.bean.DownLoad;
 import com.zxdc.utils.library.bean.Version;
 import com.zxdc.utils.library.http.HandlerConstant;
 import com.zxdc.utils.library.http.HttpMethod;
-import com.zxdc.utils.library.util.LogUtils;
 import com.zxdc.utils.library.util.SPUtil;
 import com.zxdc.utils.library.util.Util;
 import com.zxdc.utils.library.view.ArrowDownloadButton;
+
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 版本更新工具类
  */
@@ -39,6 +38,7 @@ public class UpdateVersionUtils {
     private Version version;
     private Context mContext;
     private final String savePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/dyrs.apk";
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
     /**
      * 查询最新版本
@@ -47,6 +47,10 @@ public class UpdateVersionUtils {
      */
     public void getVersion(Context mContext) {
         this.mContext = mContext;
+        final String today_time=SPUtil.getInstance(mContext).getString("today_time");
+        if(today_time.equals(sdf.format(new Date()))){
+            return;
+        }
         HttpMethod.getVersion(mHandler);
     }
 
@@ -101,6 +105,8 @@ public class UpdateVersionUtils {
                             tvCalcle.setOnClickListener(new View.OnClickListener() {
                                 public void onClick(View v) {
                                     dialog.dismiss();
+                                    //记录今天的日期
+                                    SPUtil.getInstance(mContext).addString("today_time",sdf.format(new Date()));
                                 }
                             });
 

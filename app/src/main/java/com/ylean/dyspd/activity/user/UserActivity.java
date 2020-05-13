@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
@@ -19,18 +20,11 @@ import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.bean.NewsNum;
 import com.zxdc.utils.library.bean.Telphone;
 import com.zxdc.utils.library.bean.UserInfo;
-import com.zxdc.utils.library.eventbus.EventBusType;
-import com.zxdc.utils.library.eventbus.EventStatus;
 import com.zxdc.utils.library.http.HandlerConstant;
 import com.zxdc.utils.library.http.HttpMethod;
 import com.zxdc.utils.library.util.SPUtil;
 import com.zxdc.utils.library.util.ToastUtil;
 import com.zxdc.utils.library.view.CircleImageView;
-
-import org.greenrobot.eventbus.EventBus;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -98,27 +92,45 @@ public class UserActivity extends BaseActivity {
                 intent.setClass(this, UserInfoActivity.class);
                 intent.putExtra("userInfo", userInfo);
                 startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(this, "user_news");
                 break;
             //我的礼包
             case R.id.tv_gift:
                 setClass(GiftActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "user_my_gift");
                 break;
             //我的收藏
             case R.id.tv_collection:
                 setClass(CollectionActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "user_my_coll");
                 break;
             //我的关注
             case R.id.tv_Focus:
                 setClass(MyFocusActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "user_my_focus");
                 break;
             //我的分享
             case R.id.tv_share:
                 setClass(ShareRecordActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "user_my_share");
                 break;
             //专属客服
             case R.id.tv_tel:
                 intent.setClass(this, CustomerWebView.class);
                 startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(this, "user_my_customer");
                 break;
             //客服电话
             case R.id.rel_tel:
@@ -126,6 +138,9 @@ public class UserActivity extends BaseActivity {
                  if(!TextUtils.isEmpty(mobile)){
                     intent.setAction(Intent.ACTION_DIAL).setData(Uri.parse("tel:" + mobile));
                     startActivity(intent);
+
+                     //埋点
+                     MobclickAgent.onEvent(this, "user_tel");
                  }else{
                     //获取客服电话
                     getCall();
@@ -134,10 +149,16 @@ public class UserActivity extends BaseActivity {
             //意见反馈
             case R.id.rel_feedback:
                 setClass(FeedBackActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "user_feedback");
                 break;
             //设置
             case R.id.rel_setting:
                 setClass(SettingActivity.class);
+
+                //埋点
+                MobclickAgent.onEvent(this, "user_setting");
                 break;
             //消息
             case R.id.img_news:

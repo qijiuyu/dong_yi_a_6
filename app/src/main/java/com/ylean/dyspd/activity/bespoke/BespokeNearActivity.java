@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.utils.PointUtil;
 import com.zxdc.utils.library.base.BaseActivity;
@@ -21,6 +22,10 @@ import com.zxdc.utils.library.http.HttpMethod;
 import com.zxdc.utils.library.util.DialogUtil;
 import com.zxdc.utils.library.util.SPUtil;
 import com.zxdc.utils.library.util.ToastUtil;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -80,6 +85,21 @@ public class BespokeNearActivity extends BaseActivity {
                 }
                 //预约
                 bespoke(address, mobile, name);
+
+                //埋点
+                Map<String, Object> map = new HashMap<>();
+                map.put("name",name);
+                MobclickAgent.onEventObject(activity, "store_bespoke_name",map);
+
+                Map<String, Object> map2= new HashMap<>();
+                map2.put("mobile",mobile);
+                MobclickAgent.onEventObject(activity, "store_bespoke_mobile",map2);
+
+                Map<String, Object> map3 = new HashMap<>();
+                map3.put("area",address);
+                MobclickAgent.onEventObject(activity, "store_bespoke_area",map3);
+
+                MobclickAgent.onEvent(this, "store_bespoke_btn");
                 break;
             default:
                 break;

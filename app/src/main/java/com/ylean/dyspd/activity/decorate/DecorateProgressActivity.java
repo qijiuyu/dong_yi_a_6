@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.decorate.DesignerProgressAdapter;
 import com.ylean.dyspd.adapter.decorate.DialogDecorateAdapter;
@@ -51,6 +53,7 @@ public class DecorateProgressActivity extends BaseActivity implements MyRefreshL
     private int cid=-1;
     //页数
     private int page = 1;
+    public String title;
     private List<MainDecorate.DecorateBean> listAll = new ArrayList<>();
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,10 +71,10 @@ public class DecorateProgressActivity extends BaseActivity implements MyRefreshL
      */
     private void initView() {
         cid = getIntent().getIntExtra("cid", -1);
-        String title=getIntent().getStringExtra("title");
+        title=getIntent().getStringExtra("title");
         tvType.setText(title);
         reList.setMyRefreshLayoutListener(this);
-        designerProgressAdapter=new DesignerProgressAdapter(this,listAll);
+        designerProgressAdapter=new DesignerProgressAdapter(this,listAll,title);
         listView.setAdapter(designerProgressAdapter);
         listView.setDivider(null);
     }
@@ -81,6 +84,21 @@ public class DecorateProgressActivity extends BaseActivity implements MyRefreshL
         switch (view.getId()) {
             case R.id.lin_back:
                 finish();
+
+                //埋点
+                switch (title){
+                    case "装修前":
+                        MobclickAgent.onEvent(this, "decorate_before_back");
+                        break;
+                    case "装修中":
+                        MobclickAgent.onEvent(this, "decorate_the_back");
+                        break;
+                    case "装修后":
+                        MobclickAgent.onEvent(this, "decorate_after_back");
+                        break;
+                    default:
+                        break;
+                }
                 break;
             //选择装修类型
             case R.id.tv_type:
@@ -196,6 +214,21 @@ public class DecorateProgressActivity extends BaseActivity implements MyRefreshL
                 popupWindow.dismiss();
                 //开始查询列表数据
                 searchList(position);
+
+                //埋点
+                switch (title){
+                    case "装修前":
+                        MobclickAgent.onEvent(DecorateProgressActivity.this, "decorate_before_switch");
+                        break;
+                    case "装修中":
+                        MobclickAgent.onEvent(DecorateProgressActivity.this, "decorate_the_switch");
+                        break;
+                    case "装修后":
+                        MobclickAgent.onEvent(DecorateProgressActivity.this, "decorate_after_switch");
+                        break;
+                    default:
+                        break;
+                }
             }
         });
     }

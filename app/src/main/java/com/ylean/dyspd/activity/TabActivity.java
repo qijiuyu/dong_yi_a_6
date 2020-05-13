@@ -26,7 +26,6 @@ import com.ylean.dyspd.utils.DataCleanManager;
 import com.ylean.dyspd.utils.UpdateVersionUtils;
 import com.ylean.dyspd.view.SuspensionButtonView;
 import com.zxdc.utils.library.bean.Telphone;
-import com.zxdc.utils.library.bean.UserInfo;
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
 import com.zxdc.utils.library.http.HandlerConstant;
@@ -38,12 +37,14 @@ import com.zxdc.utils.library.util.StatusBarUtils;
 import com.zxdc.utils.library.util.ToastUtil;
 import com.zxdc.utils.library.util.error.CockroachUtil;
 import com.zxdc.utils.library.view.ClickLinearLayout;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -183,6 +184,9 @@ public class TabActivity extends android.app.TabActivity{
             case R.id.lin_brand:
                 updateTag(2);
                 tabhost.setCurrentTabByTag("品牌");
+
+                //埋点
+                MobclickAgent.onEvent(this, "menu_brand");
                 break;
             case R.id.lin_found:
                 updateTag(3);

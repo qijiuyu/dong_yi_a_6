@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
@@ -398,6 +400,8 @@ public class DecorateWebView extends BaseWebView {
             //进入预约体验店界面
             case 3:
                 intent.setClass(this, BespokeNearActivity.class);
+                //埋点
+                MobclickAgent.onEvent(this, "store_details_bespoke");
                 break;
             //进入预约参观楼盘界面
             case 4:

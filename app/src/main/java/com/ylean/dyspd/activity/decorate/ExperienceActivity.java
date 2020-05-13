@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.search.SearchExperienceActivity;
 import com.ylean.dyspd.adapter.decorate.ExperienceAdapter;
@@ -98,6 +99,8 @@ public class ExperienceActivity extends BaseActivity implements MyRefreshLayoutL
         switch (view.getId()) {
             case R.id.lin_back:
                 finish();
+                //埋点
+                MobclickAgent.onEvent(this, "store_list_back");
                 break;
             //搜索
             case R.id.img_search:
@@ -116,6 +119,9 @@ public class ExperienceActivity extends BaseActivity implements MyRefreshLayoutL
                 sortSelect(0);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "store_list_distance");
                 break;
             //案例数
             case R.id.lin_case:
@@ -130,6 +136,9 @@ public class ExperienceActivity extends BaseActivity implements MyRefreshLayoutL
                 sortSelect(1);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "store_list_case");
                 break;
             //设计师数
             case R.id.lin_designer:
@@ -144,6 +153,9 @@ public class ExperienceActivity extends BaseActivity implements MyRefreshLayoutL
                 sortSelect(2);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "store_list_designer");
                 break;
             //户型解析数
             case R.id.lin_model:
@@ -158,6 +170,9 @@ public class ExperienceActivity extends BaseActivity implements MyRefreshLayoutL
                 sortSelect(3);
                 //刷新列表
                 onRefresh(null);
+
+                //埋点
+                MobclickAgent.onEvent(this, "store_list_model");
                 break;
             default:
                 break;

@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.web.decorate.DecorateWebView;
 import com.zxdc.utils.library.bean.ConstructionList;
@@ -81,6 +82,9 @@ public class ConstructionAdapter extends BaseAdapter {
                 intent.putExtra("id",constructionBean.getId());
                 intent.putExtra("title",constructionBean.getName());
                 context.startActivity(intent);
+
+                //埋点
+                MobclickAgent.onEvent(context, "construction_list_cover");
             }
         });
         return view;
