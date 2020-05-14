@@ -130,7 +130,7 @@ public class TabActivity extends android.app.TabActivity{
         }
 
         //上传imei
-        HttpMethod.sendImei(NetUtil.getIMEI(this),handler);
+        HttpMethod.sendImei(NetUtil.getDeviceID(),handler);
 
         PermissionUtil.initPhotoError();
     }

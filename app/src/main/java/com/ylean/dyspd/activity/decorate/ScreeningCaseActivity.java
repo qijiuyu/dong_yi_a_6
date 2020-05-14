@@ -77,6 +77,48 @@ public class ScreeningCaseActivity extends BaseActivity {
                                 final Screening.ScreeningBean screeningBean = (Screening.ScreeningBean) object;
                                 if (screeningBean != null) {
                                     styleName = screeningBean.getName();
+
+                                    //埋点
+                                    switch (styleName){
+                                        case "现代简约":
+                                            MobclickAgent.onEvent(activity, "case_screening_1");
+                                            break;
+                                        case "欧式古典":
+                                            MobclickAgent.onEvent(activity, "case_screening_2");
+                                            break;
+                                        case "新中式":
+                                            MobclickAgent.onEvent(activity, "case_screening_3");
+                                            break;
+                                        case "法式":
+                                            MobclickAgent.onEvent(activity, "case_screening_4");
+                                            break;
+                                        case "北欧":
+                                            MobclickAgent.onEvent(activity, "case_screening_5");
+                                            break;
+                                        case "美式乡村":
+                                            MobclickAgent.onEvent(activity, "case_screening_6");
+                                            break;
+                                        case "简欧":
+                                            MobclickAgent.onEvent(activity, "case_screening_7");
+                                            break;
+                                        case "现代前卫":
+                                            MobclickAgent.onEvent(activity, "case_screening_8");
+                                            break;
+                                        case "雅致主义":
+                                            MobclickAgent.onEvent(activity, "case_screening_9");
+                                            break;
+                                        case "新古典":
+                                            MobclickAgent.onEvent(activity, "case_screening_10");
+                                            break;
+                                        case "地中海":
+                                            MobclickAgent.onEvent(activity, "case_screening_11");
+                                            break;
+                                        case "其他":
+                                            MobclickAgent.onEvent(activity, "case_screening_12");
+                                            break;
+                                        default:
+                                            break;
+                                    }
                                 }
 
                             }
@@ -100,6 +142,41 @@ public class ScreeningCaseActivity extends BaseActivity {
                                 final Screening.ScreeningBean screeningBean = (Screening.ScreeningBean) object;
                                 if (screeningBean != null) {
                                     modelName = screeningBean.getName();
+
+
+                                    //埋点
+                                    switch (styleName){
+                                        case "别墅":
+                                            MobclickAgent.onEvent(activity, "case_model_1");
+                                            break
+                                        case "跃层":
+                                            MobclickAgent.onEvent(activity, "case_model_2");
+                                            break
+                                        case "普通住宅":
+                                            MobclickAgent.onEvent(activity, "case_model_3");
+                                            break
+                                        case "会所":
+                                            MobclickAgent.onEvent(activity, "case_model_4");
+                                            break
+                                        case "一居室":
+                                            MobclickAgent.onEvent(activity, "case_model_5");
+                                            break
+                                        case "二居室":
+                                            MobclickAgent.onEvent(activity, "case_model_6");
+                                            break
+                                        case "三居室":
+                                            MobclickAgent.onEvent(activity, "case_model_7");
+                                            break
+                                        case "四居室":
+                                            MobclickAgent.onEvent(activity, "case_model_8");
+                                            break
+                                        case "Loft":
+                                            MobclickAgent.onEvent(activity, "case_model_9");
+                                            break
+                                        case "复式":
+                                            MobclickAgent.onEvent(activity, "case_model_10");
+                                            break
+                                    }
                                 }
                             }
                         });
@@ -122,6 +199,28 @@ public class ScreeningCaseActivity extends BaseActivity {
                                 final Screening.ScreeningBean screeningBean = (Screening.ScreeningBean) object;
                                 if (screeningBean != null) {
                                     areaName = screeningBean.getName();
+
+                                    //埋点
+                                    switch (styleName) {
+                                        case "1000平米以上":
+                                            MobclickAgent.onEvent(activity, "case_area_1");
+                                            break
+                                        case "501-1000平米以上":
+                                            MobclickAgent.onEvent(activity, "case_area_2");
+                                            break
+                                        case "321-500平米":
+                                            MobclickAgent.onEvent(activity, "case_area_3");
+                                            break
+                                        case "181-320平米":
+                                            MobclickAgent.onEvent(activity, "case_area_4");
+                                            break
+                                        case "121-180平米":
+                                            MobclickAgent.onEvent(activity, "case_area_5");
+                                            break
+                                        case "120平米一下":
+                                            MobclickAgent.onEvent(activity, "case_area_6");
+                                            break
+                                    }
                                 }
                             }
                         });
@@ -144,6 +243,16 @@ public class ScreeningCaseActivity extends BaseActivity {
                                 final Screening.ScreeningBean screeningBean = (Screening.ScreeningBean) object;
                                 if (screeningBean != null) {
                                     caseName = screeningBean.getName();
+
+                                    //埋点
+                                    switch (styleName) {
+                                        case "实景图":
+                                            MobclickAgent.onEvent(activity, "case_attribute_1");
+                                            break
+                                        case "效果图":
+                                            MobclickAgent.onEvent(activity, "case_attribute_2");
+                                            break
+                                    }
                                 }
                             }
                         });
