@@ -1,6 +1,7 @@
 package com.ylean.dyspd.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
 import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.brand.BrandActivity;
@@ -24,6 +27,7 @@ import com.ylean.dyspd.activity.user.UserActivity;
 import com.ylean.dyspd.application.MyApplication;
 import com.ylean.dyspd.utils.DataCleanManager;
 import com.ylean.dyspd.utils.NetUtil;
+import com.ylean.dyspd.utils.PermissionUtil;
 import com.ylean.dyspd.utils.UpdateVersionUtils;
 import com.ylean.dyspd.view.SuspensionButtonView;
 import com.zxdc.utils.library.bean.Telphone;
@@ -100,6 +104,7 @@ public class TabActivity extends android.app.TabActivity{
     protected long exitTime = 0;
     private List<TextView> tvList = new ArrayList<>();
     private List<ImageView> imgList = new ArrayList<>();
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
@@ -126,6 +131,8 @@ public class TabActivity extends android.app.TabActivity{
 
         //上传imei
         HttpMethod.sendImei(NetUtil.getIMEI(this),handler);
+
+        PermissionUtil.initPhotoError();
     }
 
 

@@ -25,16 +25,6 @@ public class StartActivity extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
         setContentView(R.layout.activity_wellcome);
         initView();
-        PermissionUtil.getPermission(this, true, false, new PermissionCallBack() {
-            public void onclick() {
-                if(SPUtil.getInstance(StartActivity.this).getBoolean(SPUtil.IS_FIRST_OPEN)){
-                    setClass(TabActivity.class);
-                }else{
-                    setClass(GuideActivity.class);
-                }
-                finish();
-            }
-        });
     }
 
 
@@ -61,5 +51,21 @@ public class StartActivity extends BaseActivity {
 
     public interface PermissionCallBack{
         public void onclick();
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        PermissionUtil.getPermission(this, true, true, new PermissionCallBack() {
+            public void onclick() {
+                if(SPUtil.getInstance(StartActivity.this).getBoolean(SPUtil.IS_FIRST_OPEN)){
+                    setClass(TabActivity.class);
+                }else{
+                    setClass(GuideActivity.class);
+                }
+                finish();
+            }
+        });
     }
 }
