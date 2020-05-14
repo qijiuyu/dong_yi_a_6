@@ -9,8 +9,8 @@ android {
         applicationId "com.ylean.dyspd"
         minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
-        versionCode 34
-        versionName "4.4"
+        versionCode 1
+        versionName "1.0"
 
         ndk {
             //设置支持的SO库架构
