@@ -389,4 +389,8 @@ public interface HttpApi {
     @FormUrlEncoded
     @POST(HttpConstant.BING_MOBILE)
     Call<BaseBean> bingMobile(@FieldMap Map<String, String> map);
+
+    @FormUrlEncoded
+    @POST(HttpConstant.SEND_IMEI)
+    Call<BaseBean> sendImei(@FieldMap Map<String, String> map);
 }

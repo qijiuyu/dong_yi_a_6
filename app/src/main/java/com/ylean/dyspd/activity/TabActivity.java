@@ -23,6 +23,7 @@ import com.ylean.dyspd.activity.main.MainActivity;
 import com.ylean.dyspd.activity.user.UserActivity;
 import com.ylean.dyspd.application.MyApplication;
 import com.ylean.dyspd.utils.DataCleanManager;
+import com.ylean.dyspd.utils.NetUtil;
 import com.ylean.dyspd.utils.UpdateVersionUtils;
 import com.ylean.dyspd.view.SuspensionButtonView;
 import com.zxdc.utils.library.bean.Telphone;
@@ -122,6 +123,9 @@ public class TabActivity extends android.app.TabActivity{
         }else{
             JPushInterface.stopPush(this);      //停止推送
         }
+
+        //上传imei
+        HttpMethod.sendImei(NetUtil.getIMEI(this),handler);
     }
 
 

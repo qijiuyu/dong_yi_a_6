@@ -213,4 +213,6 @@ public class HttpConstant {
     public static final String GET_CITY = "api/app/index/getcity";
 
     public static final String BING_MOBILE = "api/app/user/bindmobile";
+
+    public static final String SEND_IMEI="api/app/idfa/addAndroidrecords";
 }

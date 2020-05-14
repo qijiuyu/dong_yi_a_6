@@ -107,4 +107,5 @@ public class HandlerConstant {
     public static final int GET_HOBBY_SUCCESS=10104;
     public static final int GET_CITY_SUCCESS=10105;
     public static final int BING_MOBILE_SUCCESS=10106;
+    public static final int SEND_IMEI_SUCCESS=10107;
 }

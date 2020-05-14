@@ -1692,4 +1692,21 @@ public class HttpMethod extends BaseRequst {
             }
         });
     }
+
+
+    /**
+     * 上传imei
+     */
+    public static void sendImei(String imei,final Handler handler) {
+        Map<String,String> map=new HashMap<>();
+        map.put("code",imei);
+        Http.getRetrofit().create(HttpApi.class).sendImei(map).enqueue(new Callback<BaseBean>() {
+            public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
+                BaseRequst.sendMessage(handler, HandlerConstant.SEND_IMEI_SUCCESS, response.body());
+            }
+            public void onFailure(Call<BaseBean> call, Throwable t) {
+                BaseRequst.sendMessage(handler, HandlerConstant.REQUST_ERROR, t.getMessage());
+            }
+        });
+    }
 }
