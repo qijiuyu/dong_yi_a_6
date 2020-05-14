@@ -2,15 +2,14 @@ package com.ylean.dyspd.activity.init;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.LinearLayout;
 
-import com.sina.weibo.sdk.api.share.Base;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.TabActivity;
+import com.ylean.dyspd.utils.PermissionUtil;
 import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.util.SPUtil;
 
@@ -26,6 +25,16 @@ public class StartActivity extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
         setContentView(R.layout.activity_wellcome);
         initView();
+        PermissionUtil.getPermission(this, true, false, new PermissionCallBack() {
+            public void onclick() {
+                if(SPUtil.getInstance(StartActivity.this).getBoolean(SPUtil.IS_FIRST_OPEN)){
+                    setClass(TabActivity.class);
+                }else{
+                    setClass(GuideActivity.class);
+                }
+                finish();
+            }
+        });
     }
 
 
@@ -42,15 +51,15 @@ public class StartActivity extends BaseActivity {
             public void onAnimationRepeat(Animation animation) {
             }
             public void onAnimationEnd(Animation animation) {
-                if(SPUtil.getInstance(StartActivity.this).getBoolean(SPUtil.IS_FIRST_OPEN)){
-                    setClass(TabActivity.class);
-                }else{
-                    setClass(GuideActivity.class);
-                }
-                finish();
+
             }
         });
         linearLayout.setAnimation(myAnimation_Alpha);
         myAnimation_Alpha.start();
+    }
+
+
+    public interface PermissionCallBack{
+        public void onclick();
     }
 }
