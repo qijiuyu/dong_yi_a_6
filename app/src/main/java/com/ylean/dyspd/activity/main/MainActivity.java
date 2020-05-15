@@ -585,7 +585,6 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
         listHot.scrollToPosition(totalSize * 10);
         listHot.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
             public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
-                LogUtils.e(listHot.getCurrentItem()%totalSize+"+++++++++++++++"+listHot.getCurrentItem());
                 tvHotNum.setText(String.valueOf((adapterPosition%totalSize)+1));
             }
         });

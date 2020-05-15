@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.TabActivity;
+import com.ylean.dyspd.utils.PermissionCallBack;
 import com.ylean.dyspd.utils.PermissionUtil;
 import com.zxdc.utils.library.base.BaseActivity;
 import com.zxdc.utils.library.util.SPUtil;
@@ -49,15 +50,11 @@ public class StartActivity extends BaseActivity {
     }
 
 
-    public interface PermissionCallBack{
-        public void onclick();
-    }
-
 
     @Override
     public void onResume() {
         super.onResume();
-        PermissionUtil.getPermission(this, true, true, new PermissionCallBack() {
+        PermissionUtil.getPermission(this, new PermissionCallBack() {
             public void onclick() {
                 if(SPUtil.getInstance(StartActivity.this).getBoolean(SPUtil.IS_FIRST_OPEN)){
                     setClass(TabActivity.class);

@@ -1698,6 +1698,7 @@ public class HttpMethod extends BaseRequst {
      * 上传imei
      */
     public static void sendImei(String imei,final Handler handler) {
+        LogUtils.e(imei+"++++++++++++++++++");
         Map<String,String> map=new HashMap<>();
         map.put("code",imei);
         Http.getRetrofit().create(HttpApi.class).sendImei(map).enqueue(new Callback<BaseBean>() {

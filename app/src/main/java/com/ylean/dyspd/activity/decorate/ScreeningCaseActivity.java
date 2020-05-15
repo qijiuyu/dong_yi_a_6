@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.adapter.main.ScreeningAdapter;
 import com.zxdc.utils.library.base.BaseActivity;
@@ -148,34 +149,34 @@ public class ScreeningCaseActivity extends BaseActivity {
                                     switch (styleName){
                                         case "别墅":
                                             MobclickAgent.onEvent(activity, "case_model_1");
-                                            break
+                                            break;
                                         case "跃层":
                                             MobclickAgent.onEvent(activity, "case_model_2");
-                                            break
+                                            break;
                                         case "普通住宅":
                                             MobclickAgent.onEvent(activity, "case_model_3");
-                                            break
+                                            break;
                                         case "会所":
                                             MobclickAgent.onEvent(activity, "case_model_4");
-                                            break
+                                            break;
                                         case "一居室":
                                             MobclickAgent.onEvent(activity, "case_model_5");
-                                            break
+                                            break;
                                         case "二居室":
                                             MobclickAgent.onEvent(activity, "case_model_6");
-                                            break
+                                            break;
                                         case "三居室":
                                             MobclickAgent.onEvent(activity, "case_model_7");
-                                            break
+                                            break;
                                         case "四居室":
                                             MobclickAgent.onEvent(activity, "case_model_8");
-                                            break
+                                            break;
                                         case "Loft":
                                             MobclickAgent.onEvent(activity, "case_model_9");
-                                            break
+                                            break;
                                         case "复式":
                                             MobclickAgent.onEvent(activity, "case_model_10");
-                                            break
+                                            break;
                                     }
                                 }
                             }
@@ -204,22 +205,22 @@ public class ScreeningCaseActivity extends BaseActivity {
                                     switch (styleName) {
                                         case "1000平米以上":
                                             MobclickAgent.onEvent(activity, "case_area_1");
-                                            break
+                                            break;
                                         case "501-1000平米以上":
                                             MobclickAgent.onEvent(activity, "case_area_2");
-                                            break
+                                            break;
                                         case "321-500平米":
                                             MobclickAgent.onEvent(activity, "case_area_3");
-                                            break
+                                            break;
                                         case "181-320平米":
                                             MobclickAgent.onEvent(activity, "case_area_4");
-                                            break
+                                            break;
                                         case "121-180平米":
                                             MobclickAgent.onEvent(activity, "case_area_5");
-                                            break
+                                            break;
                                         case "120平米一下":
                                             MobclickAgent.onEvent(activity, "case_area_6");
-                                            break
+                                            break;
                                     }
                                 }
                             }
@@ -248,10 +249,10 @@ public class ScreeningCaseActivity extends BaseActivity {
                                     switch (styleName) {
                                         case "实景图":
                                             MobclickAgent.onEvent(activity, "case_attribute_1");
-                                            break
+                                            break;
                                         case "效果图":
                                             MobclickAgent.onEvent(activity, "case_attribute_2");
-                                            break
+                                            break;
                                     }
                                 }
                             }
