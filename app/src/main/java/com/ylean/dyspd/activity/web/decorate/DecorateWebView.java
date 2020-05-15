@@ -76,6 +76,7 @@ public class DecorateWebView extends BaseWebView {
     public String url, title;
     public SHARE_MEDIA share_media;
     private DecorateWebPersenter decorateWebPersenter;
+    private WebViewPoint webViewPoint;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.web_decorate);
@@ -91,6 +92,7 @@ public class DecorateWebView extends BaseWebView {
      */
     private void initView() {
         decorateWebPersenter = new DecorateWebPersenter(this);
+        webViewPoint=new WebViewPoint(this);
         id = getIntent().getIntExtra("id", 0);
         type = getIntent().getIntExtra("type", 0);
         title = getIntent().getStringExtra("title");
@@ -379,6 +381,17 @@ public class DecorateWebView extends BaseWebView {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
+
+
+    /**
+     * 埋点
+     * @param type
+     */
+    @JavascriptInterface
+    public void HtmlPoint(int type) {
+        LogUtils.e(type+"+++++++++++++++++++=");
+        webViewPoint.potin(type);
     }
 
 
