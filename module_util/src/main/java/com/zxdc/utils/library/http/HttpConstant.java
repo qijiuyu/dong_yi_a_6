@@ -12,7 +12,7 @@ public class HttpConstant {
     public static final String IP="https://app2020ad.dyrs.com.cn/";
 
     //h5页面链接
-    public static final String HTML = "http://dyrs.yl-mall.cn/h5#/";
+    public static final String HTML = IP+"h5/#/";
 
     public static final String GET_SITE = "api/app/index/getsite";
 

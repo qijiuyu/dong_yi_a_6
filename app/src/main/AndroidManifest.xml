@@ -126,6 +126,7 @@
         <activity android:name=".activity.main.CaseGuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.user.HelpActivity"  android:screenOrientation="portrait" android:label="帮助页面"/>
         <activity android:name=".activity.init.RegisterActivity"  android:screenOrientation="portrait" android:label="注册页面"/>
+        <activity android:name=".activity.web.PrivateWebView"  android:screenOrientation="portrait"/>
 
 
         <!-- 百度地图的appkey-->

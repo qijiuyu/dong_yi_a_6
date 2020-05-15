@@ -44,13 +44,11 @@ import com.zxdc.utils.library.util.LogUtils;
 import com.zxdc.utils.library.util.SPUtil;
 import com.zxdc.utils.library.util.ToastUtil;
 
-import org.apache.http.client.utils.URLEncodedUtils;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONObject;
 
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -428,6 +426,7 @@ public class DecorateWebView extends BaseWebView {
                 if(type==7 || type==9 || type==10 || type==11 || type==13){
                     return;
                 }
+                LogUtils.e(url+"+++++++++++++++++++++");
                 if(url.startsWith(HttpConstant.HTML)){
                     String strId=DecorateWebPersenter.getParam(url,"id");
                     String details=DecorateWebPersenter.getParam(url,"dataStr");
