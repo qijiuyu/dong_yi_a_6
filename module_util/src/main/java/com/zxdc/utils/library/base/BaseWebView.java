@@ -7,11 +7,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.view.View;
 import android.webkit.JsResult;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,7 +18,6 @@ import android.widget.ProgressBar;
 
 import com.zxdc.utils.library.eventbus.EventBusType;
 import com.zxdc.utils.library.eventbus.EventStatus;
-import com.zxdc.utils.library.util.LogUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -43,6 +40,13 @@ public class BaseWebView extends BaseActivity {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void initWebView(WebView webView, final ProgressBar pg){
         WebSettings webSetting = webView.getSettings();
+        //webView  加载视频
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                webSetting.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+            }
+        }
         webSetting.setJavaScriptEnabled(true);//允许js调用
         webSetting.setJavaScriptCanOpenWindowsAutomatically(true);//支持通过JS打开新窗口
         webSetting.setAllowFileAccess(true);//在File域下，能够执行任意的JavaScript代码，同源策略跨域访问能够对私有目录文件进行访问等
