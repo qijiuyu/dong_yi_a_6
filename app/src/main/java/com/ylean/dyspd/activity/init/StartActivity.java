@@ -73,9 +73,9 @@ public class StartActivity extends BaseActivity {
                     finish();
 
                 }else{
-                    showPrivate();
-//                    setClass(GuideActivity.class);
-//                    finish();
+//                    showPrivate();
+                    setClass(GuideActivity.class);
+                    finish();
                 }
             }
         });
