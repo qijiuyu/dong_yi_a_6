@@ -38,6 +38,25 @@ public class StartActivity extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
         setContentView(R.layout.activity_wellcome);
         initView();
+        PermissionUtil.getPermission(this, new PermissionCallBack() {
+            @Override
+            public void onSuccess() {
+                if(SPUtil.getInstance(StartActivity.this).getBoolean(SPUtil.IS_FIRST_OPEN)){
+                    setClass(TabActivity.class);
+                    finish();
+
+                }else{
+//                    showPrivate();
+                    setClass(GuideActivity.class);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFail() {
+
+            }
+        });
     }
 
 
@@ -59,26 +78,6 @@ public class StartActivity extends BaseActivity {
         });
         linearLayout.setAnimation(myAnimation_Alpha);
         myAnimation_Alpha.start();
-    }
-
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        PermissionUtil.getPermission(this, new PermissionCallBack() {
-            public void onclick() {
-                if(SPUtil.getInstance(StartActivity.this).getBoolean(SPUtil.IS_FIRST_OPEN)){
-                    setClass(TabActivity.class);
-                    finish();
-
-                }else{
-//                    showPrivate();
-                    setClass(GuideActivity.class);
-                    finish();
-                }
-            }
-        });
     }
 
 

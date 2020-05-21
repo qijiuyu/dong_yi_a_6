@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -20,9 +18,10 @@ import android.widget.EditText;
 
 public class BaseActivity extends FragmentActivity {
 
-    protected Activity activity = this;
+    protected Activity activity;
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activity = this;
 //        StatusBarUtils.transparencyBar(this);
     }
 

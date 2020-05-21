@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.hjq.permissions.Permission;
 import com.umeng.analytics.MobclickAgent;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.brand.BrandActivity;
@@ -27,6 +28,7 @@ import com.ylean.dyspd.activity.user.UserActivity;
 import com.ylean.dyspd.application.MyApplication;
 import com.ylean.dyspd.utils.DataCleanManager;
 import com.ylean.dyspd.utils.NetUtil;
+import com.ylean.dyspd.utils.PermissionCallBack;
 import com.ylean.dyspd.utils.PermissionUtil;
 import com.ylean.dyspd.utils.UpdateVersionUtils;
 import com.ylean.dyspd.view.SuspensionButtonView;
@@ -132,7 +134,23 @@ public class TabActivity extends android.app.TabActivity{
         //上传imei
         HttpMethod.sendImei(NetUtil.getDeviceId(this),handler);
 
+        //android 7.0系统解决拍照的问题
         PermissionUtil.initPhotoError();
+
+        /**
+         * 动态申请权限
+         */
+        if(!PermissionUtil.isPermission(this, null,Permission.ACCESS_FINE_LOCATION, Permission.ACCESS_COARSE_LOCATION)){
+            PermissionUtil.applyPermission(this, new PermissionCallBack() {
+                public void onSuccess() {
+                    EventBus.getDefault().post(new EventBusType(EventStatus.APPLY_LOCATION_SUCCESS));
+                }
+                public void onFail() {
+                    ToastUtil.showLong("权限申请失败");
+                }
+            }, Permission.ACCESS_FINE_LOCATION, Permission.ACCESS_COARSE_LOCATION);
+
+        }
     }
 
 

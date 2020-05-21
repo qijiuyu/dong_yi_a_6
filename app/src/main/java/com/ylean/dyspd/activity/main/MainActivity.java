@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -22,10 +21,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.hjq.permissions.Permission;
 import com.umeng.analytics.MobclickAgent;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
-import com.yarolegovich.discretescrollview.transform.Pivot;
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.decorate.BuildingListActivity;
@@ -47,10 +46,8 @@ import com.ylean.dyspd.adapter.main.MainNearAdapter;
 import com.ylean.dyspd.adapter.main.MainProcessAdapter;
 import com.ylean.dyspd.adapter.main.MainTypeAdapter;
 import com.ylean.dyspd.application.MyApplication;
-import com.zxdc.utils.library.bean.NewsNum;
-import com.zxdc.utils.library.eventbus.EventBusType;
-import com.zxdc.utils.library.eventbus.EventStatus;
 import com.ylean.dyspd.persenter.main.MainPersenter;
+import com.ylean.dyspd.utils.PermissionUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -65,17 +62,21 @@ import com.zxdc.utils.library.bean.MainDecorate;
 import com.zxdc.utils.library.bean.MainDesigner;
 import com.zxdc.utils.library.bean.Move;
 import com.zxdc.utils.library.bean.NearList;
+import com.zxdc.utils.library.bean.NewsNum;
+import com.zxdc.utils.library.eventbus.EventBusType;
+import com.zxdc.utils.library.eventbus.EventStatus;
 import com.zxdc.utils.library.util.DialogUtil;
-import com.zxdc.utils.library.util.LogUtils;
 import com.zxdc.utils.library.util.SPUtil;
-import com.zxdc.utils.library.view.HorizontalListView;
 import com.zxdc.utils.library.view.MeasureListView;
 import com.zxdc.utils.library.view.MyRefreshLayout;
 import com.zxdc.utils.library.view.MyRefreshLayoutListener;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -151,10 +152,8 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
         //注册eventBus
         EventBus.getDefault().register(this);
         initView();
-        //开始定位
-        mainPersenter.startLocation();
-        //是否首次进入首页
-        mainPersenter.isOpenMain();
+        //开始定位加载数据
+        startLoding();
     }
 
 
@@ -173,6 +172,21 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
         listProcess.setLayoutManager(linearLayoutManager);
         MainProcessAdapter mainProcessAdapter = new MainProcessAdapter(this);
         listProcess.setAdapter(mainProcessAdapter);
+    }
+
+    /**
+     * 开始定位加载数据
+     */
+    private void startLoding(){
+        /**
+         * 判断权限是否开启
+         */
+        if(PermissionUtil.isPermission(this, null,Permission.ACCESS_FINE_LOCATION, Permission.ACCESS_COARSE_LOCATION)){
+            //开始定位
+            mainPersenter.startLocation();
+            //是否首次进入首页
+            mainPersenter.isOpenMain();
+        }
     }
 
 
@@ -270,10 +284,10 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
                 break;
             //进入消息界面
             case R.id.img_news:
-                 setClass(NewsActivity.class);
-                 //埋点
-                 MobclickAgent.onEvent(this, "main_news");
-                 break;
+                setClass(NewsActivity.class);
+                //埋点
+                MobclickAgent.onEvent(this, "main_news");
+                break;
             default:
                 break;
         }
@@ -286,10 +300,14 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
     @Subscribe
     public void onEvent(EventBusType eventBusType) {
         switch (eventBusType.getStatus()) {
+            //权限已申请
+            case EventStatus.APPLY_LOCATION_SUCCESS:
+                 startLoding();
+                 break;
             //左上角展示城市名称
             case EventStatus.SHOW_MAIN_CITY:
-                 tvCity.setText(SPUtil.getInstance(this).getString(SPUtil.CITY));
-                 break;
+                tvCity.setText(SPUtil.getInstance(this).getString(SPUtil.CITY));
+                break;
             //显示banner
             case EventStatus.SHOW_MAIN_BANNER:
                 setBanner((List<BannerBean>) eventBusType.getObject());
@@ -300,8 +318,8 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
                 break;
             //显示案例图片
             case EventStatus.SHOW_MAIN_CASE_IMG:
-                  showCaseImg((List<CaseImg>) eventBusType.getObject());
-                  break;
+                showCaseImg((List<CaseImg>) eventBusType.getObject());
+                break;
             //显示设计师
             case EventStatus.SHOW_MAIN_DESIGNER:
                 showDesigner((List<MainDesigner.MainDesignerBean>) eventBusType.getObject());
@@ -324,9 +342,9 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
                 break;
             //展示品牌图片
             case EventStatus.SHOW_MAIN_BRAND:
-                  String imgUrl= (String) eventBusType.getObject();
-                 Glide.with(this).load(imgUrl).centerCrop().into(imgBrand);
-                  break;
+                String imgUrl= (String) eventBusType.getObject();
+                Glide.with(this).load(imgUrl).centerCrop().into(imgBrand);
+                break;
             //展示装修攻略
             case EventStatus.SHOW_MAIN_DECORATE:
                 showDecorate((List<MainDecorate.DecorateBean>) eventBusType.getObject());
@@ -338,8 +356,8 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
                 break;
             //切换城市
             case EventStatus.SELECT_CITY_SUCCESS:
-                 updateCity();
-                 break;
+                updateCity();
+                break;
             //展示消息数量
             case EventStatus.SHOW_NEWS_NUM:
                 final NewsNum.NewsNumBean newsNumBean= (NewsNum.NewsNumBean) eventBusType.getObject();
@@ -351,7 +369,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
                 }else{
                     viewNews.setVisibility(View.GONE);
                 }
-                  break;
+                break;
             default:
                 break;
         }
@@ -364,41 +382,41 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener,M
      */
     private int bannerPosition;
     public void setBanner(List<BannerBean> list) {
-       try {
-           if(list==null || list.size()==0){
-               list=new ArrayList<>();
-               banner.update(list);
-               return;
-           }
-           banner.setVisibility(View.VISIBLE);
-           //设置样式，里面有很多种样式可以自己都看看效果
-           banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
-           //设置轮播的动画效果,里面有很多种特效,可以都看看效果。
-           banner.setBannerAnimation(Transformer.Default);
-           //设置图片加载器，图片加载器在下方
-           banner.setImageLoader(new ABImageLoader());
-           //设置图片集合
-           banner.setImages(list);
-           //设置轮播间隔时间
-           banner.setDelayTime(3000);
-           //设置是否为自动轮播，默认是true
-           banner.isAutoPlay(true);
-           //设置指示器的位置，小点点，居中显示
-           banner.setIndicatorGravity(BannerConfig.CENTER);
-           //banner设置方法全部调用完毕时最后调用
-           banner.start();
-           banner.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-               public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-               }
-               public void onPageSelected(int position) {
-                   bannerPosition=position;
-               }
-               public void onPageScrollStateChanged(int state) {
-               }
-           });
-       }catch (Exception e){
-           e.printStackTrace();
-       }
+        try {
+            if(list==null || list.size()==0){
+                list=new ArrayList<>();
+                banner.update(list);
+                return;
+            }
+            banner.setVisibility(View.VISIBLE);
+            //设置样式，里面有很多种样式可以自己都看看效果
+            banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+            //设置轮播的动画效果,里面有很多种特效,可以都看看效果。
+            banner.setBannerAnimation(Transformer.Default);
+            //设置图片加载器，图片加载器在下方
+            banner.setImageLoader(new ABImageLoader());
+            //设置图片集合
+            banner.setImages(list);
+            //设置轮播间隔时间
+            banner.setDelayTime(3000);
+            //设置是否为自动轮播，默认是true
+            banner.isAutoPlay(true);
+            //设置指示器的位置，小点点，居中显示
+            banner.setIndicatorGravity(BannerConfig.CENTER);
+            //banner设置方法全部调用完毕时最后调用
+            banner.start();
+            banner.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                }
+                public void onPageSelected(int position) {
+                    bannerPosition=position;
+                }
+                public void onPageScrollStateChanged(int state) {
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
