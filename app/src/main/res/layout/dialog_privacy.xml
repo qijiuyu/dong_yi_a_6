@@ -4,9 +4,9 @@
     android:layout_height="match_parent">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="500dp"
         android:layout_centerInParent="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -18,35 +18,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="服务协议和隐私政策"
+            android:text="用户隐私政策"
             android:textSize="15sp"
             android:textColor="@android:color/black"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"/>
 
 
-        <TextView
-            android:id="@+id/tv_content"
+        <WebView
+            android:id="@+id/webView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:lineSpacingExtra="10dp"
-            android:text="如果ImageView大小与图片大小不匹配时候，图片是如何拉伸、适应ImageView的大小
-如果ImageView大小与图片大小不匹配时候，图片是如何拉伸、适应ImageView的大小
-如果ImageView大小与图片大小不匹配时候(服务协议)和(隐私协议)"/>
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp">
+        </WebView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp">
+            android:layout_alignParentBottom="true">
 
             <TextView
                 android:id="@+id/tv_cancle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="暂不使用"
+                android:text="不同意"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
                 android:gravity="center"/>
@@ -64,7 +61,7 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>

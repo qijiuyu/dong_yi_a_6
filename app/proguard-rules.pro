@@ -288,3 +288,6 @@
 #-keep public class com.ylean.dyspd.R$*{
 #public static final int *;
 #}
+
+
+-dontwarn com.hjq.permissions.**

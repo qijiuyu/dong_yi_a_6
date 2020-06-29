@@ -1,6 +1,8 @@
 package com.zxdc.utils.library.eventbus;
 
 public class EventStatus {
+    //动态申请定位权限
+    public static final int APPLY_LOCATION_SUCCESS=99;
     //地图定位
     public static final int START_LOCATION=100;
 

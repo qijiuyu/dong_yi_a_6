@@ -36,6 +36,7 @@ public class PrivateWebView extends BaseWebView {
         }
 
         LogUtils.e(HttpConstant.HTML + "agreement"+"+++++++++++++++++++++");
+        initWebView(webView,null);
         webView.loadUrl(HttpConstant.HTML + "agreement");
 
         findViewById(R.id.lin_back).setOnClickListener(new View.OnClickListener() {
