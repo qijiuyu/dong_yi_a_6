@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.ylean.dyspd.R;
 import com.ylean.dyspd.activity.init.LoginActivity;
+import com.ylean.dyspd.activity.web.PrivateWebView;
 import com.ylean.dyspd.activity.web.WebViewActivity;
 import com.ylean.dyspd.utils.DataCleanManager;
 import com.ylean.dyspd.utils.UpdateVersionUtils;
@@ -80,7 +81,7 @@ public class SettingActivity extends BaseActivity {
      * 按钮点击事件
      * @param view
      */
-    @OnClick({R.id.lin_back, R.id.img_push, R.id.rel_update_pwd, R.id.rel_score, R.id.rel_help, R.id.rel_cache,R.id.tv_version, R.id.tv_out})
+    @OnClick({R.id.lin_back, R.id.img_push, R.id.rel_update_pwd, R.id.rel_score, R.id.rel_help, R.id.rel_cache,R.id.tv_version, R.id.rel_agrement1,R.id.rel_agrement2,R.id.tv_out})
     public void onViewClicked(View view) {
         Intent intent=new Intent();
         switch (view.getId()) {
@@ -134,6 +135,16 @@ public class SettingActivity extends BaseActivity {
                       new UpdateVersionUtils().getVersion(this);
                   }
                   break;
+            case R.id.rel_agrement1:
+                 intent.setClass(this, PrivateWebView.class);
+                 intent.putExtra("type",2);
+                 startActivity(intent);
+                 break;
+            case R.id.rel_agrement2:
+                intent.setClass(this, PrivateWebView.class);
+                intent.putExtra("type",1);
+                startActivity(intent);
+                break;
             //退出登录
             case R.id.tv_out:
                 JPushInterface.stopPush(this);      //停止推送
